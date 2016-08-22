@@ -61,7 +61,22 @@
 				$('#cadastro_telefone').mask('(99) 9999-9999?9');
 				
 				$("#bt_cadastro_salvar").click(function(){
-					alert('aguarde');
+					var nome = $('#cadastro_nome').val();
+					var empresa = $('#cadastro_empresa').val();
+					var telefone = $('#cadastro_telefone').val();
+					var email = $('#cadastro_email').val();
+					var senha = $('#cadastro_senha').val();
+					
+					if(nome==""){ alert("O campo Nome deve ser preenchido"); return false; }
+					if(empresa==""){ alert("O campo Empresa deve ser preenchido"); return false; }
+					if(telefone==""){ alert("O campo Telefone deve ser preenchido"); return false; }
+					if(email==""){ alert("O campo E-mail deve ser preenchido"); return false; }
+					if(senha==""){ alert("O campo Senha deve ser preenchido"); return false; }
+					
+					$.get("cadastrar.php", { nome:nome, empresa:empresa, telefone:telefone, email:email, senha:senha }, function(data){
+						
+					});
+					
 				});
 				
 				$("#bt_cadastro_voltar").click(function(){
