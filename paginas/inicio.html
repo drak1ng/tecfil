@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
+        <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+        <title>Tecfil</title>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript" src="../js/cordova.js"></script>
+	</head>
+    <body>
+	    <div data-role="page" style="background:#ffe01a; text-align:center;">
+			<div style="width:300px; height:440px; position:fixed; top:50%; left:50%; margin:-220px 0px 0px -150px;">
+			    <br>
+			    <img src="../img/logo.png" alt="Tecfil" width="90%" style="margin:0px 0px 30px 0px;">
+			    <br>
+			  <input type="text" id="login_email" placeholder="E-mail">
+			  <input type="text" id="login_senha" placeholder="Senha">
+			  <div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_acessar">Acessar</div>
+			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:40px; text-shadow: none; text-transform:none;" id="bt_login_esqueci_senha">Esqueci minha senha</div>
+			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_criar_conta">Criar uma nova conta</div>
+			</div>
+			
+			<script>
+				
+				$("#bt_login_acessar").click(function(){
+					alert('aguarde');
+				});
+				
+				$("#bt_login_esqueci_senha").click(function(){
+					$.mobile.changePage("esqueci_minha_senha.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_login_criar_conta").click(function(){
+					$.mobile.changePage("cadastro.html", { transition: "fade", changeHash: false });
+				});
+				
+			</script>
+		
+		</div>
+    </body>
+</html>
