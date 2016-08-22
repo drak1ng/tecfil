@@ -74,7 +74,13 @@
 					if(senha==""){ alert("O campo Senha deve ser preenchido"); return false; }
 					
 					$.get("cadastrar.php", { nome:nome, empresa:empresa, telefone:telefone, email:email, senha:senha }, function(data){
-						
+						if(data=="ERRO_EMAIL"){
+							alert("Esse E-mail já foi utilizado em outro Cadastro");
+						}else if(data=="OK"){
+							$.mobile.changePage("catalogo_home.html", { transition: "fade", changeHash: false });
+						}else{
+							alert("Não foi possuível concluir o seu cadastro, tente novamente mais tarde!");
+						}
 					});
 					
 				});
