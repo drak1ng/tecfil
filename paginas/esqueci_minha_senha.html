@@ -38,7 +38,7 @@
 	    <div data-role="page" style="background:#F3F3F3;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="min-width:10px; float:left;" id="bt_cadastro_voltar">Voltar</div>
+				    <div style="min-width:10px; float:left;" id="bt_recuperar_voltar">Voltar</div>
 				    <div style="margin:0px 80px; text-align:center"><b>RECUPERAR<b></div>
 				</div>
 		    </div>
@@ -54,7 +54,7 @@
 			
 			<script>
 				
-				$("#bt_cadastro_salvar").click(function(){
+				$("#bt_recuperar_salvar").click(function(){
 					var email = $('#recuperar_email').val();
 					
 					if(email==""){ alert("O campo E-mail deve ser preenchido"); return false; }
@@ -69,7 +69,7 @@
 					
 				});
 				
-				$("#bt_cadastro_voltar").click(function(){
+				$("#bt_recuperar_voltar").click(function(){
 					$.mobile.changePage("inicio.html", { transition: "fade", changeHash: false });
 				});
 				
