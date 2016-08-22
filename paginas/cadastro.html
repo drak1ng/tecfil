@@ -50,7 +50,7 @@
 					<input type="text" id="cadastro_empresa" placeholder="Empresa">
 					<input type="tel" id="cadastro_telefone" placeholder="Telefone">
 					<input type="text" id="cadastro_email" placeholder="E-mail">
-					<input type="text" id="cadastro_senha" placeholder="Senha">
+					<input type="password" id="cadastro_senha" placeholder="Senha">
 					<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:20px; text-shadow: none; text-transform:none; text-align:center;" id="bt_cadastro_salvar">Quero me Cadastrar</div>
 				</div>
 			</div>
@@ -73,7 +73,7 @@
 					if(email==""){ alert("O campo E-mail deve ser preenchido"); return false; }
 					if(senha==""){ alert("O campo Senha deve ser preenchido"); return false; }
 					
-					$.get("cadastrar.php", { nome:nome, empresa:empresa, telefone:telefone, email:email, senha:senha }, function(data){
+					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/cadastro.php", { nome:nome, empresa:empresa, telefone:telefone, email:email, senha:senha }, function(data){
 						if(data=="ERRO_EMAIL"){
 							alert("Esse E-mail já foi utilizado em outro Cadastro");
 						}else if(data=="OK"){
