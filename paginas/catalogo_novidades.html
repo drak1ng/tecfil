@@ -43,10 +43,10 @@
 		    </div>
 		    
 		    <div class="botoes-rodape">
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_01" style="background-image:url(../img/icone_01.png);">Buscar</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_02" style="background-image:url(../img/icone_02.png);">Novidades</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_03" style="background-image:url(../img/icone_03.png);">Mensagens</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_04" style="background-image:url(../img/icone_04.png);">Contato</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_01" style="background-image:url(../img/icone_01.png);">Buscar</div>
+			    <div class="botoes-rodape-bloco2" id="bt_rodape_novidades_02" style="background-image:url(../img/icone_02_on.png);">Novidades</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_03" style="background-image:url(../img/icone_03.png);">Mensagens</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_04" style="background-image:url(../img/icone_04.png);">Contato</div>
 		    </div>
 
 			<div role="main" class="ui-content">
@@ -56,19 +56,15 @@
 			
 			<script>
 				
-				$("#bt_rodape_home_01").click(function(){
+				$("#bt_rodape_novidades_01").click(function(){
 					$.mobile.changePage("catalogo_buscar.html", { transition: "fade", changeHash: false });
 				});
 				
-				$("#bt_rodape_home_02").click(function(){
-					$.mobile.changePage("catalogo_novidades.html", { transition: "fade", changeHash: false });
-				});
-				
-				$("#bt_rodape_home_03").click(function(){
+				$("#bt_rodape_novidades_03").click(function(){
 					$.mobile.changePage("catalogo_mensagens.html", { transition: "fade", changeHash: false });
 				});
 				
-				$("#bt_rodape_home_04").click(function(){
+				$("#bt_rodape_novidades_04").click(function(){
 					$.mobile.changePage("catalogo_contato.html", { transition: "fade", changeHash: false });
 				});
 				
