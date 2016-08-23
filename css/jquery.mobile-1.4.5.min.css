@@ -837,9 +837,7 @@ label.ui-btn {
 /* Shadow
 -----------------------------------------------------------------------------------------------------------*/
 .ui-shadow {
-	-webkit-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.15) /*{global-box-shadow-color}*/;
-	-moz-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.15) /*{global-box-shadow-color}*/;
-	box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 				rgba(0,0,0,.15) /*{global-box-shadow-color}*/;
+
 }
 .ui-shadow-inset {
 
@@ -1007,10 +1005,11 @@ html .ui-bar-a .ui-btn:visited,
 html .ui-body-a .ui-btn:visited,
 html body .ui-group-theme-a .ui-btn:visited,
 html head + body .ui-btn.ui-btn-a:visited {
-	background-color: 			#f6f6f6 /*{a-bup-background-color}*/;
+	background-color: 			#fff /*{a-bup-background-color}*/;
 	border-color:	 		#ddd /*{a-bup-border}*/;
-	color: 					#333 /*{a-bup-color}*/;
-	text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #f3f3f3 /*{a-bup-shadow-color}*/;
+	font-weight:normal;
+	text-align:left;
+	font-size:1em;
 }
 /* Button hover */
 .ui-page-theme-a .ui-btn:hover,
@@ -1508,7 +1507,7 @@ div.ui-mobile-viewport {
 .ui-btn {
 	font-size: 16px;
 	margin: .5em 0;
-	padding: .7em 1em;
+	padding: .6em .6em;
 	display: block;
 	position: relative;
 	text-align: center;

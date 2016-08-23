@@ -48,13 +48,50 @@
 			    <div class="botoes-rodape-bloco1" id="bt_rodape_contato_03" style="background-image:url(../img/icone_03.png);">Mensagens</div>
 			    <div class="botoes-rodape-bloco2" id="bt_rodape_contato_04" style="background-image:url(../img/icone_04_on.png);">Contato</div>
 		    </div>
-
+			
 			<div role="main" class="ui-content">
-				
+				<div id="id_conteudo_contato" style="text-align:center; padding:40px 0px 0px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify;">
+					<select id="contato_area"><option value="">Área de Interesse</option><option value=""></option><option value="atendimento">Atendimento</option><option value="comercial">Comercial</option><option value="vendas01">Vendas Reposição</option><option value="vendas02">Vendas Exportação</option><option value="vendas03">Vendas Montadoras</option><option value="marketing">Marketing</option><option value="compras">Compras</option><option value="assistencia">Assistência Técnica</option><option value="rh">Recursos Humanos</option></select>
+					<input type="text" id="contato_empresa" placeholder="Empresa">
+					<input type="text" id="contato_nome" placeholder="Contato">
+					<input type="email" id="contato_email" placeholder="E-mail">
+					<input type="tel" id="contato_telefone" placeholder="Telefone">
+					<textarea id="contato_mensagem" placeholder="Mensagem" rows="20" style="min-height:200px"></textarea>
+					<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none; text-align:center;" id="bt_contato_enviar">Enviar Mensagem</div>
+				</div>
 			</div>
+			
+			<br><br><br>
 		
 			
 			<script>
+				
+				$('#contato_telefone').mask('(99) 9999-9999?9');
+				
+				$("#bt_contato_enviar").click(function(){
+					var area = $('#contato_area').val();
+					var nome = $('#contato_nome').val();
+					var empresa = $('#contato_empresa').val();
+					var telefone = $('#contato_telefone').val();
+					var email = $('#contato_email').val();
+					var mensagem = $('#contato_mensagem').val();
+					
+					if(area==""){ alert("O campo Área de Interesse deve ser preenchido"); return false; }
+					if(nome==""){ alert("O campo Nome deve ser preenchido"); return false; }
+					if(empresa==""){ alert("O campo Empresa deve ser preenchido"); return false; }
+					if(telefone==""){ alert("O campo Telefone deve ser preenchido"); return false; }
+					if(email==""){ alert("O campo E-mail deve ser preenchido"); return false; }
+					if(mensagem==""){ alert("O campo Mensagem deve ser preenchido"); return false; }
+					
+					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/contato.php", { area:area, nome:nome, empresa:empresa, telefone:telefone, email:email, mensagem:mensagem }, function(data){
+						if(data=="OK"){
+							$.mobile.changePage("catalogo_contato_obrigado.html", { transition: "fade", changeHash: false });
+						}else{
+							alert("Não foi possuível enviar sua mensagem, tente novamente mais tarde!");
+						}
+					});
+					
+				});
 				
 				$("#bt_rodape_contato_01").click(function(){
 					$.mobile.changePage("catalogo_buscar.html", { transition: "fade", changeHash: false });

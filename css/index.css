@@ -138,6 +138,7 @@ h1 {
 	position:fixed;
 	top:0px;
 	left:0px;
+	z-index: 999;
 }
 
 .topo .logotipo {
@@ -203,6 +204,10 @@ h1 {
 	font-size:12px;
 	font-weight:normal;
 	padding:5px 0px 0px 10px;
+}
+
+#contato_mensagem {
+	height:130px !important;
 }
 
 .ui-content { margin-top:20px !important; }
