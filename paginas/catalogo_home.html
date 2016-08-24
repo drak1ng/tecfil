@@ -50,11 +50,32 @@
 		    </div>
 
 			<div role="main" class="ui-content">
-				
+				<div style="text-align:center; padding:28px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
+				    <div class="lista-botoes" id="bt_catalogo_home_01" style="background-image:url(../img/icone_01_on.png);">Buscar</div>
+					<div class="lista-botoes" id="bt_catalogo_home_02" style="background-image:url(../img/icone_02_on.png);">Novidades</div>
+					<div class="lista-botoes" id="bt_catalogo_home_03" style="background-image:url(../img/icone_03_on.png);">Mensagens</div>
+					<div class="lista-botoes" id="bt_catalogo_home_04" style="background-image:url(../img/icone_04_on.png);">Contato</div>
+				</div>
 			</div>
 		
 			
 			<script>
+				
+				$("#bt_catalogo_home_01").click(function(){
+					$.mobile.changePage("catalogo_buscar.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_catalogo_home_02").click(function(){
+					$.mobile.changePage("catalogo_novidades.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_catalogo_home_03").click(function(){
+					$.mobile.changePage("catalogo_mensagens.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_catalogo_home_04").click(function(){
+					$.mobile.changePage("catalogo_contato.html", { transition: "fade", changeHash: false });
+				});
 				
 				$("#bt_rodape_home_01").click(function(){
 					$.mobile.changePage("catalogo_buscar.html", { transition: "fade", changeHash: false });
