@@ -38,6 +38,7 @@
 	    <div data-role="page" style="background:#FFF;">
 		    <div class="topo">
 			    <div class="logotipo">
+				    <div style="min-width:10px; float:left;" id="bt_mensagens_voltar">Voltar</div>
 				    <div style="margin:0px 70px; text-align:center"><b>MENSAGENS<b></div>
 				</div>
 		    </div>
@@ -50,7 +51,7 @@
 		    </div>
 
 			<div role="main" class="ui-content">
-				<div id="id_conteudo_mensagens" style="text-align:center; padding:28px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
+				<div id="id_conteudo_mensagens_ficha" style="text-align:center; padding:28px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
 					<div style="width:200px; height:66px; margin:120px auto 0px auto; text-align:center; font-size:13px; color:#999; background:#FFF; padding-top:30px; border-radius:10px;">
 						<img src="../img/loading.gif" width="110" height="10" /><br><br>
 						Aguarde carregando...
@@ -62,8 +63,13 @@
 			<script>
 				
 				var id_usuarios = window.localStorage.getItem('id_usuarios');
+				var id_mensagens = window.localStorage.getItem('id_mensagens');
 				
-				$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/mensagens.php", { id:id_usuarios }, function(data){ $("#id_conteudo_mensagens").html(data); });
+				$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/mensagens_ficha.php", { id:id_mensagens }, function(data){ $("#id_conteudo_mensagens_ficha").html(data); });
+				
+				$("#bt_mensagens_voltar").click(function(){
+					$.mobile.changePage("catalogo_mensagens.html", { transition: "fade", changeHash: false });
+				});
 				
 				$("#bt_rodape_mensagens_01").click(function(){
 					$.mobile.changePage("catalogo_buscar.html", { transition: "fade", changeHash: false });

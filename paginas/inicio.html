@@ -61,6 +61,7 @@
 						if(data=="ERRO"){
 							alert("O E-mail ou a Senha utilizados não são válidos");
 						}else{
+							window.localStorage.setItem('id_usuarios',data);
 							$.mobile.changePage("catalogo_home.html", { transition: "fade", changeHash: false });
 						}
 					});

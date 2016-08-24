@@ -210,6 +210,73 @@ h1 {
 	height:130px !important;
 }
 
+.lista_mensagens {
+	border-bottom: 1px solid #CCC;
+	background:#FFF;
+	padding:15px 10px;
+}
+
+.lista_mensagens_data {
+	font-size:12px;
+	color: #000;
+	font-weight: normal;
+}
+
+.lista_mensagens_titulo {
+	font-size:15px;
+	color: #003263;
+	text-transform: uppercase;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.lista_mensagens_texto {
+	font-size:14px;
+	color: #777;
+	font-weight: normal;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+}
+
+
+
+.lista_mensagens_ficha {
+	border-bottom: 1px solid #CCC;
+	background:#FFF;
+	padding:15px 10px;
+}
+
+.lista_mensagens_ficha_data {
+	font-size:12px;
+	color: #000;
+	font-weight: normal;
+}
+
+.lista_mensagens_ficha_titulo {
+	font-size:15px;
+	color: #003263;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height:22px;
+}
+
+.lista_mensagens_ficha_texto {
+	font-size:14px;
+	color: #777;
+	font-weight: normal;
+	background:#f9f9f9;
+	border-top:1px solid #CCC;
+	margin:15px -10px -15px -10px;
+	padding: 15px;
+	line-height:22px;
+	
+}
+
+
 .ui-content { margin-top:20px !important; }
 
  a.sm2_link {}
