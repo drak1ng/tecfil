@@ -63,7 +63,19 @@
 <!--<feature name="http://api.phonegap.com/1.0/contacts"/>-->
 <!--<feature name="http://api.phonegap.com/1.0/media"/>-->
 
+<plugin name="cordova-plugin-whitelist" version="1" />
 <access origin="*" />
+<allow-navigation href="*" />
+<allow-intent href="*" />
+<platform name="android">
+    <allow-intent href="market:*" />
+    <allow-intent href="maps:*" />
+</platform>
+<platform name="ios">
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+    <allow-intent href="maps:*" />
+</platform>
 
 <!--IOS Status Bar-->
 <feature name="StatusBar">
