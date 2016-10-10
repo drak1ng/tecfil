@@ -84,6 +84,7 @@
 	    tx.executeSql('CREATE TABLE IF NOT EXISTS SoccerPlayer (Name TEXT NOT NULL, Club TEXT NOT NULL)');
 	    tx.executeSql('INSERT INTO SoccerPlayer(Name,Club) VALUES ("Alexandre Pato", "AC Milan")');
 	    tx.executeSql('INSERT INTO SoccerPlayer(Name,Club) VALUES ("Van Persie", "Arsenal")');
+	    tx.executeSql('INSERT INTO SoccerPlayer(Name,Club) VALUES ("Rodrigo", "Teste")');
 	}
 	
 	function queryDB(tx) {
@@ -91,17 +92,11 @@
 	}
 	
 	function querySuccess(tx,result){
-	        var playerlist = document.getElementById("SoccerPlayerList");
 	        var players = "";
-	        alert("The show is on");
 	        var len = result.rows.length;
 	        for (var i=0; i<len; i++){
 	            alert(result.rows.item(i).Name + result.rows.item(i).Club);
-	            players = players + '<li><a href="#"><p class="record">'+result.rows.item(i).Name+'</p><p class="small">Club '+result.rows.item(i).Club+'</p></a></li>';
-	        }   
-	
-	        playerlist.innerHTML = players;
-	        $("#SoccerPlayerList").listview("refresh");
+	        }
 	}
 	
 	
@@ -117,7 +112,7 @@
 	
 	
 	function successCB() {
-	    db.transaction(queryDB, errorCB2);
+	    db.transaction(queryDB);
 	}
 	
 	
