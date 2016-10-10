@@ -53,7 +53,6 @@
 
 <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 
-<feature name="http://api.phonegap.com/1.0/geolocation"/>
 <feature name="http://api.phonegap.com/1.0/file"/>
 <feature name="http://api.phonegap.com/1.0/network"/>
 <feature name="http://api.phonegap.com/1.0/notification"/>
@@ -77,35 +76,8 @@
     <allow-intent href="maps:*" />
 </platform>
 
-<!--IOS Status Bar-->
-<feature name="StatusBar">
-	<param name="ios-package" value="CDVStatusBar" onload="true" />
-</feature>
-<gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0">
-	<preference name="StatusBarStyle" value="blackopaque" />
-	<preference name="StatusBarOverlaysWebView" value="true" />
-	<preference name="StatusBarBackgroundColor" value="#000000"/>
-</gap:plugin>
 <preference name="webviewbounce" value="false" />
 <preference name="DisallowOverscroll" value="true" />
-
-<!--Geolocation-->
-<feature name="Geolocation">
-	<param name="ios-package" value="CDVLocation" />
-</feature>
-
-<feature name="Geolocation">
-    <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker"/>
-</feature>
-
-<plugin name="cordova-plugin-geolocation" spec="1.0.1" source="pgb" />
-
- <feature name="Whatsapp">
- 	<param name="android-package" value="mobi.moica.whatsapp.Whatsapp" />
-</feature>
-
-<!--Speech-->
-<plugin name="com.aserputko.speech.speechrecognition2" spec="0.1.1" source="pgb" />
 
 <!--Network Information-->
 <plugin name="cordova-plugin-network-information" spec="1.0.1" source="pgb" />
