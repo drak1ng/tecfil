@@ -93,8 +93,6 @@
 
 <plugin name="cordova-plugin-dialogs" spec="1.1.1" source="pgb" />
 
-<plugin name="com.cordova.plugins.fileopener" spec="1.0.1" source="pgb" />
-
 <!-- Device -->
 <gap:plugin name="org.apache.cordova.device" />
 
