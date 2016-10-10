@@ -84,6 +84,8 @@
 <gap:plugin name="org.apache.cordova.dialogs" />
 <gap:plugin name="org.apache.cordova.device" />
 
+<plugin name="io.litehelpers.cordova.sqlitestorage" spec="0.7.5" source="pgb" />
+
 <!-- Custom Preferences-->
 <!--<preference name="phonegap-version" value="3.7.0" />-->          <!-- all: current version of PhoneGap -->
 <!--<preference name="phonegap-version" value="3.5.0" />-->         <!-- all: current version of PhoneGap -->
