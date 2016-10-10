@@ -146,4 +146,5 @@
 <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 <preference name="windows-appx-target"		  value="uap" />
 <preference name="windows-arch" 			  value="anycpu" />
+<preference name="windows-identity-name" 	  value="PhonegapBuild.PGBDeveloper" />
 </widget>
