@@ -122,7 +122,7 @@
         // Transaction success callback
         //
         function successCB() {
-            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            var db = sqlitePlugin.openDatabase("Database", "1.0", "Cordova Demo", 200000);
             db.transaction(queryDB, errorCB);
         }
 
@@ -134,17 +134,17 @@
         }
 
         function goInsert() {
-            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            var db = sqlitePlugin.openDatabase("Database", "1.0", "Cordova Demo", 200000);
             db.transaction(insertDB, errorCB, successCB);
         }
 
         function goSearch() {
-            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            var db = sqlitePlugin.openDatabase("Database", "1.0", "Cordova Demo", 200000);
             db.transaction(searchQueryDB, errorCB);
         }
 
         function goDelete() {
-             var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+             var db = sqlitePlugin.openDatabase("Database", "1.0", "Cordova Demo", 200000);
              db.transaction(deleteRow, errorCB);
              document.getElementById('qrpopup').style.display='none';
         }
@@ -165,13 +165,13 @@
         }
         
         function goEdit() {
-            var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+            var db = sqlitePlugin.openDatabase("Database", "1.0", "Cordova Demo", 200000);
             db.transaction(editRow, errorCB);
             document.getElementById('qrpopup').style.display='none';
         }
         
         
-		var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+		var db = sqlitePlugin.openDatabase("Database", "1.0", "Cordova Demo", 200000);
         db.transaction(populateDB, errorCB, successCB);
 
     </script>
