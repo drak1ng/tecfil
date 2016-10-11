@@ -57,6 +57,7 @@ function update_automoveis(tx){
 		url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=automoveis.xml",
 		dataType: "xml",
 		success: function(xml){
+			var itens_atualizados = 0;
 			$(xml).find('automoveis').each(function(){
 				var id = $(this).find('id').text();
 				var id_mont = $(this).find('id_mont').text();
@@ -81,7 +82,7 @@ function update_automoveis(tx){
 	
 				itens_atualizados++;
 				//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
-				$('#login_email').val(itens_atualizados);
+				$('#login_email').val("Total Atualizado: "+itens_atualizados);
 				
 				tx.executeSql('INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+imagem+'")');
 	
