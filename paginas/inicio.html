@@ -29,6 +29,7 @@
         <title>Tecfil</title>
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript" src="../js/cordova.js"></script>
 	</head>
     <body>
 	    <div data-role="page" style="background:#ffe01a; text-align:center;">
@@ -77,20 +78,18 @@
 			<script type="text/javascript" charset="utf-8">
 
 				var db = "";
-				var itens_atualizados = 0;
-				var conexao = "";
 				
 				function populateDB(tx) {
-					conexao = tx;
+					
 					tx.executeSql('DROP TABLE IF EXISTS db_automoveis');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_automoveis ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, imagem TEXT NOT NULL)');
+
+					tx.executeSql('INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("123","asd","123","123","123","123","123","123","123","123","123","123","123","123","123","123","123","123","123","123")');
 
 				}
 				
 				function queryDB(tx) {
-					update_automoveis(tx);
-					
-				    //tx.executeSql('SELECT * FROM db_automoveis', [], querySuccess, errorCB3);
+				    tx.executeSql('SELECT * FROM db_automoveis', [], querySuccess, errorCB3);
 				}
 				
 				function querySuccess(tx,result){
@@ -123,10 +122,7 @@
 				db.transaction(populateDB, errorCB1, successCB);
 				
 				
-				
-				
-				
-				function update_automoveis(tx){
+				function update_automoveis(){
 				
 					itens_atualizados = 0;
 				
@@ -158,13 +154,16 @@
 								var imagem = $(this).find('imagem').text();
 					
 								itens_atualizados++;
-								//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								conexao.executeSql('INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+imagem+'")');
+								var consulta_executar = function(tx,result){
+									tx.executeSql('INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+imagem+'")');
+								}
+								
+								db.transaction(consulta_executar, errorCB1, successCB);
+								
 					
 							});
-							//update_caminhoes(tx);
 						}
 					});
 					$('#login_email').val("Fim: "+itens_atualizados);

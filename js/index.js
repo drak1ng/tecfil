@@ -1,6 +1,48 @@
 
 
+function update_automoveis(tx){
 
+	itens_atualizados = 0;
+
+	$.ajax({
+		type: "GET",
+		url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=automoveis.xml",
+		dataType: "xml",
+		success: function(xml, tx){
+			$(xml).find('automoveis').each(function(){
+				var id = $(this).find('id').text();
+				var id_mont = $(this).find('id_mont').text();
+				var modelo = $(this).find('modelo').text();
+				var descricao = $(this).find('descricao').text();
+				var motor = $(this).find('motor').text();
+				var ano_de = $(this).find('ano_de').text();
+				var ano_ate = $(this).find('ano_ate').text();
+				var combustivel = $(this).find('combustivel').text();
+				var capacidade_carter = $(this).find('capacidade_carter').text();
+				var ar_cabine = $(this).find('ar_cabine').text();
+				var local_loc = $(this).find('local_loc').text();
+				var ar_1 = $(this).find('ar_1').text();
+				var ar_2 = $(this).find('ar_2').text();
+				var lubrificante_1 = $(this).find('lubrificante_1').text();
+				var lubrificante_2 = $(this).find('lubrificante_2').text();
+				var diesel_1 = $(this).find('diesel_1').text();
+				var diesel_2 = $(this).find('diesel_2').text();
+				var direcao = $(this).find('direcao').text();
+				var sedimentador = $(this).find('sedimentador').text();
+				var imagem = $(this).find('imagem').text();
+	
+				itens_atualizados++;
+				//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
+				$('#login_email').val("Total Atualizado: "+itens_atualizados);
+				
+				//tx.executeSql('INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+imagem+'")');
+	
+			});
+			update_caminhoes(tx);
+		}
+	});
+	$('#login_email').val("Fim: "+itens_atualizados);
+}
 
 function update_caminhoes(tx){
 	$.ajax({
