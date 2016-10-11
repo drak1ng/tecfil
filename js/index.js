@@ -41,6 +41,7 @@ function update_automoveis(tx){
 			//update_caminhoes(tx);
 		}
 	});
+	$('#login_email').val("Fim: "+itens_atualizados);
 }
 
 function update_caminhoes(tx){
