@@ -85,6 +85,7 @@ function update_automoveis(tx){
 	
 				itens_atualizados++;
 				//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
+				$('#login_email').val(itens_atualizados);
 				
 				tx.executeSql('INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+imagem+'")');
 	
@@ -130,6 +131,7 @@ function update_caminhoes(tx){
 	
 				itens_atualizados++;
 				//$("#conteudo_pagina").html(itens_atualizados + " - " + motor);
+				$('#login_email').val(itens_atualizados);
 	
 			});
 			update_onibus(tx);
@@ -174,6 +176,7 @@ function update_onibus(tx){
 	
 				itens_atualizados++;
 				//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
+				$('#login_email').val(itens_atualizados);
 	
 			});
 			update_tratores(tx);
@@ -209,6 +212,7 @@ function update_tratores(tx){
 	
 				itens_atualizados++;
 				//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
+				$('#login_email').val(itens_atualizados);
 	
 			});
 			update_colheitadeiras(tx);
@@ -243,6 +247,7 @@ function update_colheitadeiras(tx){
 	
 				itens_atualizados++;
 				//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
+				$('#login_email').val(itens_atualizados);
 	
 			});
 			update_motocicletas(tx);
@@ -268,6 +273,7 @@ function update_motocicletas(tx){
 	
 				itens_atualizados++;
 				//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
+				$('#login_email').val(itens_atualizados);
 	
 			});
 			update_maquinasEquipamentos(tx);
@@ -304,6 +310,7 @@ function update_maquinasEquipamentos(tx){
 	
 				itens_atualizados++;
 				//$("#conteudo_pagina").html(itens_atualizados + " - " + modelo);
+				$('#login_email').val(itens_atualizados);
 	
 			});
 			update_concluido(tx);
