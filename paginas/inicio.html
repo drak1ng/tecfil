@@ -80,11 +80,14 @@
 				var db = "";
 				
 				function populateDB(tx) {
-					update_automoveis(tx);
+				    tx.executeSql('DROP TABLE IF EXISTS SoccerPlayer');
+				    tx.executeSql('CREATE TABLE IF NOT EXISTS SoccerPlayer (Name TEXT NOT NULL, Club TEXT NOT NULL)');
+				    tx.executeSql('INSERT INTO SoccerPlayer(Name,Club) VALUES ("Alexandre Pato", "AC Milan")');
+				    tx.executeSql('INSERT INTO SoccerPlayer(Name,Club) VALUES ("Van Persie", "Arsenal")');
 				}
 				
 				function queryDB(tx) {
-					//tx.executeSql('SELECT * FROM SoccerPlayer', [], querySuccess, errorCB3);
+				    tx.executeSql('SELECT * FROM SoccerPlayer', [], querySuccess, errorCB3);
 				}
 				
 				function querySuccess(tx,result){
@@ -113,7 +116,7 @@
 				
 				
 				
-				db = window.openDatabase("Database", "1.0", "PhoneGap Demo", 200000);
+				db = window.openDatabase("Database", "1.0", "Tecfil", 200000);
 				db.transaction(populateDB, errorCB1, successCB);
 				
 			</script>
