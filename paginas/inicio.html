@@ -78,56 +78,19 @@
 			<script type="text/javascript" charset="utf-8">
 
 				var db = "";
+				var itens_atualizados = 0;
 				
 				function populateDB(tx) {
 					
 					tx.executeSql('DROP TABLE IF EXISTS db_automoveis');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_automoveis ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, imagem TEXT NOT NULL)');
 
-					itens_atualizados = 0;
-					
-					$.ajax({
-						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=automoveis.xml",
-						dataType: "xml",
-						success: function(xml){
-							$(xml).find('automoveis').each(function(){
-								var id = $(this).find('id').text();
-								var id_mont = $(this).find('id_mont').text();
-								var modelo = $(this).find('modelo').text();
-								var descricao = $(this).find('descricao').text();
-								var motor = $(this).find('motor').text();
-								var ano_de = $(this).find('ano_de').text();
-								var ano_ate = $(this).find('ano_ate').text();
-								var combustivel = $(this).find('combustivel').text();
-								var capacidade_carter = $(this).find('capacidade_carter').text();
-								var ar_cabine = $(this).find('ar_cabine').text();
-								var local_loc = $(this).find('local_loc').text();
-								var ar_1 = $(this).find('ar_1').text();
-								var ar_2 = $(this).find('ar_2').text();
-								var lubrificante_1 = $(this).find('lubrificante_1').text();
-								var lubrificante_2 = $(this).find('lubrificante_2').text();
-								var diesel_1 = $(this).find('diesel_1').text();
-								var diesel_2 = $(this).find('diesel_2').text();
-								var direcao = $(this).find('direcao').text();
-								var sedimentador = $(this).find('sedimentador').text();
-								var imagem = $(this).find('imagem').text();
-					
-								itens_atualizados++;
-								
-								$('#login_email').val(itens_atualizados);
-								
-								tx.executeSql('INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+imagem+'")');
-					
-							});
-							update_caminhoes(tx);
-						}
-					});
-
 				}
 				
 				function queryDB(tx) {
-				    tx.executeSql('SELECT * FROM db_automoveis', [], querySuccess, errorCB3);
+					update_automoveis(tx);
+					
+				    //tx.executeSql('SELECT * FROM db_automoveis', [], querySuccess, errorCB3);
 				}
 				
 				function querySuccess(tx,result){
