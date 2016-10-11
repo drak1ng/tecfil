@@ -8,7 +8,7 @@ function update_automoveis(tx){
 		type: "GET",
 		url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=automoveis.xml",
 		dataType: "xml",
-		success: function(xml){
+		success: function(xml, tx){
 			$(xml).find('automoveis').each(function(){
 				var id = $(this).find('id').text();
 				var id_mont = $(this).find('id_mont').text();
