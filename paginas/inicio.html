@@ -75,8 +75,8 @@
 					$.mobile.changePage("cadastro.html", { transition: "fade", changeHash: false });
 				});
 				
-				function listarRegistros(){
-					alert('Teste');
+				function listarRegistros(tx){
+					tx.executeSql('SELECT * FROM db_automoveis', [], querySuccess, errorCB3);
 				}
 				
 			</script>
