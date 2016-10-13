@@ -131,7 +131,8 @@
 						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=automoveis.xml",
 						dataType: "xml",
 						success: function(xml, tx){
-							var query_string[];
+							var query_string = [];
+							var x=0;
 							
 							$(xml).find('automoveis').each(function(){
 								var id = $(this).find('id').text();
@@ -158,7 +159,8 @@
 								itens_atualizados++;
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								query_string[] = 'INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+imagem+'"); ';
+								query_string[x] = 'INSERT INTO db_automoveis (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+imagem+'"); ';
+								x = x +1;
 							});
 								
 							var consulta_executar = function(tx){
