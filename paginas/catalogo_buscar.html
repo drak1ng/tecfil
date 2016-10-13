@@ -59,7 +59,11 @@
 				db.transaction(consultarRegistros);
 				
 				function consultarRegistros(tx){
-					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorCB3);
+					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorLISTA);
+				}
+				
+				function errorLISTA(err) {
+					alert("Error processing SQL--: "+err.message);
 				}
 				
 				function listarRegistros(tx,result){
