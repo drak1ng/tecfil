@@ -56,10 +56,13 @@
 			
 			<script>
 				
+
+					alert('entre1');
+					
 				db.transaction(consultarRegistros);
 				
 				function consultarRegistros(tx){
-					alert('entrei');
+					alert('entre');
 					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorLISTA);
 				}
 				
