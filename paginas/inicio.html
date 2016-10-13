@@ -82,20 +82,20 @@
 				function populateDB(tx) {
 					
 					tx.executeSql('DROP TABLE IF EXISTS db_automoveis');
-					//tx.executeSql('DROP TABLE IF EXISTS db_caminhoes');
-					//tx.executeSql('DROP TABLE IF EXISTS db_onibus');
-					//tx.executeSql('DROP TABLE IF EXISTS db_tratores');
-					//tx.executeSql('DROP TABLE IF EXISTS db_colheitadeiras');
-					//tx.executeSql('DROP TABLE IF EXISTS db_motocicletas');
-					//tx.executeSql('DROP TABLE IF EXISTS db_equipamentos');
+					tx.executeSql('DROP TABLE IF EXISTS db_caminhoes');
+					tx.executeSql('DROP TABLE IF EXISTS db_onibus');
+					tx.executeSql('DROP TABLE IF EXISTS db_tratores');
+					tx.executeSql('DROP TABLE IF EXISTS db_colheitadeiras');
+					tx.executeSql('DROP TABLE IF EXISTS db_motocicletas');
+					tx.executeSql('DROP TABLE IF EXISTS db_equipamentos');
 					
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_automoveis ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, imagem TEXT NOT NULL )');
-					//tx.executeSql('CREATE TABLE IF NOT EXISTS db_caminhoes ( id TEXT NOT NULL, id_mont TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
-					//tx.executeSql('CREATE TABLE IF NOT EXISTS db_onibus ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
-					//tx.executeSql('CREATE TABLE IF NOT EXISTS db_tratores ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, direcao TEXT NOT NULL, transmissao_int TEXT NOT NULL, transmissao_ext TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
-					//tx.executeSql('CREATE TABLE IF NOT EXISTS db_colheitadeiras ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico_int TEXT NOT NULL, hidraulico_ext TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
-					//tx.executeSql('CREATE TABLE IF NOT EXISTS db_motocicletas ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, ano TEXT NOT NULL, ar TEXT NOT NULL, oleo TEXT NOT NULL, combustivel TEXT NOT NULL, imagem TEXT NOT NULL )');
-					//tx.executeSql('CREATE TABLE IF NOT EXISTS db_equipamentos ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, bypass TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico TEXT NOT NULL, direcao TEXT NOT NULL, agua TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_caminhoes ( id TEXT NOT NULL, id_mont TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_onibus ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_tratores ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, direcao TEXT NOT NULL, transmissao_int TEXT NOT NULL, transmissao_ext TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_colheitadeiras ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico_int TEXT NOT NULL, hidraulico_ext TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_motocicletas ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, ano TEXT NOT NULL, ar TEXT NOT NULL, oleo TEXT NOT NULL, combustivel TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_equipamentos ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, bypass TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico TEXT NOT NULL, direcao TEXT NOT NULL, agua TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
 					
 				}
 				
@@ -164,13 +164,7 @@
 							});
 								
 							var consulta_executar = function(tx){
-								
-
-								
 								var len = query_string.length;
-								
-								alert(len);
-								
 								for (var i=0; i<len; i++){
 								    tx.executeSql(query_string[i]);
 							    }
@@ -178,7 +172,7 @@
 							
 							db.transaction(consulta_executar, errorCB3);
 							
-							//update_caminhoes();
+							update_caminhoes();
 						}
 					});
 				}
@@ -194,6 +188,9 @@
 						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=caminhoes.xml",
 						dataType: "xml",
 						success: function(xml){
+							var query_string = [];
+							var x=0;
+							
 							$(xml).find('caminhoes').each(function(){
 								var id = $(this).find('id').text();
 								var id_mont = $(this).find('id_mont').text();
@@ -225,13 +222,20 @@
 								itens_atualizados++;
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								var consulta_executar = function(tx){
-									tx.executeSql('INSERT INTO db_caminhoes (id, id_mont, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, desumidificador, agua, bypass, transmissao, outros, outros2, outros3, imagem) VALUES ("'+id+'","'+id_mont+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+desumidificador+'","'+agua+'","'+bypass+'","'+transmissao+'","'+outros+'","'+outros2+'","'+outros3+'","'+imagem+'")');
-								}
-								
-								db.transaction(consulta_executar, errorCB3);
+								query_string[x] = 'INSERT INTO db_caminhoes (id, id_mont, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, desumidificador, agua, bypass, transmissao, outros, outros2, outros3, imagem) VALUES ("'+id+'","'+id_mont+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+desumidificador+'","'+agua+'","'+bypass+'","'+transmissao+'","'+outros+'","'+outros2+'","'+outros3+'","'+imagem+'"); ';
+								x = x +1;
 					
 							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
 							update_onibus();
 						}
 					});
@@ -248,6 +252,9 @@
 						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=onibus.xml",
 						dataType: "xml",
 						success: function(xml){
+							var query_string = [];
+							var x=0;
+							
 							$(xml).find('onibus').each(function(){
 								var id = $(this).find('id').text();
 								var id_mont = $(this).find('id_mont').text();
@@ -280,13 +287,20 @@
 								itens_atualizados++;
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								var consulta_executar = function(tx){
-									tx.executeSql('INSERT INTO db_onibus (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, desumidificador, agua, bypass, transmissao, outros, outros2, outros3, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+desumidificador+'","'+agua+'","'+bypass+'","'+transmissao+'","'+outros+'","'+outros2+'","'+outros3+'","'+imagem+'")');
-								}
-								
-								db.transaction(consulta_executar, errorCB3);
+								query_string[x] = 'INSERT INTO db_onibus (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, desumidificador, agua, bypass, transmissao, outros, outros2, outros3, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+desumidificador+'","'+agua+'","'+bypass+'","'+transmissao+'","'+outros+'","'+outros2+'","'+outros3+'","'+imagem+'"); ';
+								x = x +1;
 					
 							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
 							update_tratores();
 						}
 					});
@@ -303,6 +317,9 @@
 						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=tratores.xml",
 						dataType: "xml",
 						success: function(xml){
+							var query_string = [];
+							var x=0;
+							
 							$(xml).find('tratores').each(function(){
 								var id = $(this).find('id').text();
 								var id_mont = $(this).find('id_mont').text();
@@ -326,13 +343,20 @@
 								itens_atualizados++;
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								var consulta_executar = function(tx){
-									tx.executeSql('INSERT INTO db_tratores (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, combustivel_1, combustivel_2, direcao, transmissao_int, transmissao_ext, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+combustivel_1+'","'+combustivel_2+'","'+direcao+'","'+transmissao_int+'","'+transmissao_ext+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'")');
-								}
-								
-								db.transaction(consulta_executar, errorCB3);
+								query_string[x] = 'INSERT INTO db_tratores (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, combustivel_1, combustivel_2, direcao, transmissao_int, transmissao_ext, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+combustivel_1+'","'+combustivel_2+'","'+direcao+'","'+transmissao_int+'","'+transmissao_ext+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'"); ';
+								x = x +1;
 					
 							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
 							update_colheitadeiras();
 						}
 					});
@@ -349,6 +373,9 @@
 						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=colheitadeiras.xml",
 						dataType: "xml",
 						success: function(xml){
+							var query_string = [];
+							var x=0;
+							
 							$(xml).find('colheitadeiras').each(function(){
 								var id = $(this).find('id').text();
 								var id_mont = $(this).find('id_mont').text();
@@ -371,13 +398,20 @@
 								itens_atualizados++;
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								var consulta_executar = function(tx){
-									tx.executeSql('INSERT INTO db_colheitadeiras (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, combustivel_1, combustivel_2, hidraulico_int, hidraulico_ext, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+combustivel_1+'","'+combustivel_2+'","'+hidraulico_int+'","'+hidraulico_ext+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'")');
-								}
-								
-								db.transaction(consulta_executar, errorCB3);
+								query_string[x] = 'INSERT INTO db_colheitadeiras (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, combustivel_1, combustivel_2, hidraulico_int, hidraulico_ext, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+combustivel_1+'","'+combustivel_2+'","'+hidraulico_int+'","'+hidraulico_ext+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'"); ';
+								x = x +1;
 					
 							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
 							update_motocicletas();
 						}
 					});
@@ -394,6 +428,9 @@
 						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=motocicletas.xml",
 						dataType: "xml",
 						success: function(xml){
+							var query_string = [];
+							var x=0;
+							
 							$(xml).find('motos').each(function(){
 								var id = $(this).find('id').text();
 								var id_mont = $(this).find('id_mont').text();
@@ -407,13 +444,20 @@
 								itens_atualizados++;
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								var consulta_executar = function(tx){
-									tx.executeSql('INSERT INTO db_motocicletas (id, id_mont, modelo, ano, ar, oleo, combustivel, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+ano+'","'+ar+'","'+oleo+'","'+combustivel+'","'+imagem+'")');
-								}
-								
-								db.transaction(consulta_executar, errorCB3);
+								query_string[x] = 'INSERT INTO db_motocicletas (id, id_mont, modelo, ano, ar, oleo, combustivel, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+ano+'","'+ar+'","'+oleo+'","'+combustivel+'","'+imagem+'");';
+								x = x +1;
 					
 							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
 							update_maquinasEquipamentos();
 						}
 					});
@@ -430,6 +474,9 @@
 						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=maquinasEquipamentos.xml",
 						dataType: "xml",
 						success: function(xml){
+							var query_string = [];
+							var x=0;
+							
 							$(xml).find('equipamentos').each(function(){
 								var id = $(this).find('id').text();
 								var id_mont = $(this).find('id_mont').text();
@@ -454,13 +501,20 @@
 								itens_atualizados++;
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								var consulta_executar = function(tx){
-									tx.executeSql('INSERT INTO db_equipamentos (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, bypass, combustivel_1, combustivel_2, hidraulico, direcao, agua, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+bypass+'","'+combustivel_1+'","'+combustivel_2+'","'+hidraulico+'","'+direcao+'","'+agua+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'")');
-								}
-								
-								db.transaction(consulta_executar, errorCB3);
+								query_string[x] = 'INSERT INTO db_equipamentos (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, bypass, combustivel_1, combustivel_2, hidraulico, direcao, agua, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+bypass+'","'+combustivel_1+'","'+combustivel_2+'","'+hidraulico+'","'+direcao+'","'+agua+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'"); ';
+								x = x +1;
 					
 							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
 							update_concluido();
 						}
 					});
