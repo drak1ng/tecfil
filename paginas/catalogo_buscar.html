@@ -55,26 +55,20 @@
 		
 			
 			<script>
-				
-
-					alert('entre1');
 					
 				db.transaction(consultarRegistros);
 				
 				function consultarRegistros(tx){
-					alert('entre');
-					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorLISTA);
+					tx.executeSql('SELECT * FROM db_equipamentos', [], listarRegistros, errorLISTA);
 				}
 				
 				function errorLISTA(err) {
-					alert("Error processing SQL--: "+err.message);
+					alert("Error processing SQL: "+err.message);
 				}
 				
 				function listarRegistros(tx,result){
 					
 					var len = result.rows.length;
-					
-					alert('Teste 2 - ' + len);
 					
 				    for (var i=0; i<len; i++){
 					    $('#listagem_resultados').append("<div style='border-bottom:1px solid #CCC; padding:10px;'>"+result.rows.item(i).id+" - "+result.rows.item(i).id_mont+"</div>");
