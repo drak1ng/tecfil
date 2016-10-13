@@ -59,6 +59,7 @@
 				db.transaction(consultarRegistros);
 				
 				function consultarRegistros(tx){
+					alert('entrei');
 					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorLISTA);
 				}
 				
