@@ -77,11 +77,17 @@
 				
 				function consultarRegistros(tx){
 					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorCB3);
-					alert('Teste 1');
 				}
 				
 				function listarRegistros(tx,result){
-					alert('Teste 2');
+					
+					var len = result.rows.length;
+					
+					alert('Teste 2 - ' + len);
+					
+				    for (var i=0; i<len; i++){
+				        alert(result.rows.item(i).id + result.rows.item(i).id_mont);
+				    }
 				}
 				
 			</script>
