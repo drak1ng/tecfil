@@ -82,8 +82,20 @@
 				function populateDB(tx) {
 					
 					tx.executeSql('DROP TABLE IF EXISTS db_automoveis');
-					tx.executeSql('CREATE TABLE IF NOT EXISTS db_automoveis ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, imagem TEXT NOT NULL)');
-
+					tx.executeSql('DROP TABLE IF EXISTS db_caminhoes');
+					tx.executeSql('DROP TABLE IF EXISTS db_onibus');
+					tx.executeSql('DROP TABLE IF EXISTS db_tratores');
+					tx.executeSql('DROP TABLE IF EXISTS db_colheitadeiras');
+					tx.executeSql('DROP TABLE IF EXISTS db_motocicletas');
+					tx.executeSql('DROP TABLE IF EXISTS db_equipamentos');
+					
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_automoveis ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_caminhoes ( id TEXT NOT NULL, id_mont TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_onibus ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_tratores ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, direcao TEXT NOT NULL, transmissao_int TEXT NOT NULL, transmissao_ext TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_colheitadeiras ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico_int TEXT NOT NULL, hidraulico_ext TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_motocicletas ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, ano TEXT NOT NULL, ar TEXT NOT NULL, oleo TEXT NOT NULL, combustivel TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_equipamentos ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, bypass TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico TEXT NOT NULL, direcao TEXT NOT NULL, agua TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
 					
 				}
 				
@@ -116,11 +128,14 @@
 					//db.transaction(queryDB);
 				}
 				
-				
-				
 				db = window.openDatabase("Database", "1.0", "Tecfil", 200000);
 				db.transaction(populateDB, errorCB1, successCB);
 				
+				
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS AUTOMOVEIS ----------------------------------------------//
+				//--------------------------------------------------------------------------------//
 				
 				function update_automoveis(){
 				
@@ -162,8 +177,290 @@
 								
 								db.transaction(consulta_executar, errorCB3);
 							});
+							update_caminhoes();
 						}
 					});
+				}
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS CAMINHOES -----------------------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_caminhoes(){
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=caminhoes.xml",
+						dataType: "xml",
+						success: function(xml){
+							$(xml).find('caminhoes').each(function(){
+								var id = $(this).find('id').text();
+								var id_mont = $(this).find('id_mont').text();
+								var descricao = $(this).find('descricao').text();
+								var motor = $(this).find('motor').text();
+								var ano_de = $(this).find('ano_de').text();
+								var ano_ate = $(this).find('ano_ate').text();
+								var combustivel = $(this).find('combustivel').text();
+								var capacidade_carter = $(this).find('capacidade_carter').text();
+								var ar_cabine = $(this).find('ar_cabine').text();
+								var local_loc = $(this).find('local_loc').text();
+								var ar_1 = $(this).find('ar_1').text();
+								var ar_2 = $(this).find('ar_2').text();
+								var lubrificante_1 = $(this).find('lubrificante_1').text();
+								var lubrificante_2 = $(this).find('lubrificante_2').text();
+								var diesel_1 = $(this).find('diesel_1').text();
+								var diesel_2 = $(this).find('diesel_2').text();
+								var direcao = $(this).find('direcao').text();
+								var sedimentador = $(this).find('sedimentador').text();
+								var desumidificador = $(this).find('desumidificador').text();
+								var agua = $(this).find('agua').text();
+								var bypass = $(this).find('bypass').text();
+								var transmissao = $(this).find('transmissao').text();
+								var outros = $(this).find('outros').text();
+								var outros2 = $(this).find('outros2').text();
+								var outros3 = $(this).find('outros3').text();
+								var imagem = $(this).find('imagem').text();								
+					
+								itens_atualizados++;
+								$('#login_email').val("Total Atualizado: "+itens_atualizados);
+								
+								var consulta_executar = function(tx){
+									tx.executeSql('INSERT INTO db_caminhoes (id, id_mont, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, desumidificador, agua, bypass, transmissao, outros, outros2, outros3, imagem) VALUES ("'+id+'","'+id_mont+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+desumidificador+'","'+agua+'","'+bypass+'","'+transmissao+'","'+outros+'","'+outros2+'","'+outros3+'","'+imagem+'")');
+								}
+								
+								db.transaction(consulta_executar, errorCB3);
+					
+							});
+							update_onibus();
+						}
+					});
+				}
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS ONIBUS --------------------------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_onibus(){
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=onibus.xml",
+						dataType: "xml",
+						success: function(xml){
+							$(xml).find('onibus').each(function(){
+								var id = $(this).find('id').text();
+								var id_mont = $(this).find('id_mont').text();
+								var modelo = $(this).find('modelo').text();
+								var descricao = $(this).find('descricao').text();
+								var motor = $(this).find('motor').text();
+								var ano_de = $(this).find('ano_de').text();
+								var ano_ate = $(this).find('ano_ate').text();
+								var combustivel = $(this).find('combustivel').text();
+								var capacidade_carter = $(this).find('capacidade_carter').text();
+								var ar_cabine = $(this).find('ar_cabine').text();
+								var local_loc = $(this).find('local_loc').text();
+								var ar_1 = $(this).find('ar_1').text();
+								var ar_2 = $(this).find('ar_2').text();
+								var lubrificante_1 = $(this).find('lubrificante_1').text();
+								var lubrificante_2 = $(this).find('lubrificante_2').text();
+								var diesel_1 = $(this).find('diesel_1').text();
+								var diesel_2 = $(this).find('diesel_2').text();
+								var direcao = $(this).find('direcao').text();
+								var sedimentador = $(this).find('sedimentador').text();
+								var desumidificador = $(this).find('desumidificador').text();
+								var agua = $(this).find('agua').text();
+								var bypass = $(this).find('bypass').text();
+								var transmissao = $(this).find('transmissao').text();
+								var outros = $(this).find('outros').text();
+								var outros2 = $(this).find('outros2').text();
+								var outros3 = $(this).find('outros3').text();
+								var imagem = $(this).find('imagem').text();
+					
+								itens_atualizados++;
+								$('#login_email').val("Total Atualizado: "+itens_atualizados);
+								
+								var consulta_executar = function(tx){
+									tx.executeSql('INSERT INTO db_onibus (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, desumidificador, agua, bypass, transmissao, outros, outros2, outros3, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+desumidificador+'","'+agua+'","'+bypass+'","'+transmissao+'","'+outros+'","'+outros2+'","'+outros3+'","'+imagem+'")');
+								}
+								
+								db.transaction(consulta_executar, errorCB3);
+					
+							});
+							update_tratores();
+						}
+					});
+				}
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS TRATORES ------------------------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_tratores(){
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=tratores.xml",
+						dataType: "xml",
+						success: function(xml){
+							$(xml).find('tratores').each(function(){
+								var id = $(this).find('id').text();
+								var id_mont = $(this).find('id_mont').text();
+								var modelo = $(this).find('modelo').text();
+								var motor = $(this).find('motor').text();
+								var ano = $(this).find('ano').text();
+								var ar_1 = $(this).find('ar_1').text();
+								var ar_2 = $(this).find('ar_2').text();
+								var lubrificante = $(this).find('lubrificante').text();
+								var combustivel_1 = $(this).find('combustivel_1').text();
+								var combustivel_2 = $(this).find('combustivel_2').text();
+								var direcao = $(this).find('direcao').text();
+								var transmissao_int = $(this).find('transmissao_int').text();
+								var transmissao_ext = $(this).find('transmissao_ext').text();
+								var outros = $(this).find('outros').text();
+								var outros2 = $(this).find('outros2').text();
+								var outros3 = $(this).find('outros3').text();
+								var capacidade_carter = $(this).find('capacidade_carter').text();
+								var imagem = $(this).find('imagem').text();
+					
+								itens_atualizados++;
+								$('#login_email').val("Total Atualizado: "+itens_atualizados);
+								
+								var consulta_executar = function(tx){
+									tx.executeSql('INSERT INTO db_tratores (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, combustivel_1, combustivel_2, direcao, transmissao_int, transmissao_ext, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+combustivel_1+'","'+combustivel_2+'","'+direcao+'","'+transmissao_int+'","'+transmissao_ext+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'")');
+								}
+								
+								db.transaction(consulta_executar, errorCB3);
+					
+							});
+							update_colheitadeiras();
+						}
+					});
+				}
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS COLHEITADEIRAS ------------------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_colheitadeiras(){
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=colheitadeiras.xml",
+						dataType: "xml",
+						success: function(xml){
+							$(xml).find('colheitadeiras').each(function(){
+								var id = $(this).find('id').text();
+								var id_mont = $(this).find('id_mont').text();
+								var modelo = $(this).find('modelo').text();
+								var motor = $(this).find('motor').text();
+								var ano = $(this).find('ano').text();
+								var ar_1 = $(this).find('ar_1').text();
+								var ar_2 = $(this).find('ar_2').text();
+								var lubrificante = $(this).find('lubrificante').text();
+								var combustivel_1 = $(this).find('combustivel_1').text();
+								var combustivel_2 = $(this).find('combustivel_2').text();
+								var hidraulico_int = $(this).find('hidraulico_int').text();
+								var hidraulico_ext = $(this).find('hidraulico_ext').text();
+								var outros = $(this).find('outros').text();
+								var outros2 = $(this).find('outros2').text();
+								var outros3 = $(this).find('outros3').text();
+								var capacidade_carter = $(this).find('capacidade_carter').text();
+								var imagem = $(this).find('imagem').text();
+					
+								itens_atualizados++;
+								$('#login_email').val("Total Atualizado: "+itens_atualizados);
+								
+								var consulta_executar = function(tx){
+									tx.executeSql('INSERT INTO db_colheitadeiras (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, combustivel_1, combustivel_2, hidraulico_int, hidraulico_ext, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+combustivel_1+'","'+combustivel_2+'","'+hidraulico_int+'","'+hidraulico_ext+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'")');
+								}
+								
+								db.transaction(consulta_executar, errorCB3);
+					
+							});
+							update_motocicletas();
+						}
+					});
+				}
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS MOTOCICLETAS --------------------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_motocicletas(){
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=motocicletas.xml",
+						dataType: "xml",
+						success: function(xml){
+							$(xml).find('motos').each(function(){
+								var id = $(this).find('id').text();
+								var id_mont = $(this).find('id_mont').text();
+								var modelo = $(this).find('modelo').text();
+								var ano = $(this).find('ano').text();
+								var ar = $(this).find('ar').text();
+								var oleo = $(this).find('oleo').text();
+								var combustivel = $(this).find('combustivel').text();
+								var imagem = $(this).find('imagem').text();
+					
+								itens_atualizados++;
+								$('#login_email').val("Total Atualizado: "+itens_atualizados);
+								
+								var consulta_executar = function(tx){
+									tx.executeSql('INSERT INTO db_motocicletas (id, id_mont, modelo, ano, ar, oleo, combustivel, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+ano+'","'+ar+'","'+oleo+'","'+combustivel+'","'+imagem+'")');
+								}
+								
+								db.transaction(consulta_executar, errorCB3);
+					
+							});
+							update_maquinasEquipamentos();
+						}
+					});
+				}
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS MAQUINAS E EQUIPAMENTOS ---------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_maquinasEquipamentos(tx){
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=maquinasEquipamentos.xml",
+						dataType: "xml",
+						success: function(xml){
+							$(xml).find('equipamentos').each(function(){
+								var id = $(this).find('id').text();
+								var id_mont = $(this).find('id_mont').text();
+								var modelo = $(this).find('modelo').text();
+								var motor = $(this).find('motor').text();
+								var ano = $(this).find('ano').text();
+								var ar_1 = $(this).find('ar_1').text();
+								var ar_2 = $(this).find('ar_2').text();
+								var lubrificante = $(this).find('lubrificante').text();
+								var bypass = $(this).find('bypass').text();
+								var combustivel_1 = $(this).find('combustivel_1').text();
+								var combustivel_2 = $(this).find('combustivel_2').text();
+								var hidraulico = $(this).find('hidraulico').text();
+								var direcao = $(this).find('direcao').text();
+								var agua = $(this).find('agua').text();
+								var outros = $(this).find('outros').text();
+								var outros2 = $(this).find('outros2').text();
+								var outros3 = $(this).find('outros3').text();
+								var capacidade_carter = $(this).find('capacidade_carter').text();
+								var imagem = $(this).find('imagem').text();
+					
+								itens_atualizados++;
+								$('#login_email').val("Total Atualizado: "+itens_atualizados);
+								
+								var consulta_executar = function(tx){
+									tx.executeSql('INSERT INTO db_equipamentos (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, bypass, combustivel_1, combustivel_2, hidraulico, direcao, agua, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+bypass+'","'+combustivel_1+'","'+combustivel_2+'","'+hidraulico+'","'+direcao+'","'+agua+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'")');
+								}
+								
+								db.transaction(consulta_executar, errorCB3);
+					
+							});
+							update_concluido();
+						}
+					});
+				}
+				
+				function update_concluido(){
+					alert("Atualizacao Concluida");
 				}
 				
 			</script>
