@@ -76,7 +76,7 @@
 				});
 				
 				function consultarRegistros(tx){
-					tx.executeSql('SELECT * FROM db_automoveis', [], querySuccess, errorCB3);
+					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorCB3);
 					alert('Teste 1');
 				}
 				
