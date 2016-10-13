@@ -66,30 +66,12 @@
 				});
 				
 				$("#bt_login_esqueci_senha").click(function(){
-					//$.mobile.changePage("esqueci_minha_senha.html", { transition: "fade", changeHash: false });
-					
-					db.transaction(consultarRegistros, errorCB3);
+					$.mobile.changePage("esqueci_minha_senha.html", { transition: "fade", changeHash: false });
 				});
 				
 				$("#bt_login_criar_conta").click(function(){
 					$.mobile.changePage("cadastro.html", { transition: "fade", changeHash: false });
 				});
-				
-				function consultarRegistros(tx){
-					alert('Teste 1');
-					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorCB3);
-				}
-				
-				function listarRegistros(tx,result){
-					
-					var len = result.rows.length;
-					
-					alert('Teste 2 - ' + len);
-					
-				    for (var i=0; i<len; i++){
-				        alert(result.rows.item(i).id + result.rows.item(i).id_mont);
-				    }
-				}
 				
 			</script>
 			

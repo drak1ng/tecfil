@@ -50,11 +50,28 @@
 		    </div>
 
 			<div role="main" class="ui-content">
-				
+				<div id="listagem_resultados"></div>
 			</div>
 		
 			
 			<script>
+				
+				db.transaction(consultarRegistros);
+				
+				function consultarRegistros(tx){
+					tx.executeSql('SELECT * FROM db_automoveis', [], listarRegistros, errorCB3);
+				}
+				
+				function listarRegistros(tx,result){
+					
+					var len = result.rows.length;
+					
+					alert('Teste 2 - ' + len);
+					
+				    for (var i=0; i<len; i++){
+					    $('#listagem_resultados').append("<div style='border-bottom:1px solid #CCC; padding:10px;'>"+result.rows.item(i).id+" - "+result.rows.item(i).id_mont+"</div>");
+				    }
+				}
 				
 				$("#bt_rodape_buscar_02").click(function(){
 					$.mobile.changePage("catalogo_novidades.html", { transition: "fade", changeHash: false });
