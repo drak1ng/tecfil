@@ -68,22 +68,7 @@
 			
 			<script>
 				
-				$(document).ready(function(){
-					
-					var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
-					
-					if(app_busca_tipo=="automoveis"){ $('#table-titulo').html("Automóveis"); }
-					if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html("Caminhões"); }
-					if(app_busca_tipo=="onibus"){ $('#table-titulo').html("Ônibus"); }
-					if(app_busca_tipo=="tratores"){ $('#table-titulo').html("Tratores"); }
-					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); }
-					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); }
-					
-					setTimeout(carregarConteudoTabela, 1000);
-					
-				});
 				
-				function carregarConteudoTabela(){
 
 					var app_busca = window.localStorage.getItem('app_busca');
 					var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
@@ -97,7 +82,7 @@
 					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); db.transaction(filtrarTabelaMotoclicletas); }
 					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); db.transaction(filtrarTabelaMaquinasEquipamentos); }
 					
-				}
+				
 				
 				function errorLISTA(err) {
 					alert("Error processing SQL: "+err.message);
