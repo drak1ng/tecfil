@@ -53,9 +53,9 @@
 		    </div>
 
 			<div role="main" class="ui-content">
-				<div style="width:100%; height: calc(100% - 130px); position:fixed; top:64px; left:0px; font-size:12px; text-transform:none; overflow:scroll;">
+				<div style="width:100%; height: calc(100% - 170px); position:fixed; top:104px; left:0px; font-size:12px; text-transform:none; overflow:scroll;">
 					<div id="tabela_exibicao_cabecalho" style="width:1970px; height:34px;"></div>
-					<div id="tabela_exibicao" style="width:1970px; overflow:scroll; height: calc(100% - 134px);"></div>
+					<div id="tabela_exibicao" style="width:1970px; overflow:scroll; height: calc(100% - 34px);"></div>
 				</div>
 			</div>
 		
@@ -66,11 +66,7 @@
 				var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
 				
 				window.localStorage.setItem('voltar_busca','1');
-				
 
-				
-				
-				
 				if(app_busca_tipo=="automoveis"){ db.transaction(filtrarTabelaAutomoveis); }
 				if(app_busca_tipo=="caminhoes"){ db.transaction(filtrarTabelaCaminhoes); }
 				if(app_busca_tipo=="onibus"){ db.transaction(filtrarTabelaOnibus); }
@@ -177,7 +173,7 @@
 					linha = linha + "<div class='"+classe+"'>DIREÇÃO</div>";
 					linha = linha + "<div class='"+classe+"'>SEDIMENTADOR</div>";
 
-					$('#tabela_exibicao').append(linha);
+					$('#tabela_exibicao_cabecalho').append(linha);
 					
 					for (var i=0; i<len; i++){
 						
