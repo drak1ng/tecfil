@@ -54,8 +54,8 @@
 
 			<div role="main" class="ui-content">
 				<div style="width:100%; height: calc(100% - 170px); position:fixed; top:104px; left:0px; font-size:12px; text-transform:none; overflow:scroll;">
-					<div id="tabela_exibicao_cabecalho" style="width:1970px; height:24px;"></div>
-					<div id="tabela_exibicao" style="width:1970px; overflow:scroll; height: calc(100% - 24px);"></div>
+					<div id="tabela_exibicao_cabecalho" style="width:1970px; height:34px;"></div>
+					<div id="tabela_exibicao" style="width:1970px; overflow:scroll; height: calc(100% - 34px);"></div>
 				</div>
 			</div>
 		
@@ -66,6 +66,102 @@
 				var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
 				
 				window.localStorage.setItem('voltar_busca','1');
+				
+				
+				
+var linha = "";
+var classe= "tabelaCabecalho";
+
+linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>MODELO</div>";
+linha = linha + "<div class='"+classe+"'>MOTOR</div>";
+linha = linha + "<div class='"+classe+"'>ANO DE</div>";
+linha = linha + "<div class='"+classe+"'>ANO ATÉ</div>";
+linha = linha + "<div class='"+classe+"'>DESCRIÇÃO</div>";
+linha = linha + "<div class='"+classe+"'>COMBUSTÍVEL</div>";
+linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
+linha = linha + "<div class='"+classe+"'>FILTRO CABINE</div>";
+linha = linha + "<div class='"+classe+"'>LOCAL CABINE</div>";
+linha = linha + "<div class='"+classe+"'>AR 1</div>";
+linha = linha + "<div class='"+classe+"'>AR 2</div>";
+linha = linha + "<div class='"+classe+"'>LUBR. 1</div>";
+linha = linha + "<div class='"+classe+"'>LUBR. 2</div>";
+linha = linha + "<div class='"+classe+"'>COMBUS. 1</div>";
+linha = linha + "<div class='"+classe+"'>COMBUS. 2</div>";
+linha = linha + "<div class='"+classe+"'>DIREÇÃO</div>";
+linha = linha + "<div class='"+classe+"'>SEDIMENTADOR</div>";
+
+$('#tabela_exibicao_cabecalho').html(linha);
+
+linha = "";
+classe = "tabelaLinha1";
+
+linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>MODELO</div>";
+linha = linha + "<div class='"+classe+"'>MOTOR</div>";
+linha = linha + "<div class='"+classe+"'>ANO DE</div>";
+linha = linha + "<div class='"+classe+"'>ANO ATÉ</div>";
+linha = linha + "<div class='"+classe+"'>DESCRIÇÃO</div>";
+linha = linha + "<div class='"+classe+"'>COMBUSTÍVEL</div>";
+linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
+linha = linha + "<div class='"+classe+"'>FILTRO CABINE</div>";
+linha = linha + "<div class='"+classe+"'>LOCAL CABINE</div>";
+linha = linha + "<div class='"+classe+"'>AR 1</div>";
+linha = linha + "<div class='"+classe+"'>AR 2</div>";
+linha = linha + "<div class='"+classe+"'>LUBR. 1</div>";
+linha = linha + "<div class='"+classe+"'>LUBR. 2</div>";
+linha = linha + "<div class='"+classe+"'>COMBUS. 1</div>";
+linha = linha + "<div class='"+classe+"'>COMBUS. 2</div>";
+linha = linha + "<div class='"+classe+"'>DIREÇÃO</div>";
+linha = linha + "<div class='"+classe+"'>SEDIMENTADOR</div>";
+
+$('#tabela_exibicao').append(linha);
+
+linha = "";
+classe = "tabelaLinha2";
+
+linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>MODELO</div>";
+linha = linha + "<div class='"+classe+"'>MOTOR</div>";
+linha = linha + "<div class='"+classe+"'>ANO DE</div>";
+linha = linha + "<div class='"+classe+"'>ANO ATÉ</div>";
+linha = linha + "<div class='"+classe+"'>DESCRIÇÃO</div>";
+linha = linha + "<div class='"+classe+"'>COMBUSTÍVEL</div>";
+linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
+linha = linha + "<div class='"+classe+"'>FILTRO CABINE</div>";
+linha = linha + "<div class='"+classe+"'>LOCAL CABINE</div>";
+linha = linha + "<div class='"+classe+"'>AR 1</div>";
+linha = linha + "<div class='"+classe+"'>AR 2</div>";
+linha = linha + "<div class='"+classe+"'>LUBR. 1</div>";
+linha = linha + "<div class='"+classe+"'>LUBR. 2</div>";
+linha = linha + "<div class='"+classe+"'>COMBUS. 1</div>";
+linha = linha + "<div class='"+classe+"'>COMBUS. 2</div>";
+linha = linha + "<div class='"+classe+"'>DIREÇÃO</div>";
+linha = linha + "<div class='"+classe+"'>SEDIMENTADOR</div>";
+
+$('#tabela_exibicao').append(linha);
+
+linha = "";
+classe = "tabelaLinha1";
+
+linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>MODELO</div>";
+linha = linha + "<div class='"+classe+"'>MOTOR</div>";
+linha = linha + "<div class='"+classe+"'>ANO DE</div>";
+linha = linha + "<div class='"+classe+"'>ANO ATÉ</div>";
+linha = linha + "<div class='"+classe+"'>DESCRIÇÃO</div>";
+linha = linha + "<div class='"+classe+"'>COMBUSTÍVEL</div>";
+linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
+linha = linha + "<div class='"+classe+"'>FILTRO CABINE</div>";
+linha = linha + "<div class='"+classe+"'>LOCAL CABINE</div>";
+linha = linha + "<div class='"+classe+"'>AR 1</div>";
+linha = linha + "<div class='"+classe+"'>AR 2</div>";
+linha = linha + "<div class='"+classe+"'>LUBR. 1</div>";
+linha = linha + "<div class='"+classe+"'>LUBR. 2</div>";
+linha = linha + "<div class='"+classe+"'>COMBUS. 1</div>";
+linha = linha + "<div class='"+classe+"'>COMBUS. 2</div>";
+linha = linha + "<div class='"+classe+"'>DIREÇÃO</div>";
+linha = linha + "<div class='"+classe+"'>SEDIMENTADOR</div>";
+
+$('#tabela_exibicao').append(linha);
+				
+				
 				
 				if(app_busca_tipo=="automoveis"){ db.transaction(filtrarTabelaAutomoveis); }
 				if(app_busca_tipo=="caminhoes"){ db.transaction(filtrarTabelaCaminhoes); }
