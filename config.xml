@@ -80,9 +80,11 @@
 <preference name="webviewbounce" value="false" />
 <preference name="DisallowOverscroll" value="true" />
 
-<gap:plugin name="org.apache.cordova.network-information" />
 <gap:plugin name="org.apache.cordova.dialogs" />
 <gap:plugin name="org.apache.cordova.device" />
+
+<!--Network Information-->
+<plugin name="cordova-plugin-network-information" spec="1.0.1" source="pgb" />
 
 <plugin name="io.litehelpers.cordova.sqlitestorage" spec="0.7.5" source="pgb" />
 
