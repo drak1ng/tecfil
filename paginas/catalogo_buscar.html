@@ -110,6 +110,7 @@
 					var busca = $('#campo-busca-filtrar').val();
 					window.localStorage.setItem('app_busca',busca);
 					filtrarResgistros(busca);
+					$('#campo-busca-filtrar').blur();
 					return false;
 				}
 				
