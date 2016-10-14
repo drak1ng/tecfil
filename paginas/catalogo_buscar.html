@@ -73,8 +73,7 @@
 				var voltar_busca = window.localStorage.getItem('voltar_busca');
 				
 				if(voltar_busca=="1"){
-					alert("Consulta: "+app_busca);
-					$('#campo-busca-filtrar').val(app_busca);
+					$('#campo-busca-filtrar').html(app_busca);
 					filtrarResgistros(app_busca);
 				}else{
 					window.localStorage.setItem('app_busca','');
