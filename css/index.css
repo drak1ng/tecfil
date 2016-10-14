@@ -316,6 +316,13 @@ h1 {
 	padding:1px 10px;
 }
 
+.barra-titulo {
+	background:#003263;
+	padding:10px 10px;
+	color:#FFF;
+	text-shadow: 0 0 0 #000;
+}
+
 .categoria-quantidade {
 	min-width:10px;
 	float:right;
@@ -329,6 +336,39 @@ h1 {
 	display:none;
 }
 
+.tabelaCabecalho {
+	width:100px;
+	float:left;
+	background:#003263;
+	text-align:center;
+	font-size:11px;
+	color:#FFF;
+	text-shadow: 0 0 0 #000;
+	padding:5px;
+}
+
+.tabelaLinha1 {
+	width:100px;
+	float:left;
+	background:#FFF;
+	text-align:center;
+	font-size:12px;
+	color:#000;
+	text-shadow: 0 0 0 #000;
+	padding:5px;
+	font-weight:normal;
+}
+
+.tabelaLinha2 {
+	width:100px;
+	float:left;
+	background:#EBEBEB;
+	text-align:center;
+	font-size:12px;
+	color:#000;
+	text-shadow: 0 0 0 #000;
+	padding:5px;
+}
 
 .ui-content { margin-top:20px !important; }
 

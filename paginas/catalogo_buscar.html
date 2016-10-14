@@ -189,6 +189,36 @@
 					$('#quantidade_busca_maquinas').show();
 				}
 				
+				$("#bt_categoria_automoveis").click(function(){
+					window.localStorage.setItem('app_busca_tipo','automoveis');
+					$.mobile.changePage("catalogo_tabela.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_categoria_caminhoes").click(function(){
+					window.localStorage.setItem('app_busca_tipo','caminhoes');
+					$.mobile.changePage("catalogo_tabela.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_categoria_onibus").click(function(){
+					window.localStorage.setItem('app_busca_tipo','onibus');
+					$.mobile.changePage("catalogo_tabela.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_categoria_tratores").click(function(){
+					window.localStorage.setItem('app_busca_tipo','tratores');
+					$.mobile.changePage("catalogo_tabela.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_categoria_motocicletas").click(function(){
+					window.localStorage.setItem('app_busca_tipo','motocicletas');
+					$.mobile.changePage("catalogo_tabela.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_categoria_maquinas_equipamentos").click(function(){
+					window.localStorage.setItem('app_busca_tipo','maquinas_equipamentos');
+					$.mobile.changePage("catalogo_tabela.html", { transition: "fade", changeHash: false });
+				});
+				
 				$("#bt_rodape_buscar_02").click(function(){
 					$.mobile.changePage("catalogo_novidades.html", { transition: "fade", changeHash: false });
 				});

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="../css/index.css" />
+        <link rel="stylesheet" type="text/css" href="../css/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+        <title>Tecfil</title>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript" src="../js/cordova.js"></script>
+	</head>
+    <body>
+	    <div data-role="page" style="background:#FFF;">
+		    <div class="topo">
+			    <div class="logotipo">
+				    <div style="margin:0px 70px; text-align:center"><b>FILTRAR<b></div>
+				</div>
+			    <div class="barra-titulo">
+				    <div style="margin:0px 70px; text-align:center"><b>NOME CATEGORIA<b></div>
+				</div>
+		    </div>
+		    
+		    <div class="botoes-rodape">
+			    <div class="botoes-rodape-bloco2" id="bt_rodape_tabela_01" style="background-image:url(../img/icone_01_on.png);">Buscar</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_tabela_02" style="background-image:url(../img/icone_02.png);">Novidades</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_tabela_03" style="background-image:url(../img/icone_03.png);">Mensagens</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_tabela_04" style="background-image:url(../img/icone_04.png);">Contato</div>
+		    </div>
+
+			<div role="main" class="ui-content">
+				<div style="width:100%; height: calc(100% - 170px); position:fixed; top:104px; left:0px; font-size:12px; text-transform:none; overflow:scroll;">
+					<div id="tabela_exibicao_cabecalho" style="width:1970px; height:24px;"></div>
+					<div id="tabela_exibicao" style="width:1970px; overflow:scroll; height: calc(100% - 24px);"></div>
+				</div>
+			</div>
+		
+			
+			<script>
+				
+				var app_busca = window.localStorage.getItem('app_busca');
+				var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
+				
+				window.localStorage.setItem('voltar_busca','1');
+				
+				if(app_busca_tipo=="automoveis"){ db.transaction(filtrarTabelaAutomoveis); }
+				if(app_busca_tipo=="caminhoes"){ db.transaction(filtrarTabelaCaminhoes); }
+				if(app_busca_tipo=="onibus"){ db.transaction(filtrarTabelaOnibus); }
+				if(app_busca_tipo=="tratores"){ db.transaction(filtrarTabelaTratores); }
+				if(app_busca_tipo=="motocicletas"){ db.transaction(filtrarTabelaMotoclicletas); }
+				if(app_busca_tipo=="maquinas_equipamentos"){ db.transaction(filtrarTabelaMaquinasEquipamentos); }
+				
+				
+								
+					
+				//db.transaction(consultarRegistros);
+				
+				function consultarRegistros(tx){
+					tx.executeSql('SELECT * FROM db_equipamentos', [], listarRegistros, errorLISTA);
+				}
+				
+				function errorLISTA(err) {
+					alert("Error processing SQL: "+err.message);
+				}
+				
+				function listarRegistros(tx,result){
+					
+					var len = result.rows.length;
+					
+				    for (var i=0; i<len; i++){
+					    $('#listagem_resultados').append("<div style='border-bottom:1px solid #CCC; padding:10px;'>"+result.rows.item(i).id+" - "+result.rows.item(i).id_mont+"</div>");
+				    }
+				}
+				
+				function filtrarTabelaAutomoveis(tx){
+					var busca = window.localStorage.getItem('app_busca');
+					var where = "";
+					if(busca!=""  && busca!=null){
+						where = 'WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%"';
+					}
+					tx.executeSql('SELECT * FROM db_automoveis ' + where, [], filtrarTabelaAutomoveisResultado, errorLISTA);
+				}
+				
+				function filtrarTabelaCaminhoes(tx){
+					var busca = window.localStorage.getItem('app_busca');
+					var where = "";
+					if(busca!=""  && busca!=null){
+						where = 'WHERE descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%" OR desumidificador LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR transmissao LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%"';
+					}
+					tx.executeSql('SELECT * FROM db_caminhoes ' + where, [], filtrarTabelaCaminhoesResultado, errorLISTA);
+				}
+				
+				function filtrarTabelaOnibus(tx){
+					var busca = window.localStorage.getItem('app_busca');
+					var where = "";
+					if(busca!=""  && busca!=null){
+						where = 'WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%" OR desumidificador LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR transmissao LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%"';
+					}
+					tx.executeSql('SELECT * FROM db_onibus ' + where, [], filtrarTabelaOnibusResultado, errorLISTA);
+				}
+				
+				function filtrarTabelaTratores(tx){
+					var busca = window.localStorage.getItem('app_busca');
+					var where = "";
+					if(busca!=""  && busca!=null){
+						where = 'WHERE modelo LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante LIKE "%'+busca+'%" OR combustivel_1 LIKE "%'+busca+'%" OR combustivel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR transmissao_int LIKE "%'+busca+'%" OR transmissao_ext LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%"';
+					}
+					tx.executeSql('SELECT * FROM db_tratores ' + where, [], filtrarTabelaTratoresResultado, errorLISTA);
+				}
+				
+				function filtrarTabelaMotoclicletas(tx){
+					var busca = window.localStorage.getItem('app_busca');
+					var where = "";
+					if(busca!=""  && busca!=null){
+						where = 'WHERE modelo LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar LIKE "%'+busca+'%" OR oleo LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%"';
+					}
+					tx.executeSql('SELECT * FROM db_motocicletas ' + where, [], filtrarTabelaMotoclicletasResultado, errorLISTA);
+				}
+				
+				function filtrarTabelaMaquinasEquipamentos(tx){
+					var busca = window.localStorage.getItem('app_busca');
+					var where = "";
+					if(busca!=""  && busca!=null){
+						where = 'WHERE modelo LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR combustivel_1 LIKE "%'+busca+'%" OR combustivel_2 LIKE "%'+busca+'%" OR hidraulico LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%"';
+					}
+					tx.executeSql('SELECT * FROM db_equipamentos ' + where, [], filtrarTabelaMaquinasEquipamentosResultado, errorLISTA);
+				}
+				
+				function filtrarTabelaAutomoveisResultado(tx,result){
+					var len = result.rows.length;
+					var linha = "";
+					var classe= "tabelaCabecalho";
+					
+					linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>MODELO</div>";
+					linha = linha + "<div class='"+classe+"'>MOTOR</div>";
+					linha = linha + "<div class='"+classe+"'>ANO DE</div>";
+					linha = linha + "<div class='"+classe+"'>ANO ATÉ</div>";
+					linha = linha + "<div class='"+classe+"'>DESCRIÇÃO</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUSTÍVEL</div>";
+					linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
+					linha = linha + "<div class='"+classe+"'>FILTRO CABINE</div>";
+					linha = linha + "<div class='"+classe+"'>LOCAL CABINE</div>";
+					linha = linha + "<div class='"+classe+"'>AR 1</div>";
+					linha = linha + "<div class='"+classe+"'>AR 2</div>";
+					linha = linha + "<div class='"+classe+"'>LUBR. 1</div>";
+					linha = linha + "<div class='"+classe+"'>LUBR. 2</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUS. 1</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUS. 2</div>";
+					linha = linha + "<div class='"+classe+"'>DIREÇÃO</div>";
+					linha = linha + "<div class='"+classe+"'>SEDIMENTADOR</div>";
+
+					$('#tabela_exibicao').append(linha);
+					
+					for (var i=0; i<len; i++){
+						
+						if(i%2==1){ classe="tabelaLinha1"; }else{ classe="tabelaLinha2"; }
+						
+						linha = "";
+						linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>"+result.rows.item(i).modelo+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).motor+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano_de+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano_ate+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).descricao+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).combustivel+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).capacidade_carter+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_cabine+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).local_loc+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).lubrificante_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).lubrificante_2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).diesel_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).diesel_2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).direcao+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).sedimentador+"</div>";
+						
+					    $('#tabela_exibicao').append(linha);
+					    
+				    }
+				}
+				
+				function filtrarTabelaCaminhoesResultado(tx,result){
+					var len = result.rows.length;
+				}
+				
+				function filtrarTabelaOnibusResultado(tx,result){
+					var len = result.rows.length;
+				}
+				
+				function filtrarTabelaTratoresResultado(tx,result){
+					var len = result.rows.length;
+				}
+				
+				function filtrarTabelaMotoclicletasResultado(tx,result){
+					var len = result.rows.length;
+				}
+				
+				function filtrarTabelaMaquinasEquipamentosResultado(tx,result){
+					var len = result.rows.length;
+				}
+				
+				$("#bt_rodape_tabela_01").click(function(){
+					$.mobile.changePage("catalogo_buscar.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_rodape_tabela_02").click(function(){
+					$.mobile.changePage("catalogo_novidades.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_rodape_tabela_03").click(function(){
+					$.mobile.changePage("catalogo_mensagens.html", { transition: "fade", changeHash: false });
+				});
+				
+				$("#bt_rodape_tabela_04").click(function(){
+					$.mobile.changePage("catalogo_contato.html", { transition: "fade", changeHash: false });
+				});
+				
+			</script>
+		
+		</div>
+    </body>
+</html>
