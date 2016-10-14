@@ -316,6 +316,19 @@ h1 {
 	padding:1px 10px;
 }
 
+.categoria-quantidade {
+	min-width:10px;
+	float:right;
+	background:#ffe01b;
+	color:#003263;
+	text-shadow: 0 0 0 #000;
+	margin-right:10px;
+	padding:5px 8px;
+	border-radius:8px;
+	margin-top:-5px;
+	display:none;
+}
+
 
 .ui-content { margin-top:20px !important; }
 
