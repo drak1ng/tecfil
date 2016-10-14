@@ -122,11 +122,8 @@
 				
 				db = window.openDatabase("Database", "1.0", "Tecfil", 200000);
 				
-				function atualizarDB(){
-					db.transaction(populateDB, errorCB1, successCB);
-				}
-				
-					setTimeout("atualizarDB",800);
+
+				db.transaction(populateDB, errorCB1, successCB);
 				
 				
 				//--------------------------------------------------------------------------------//				
