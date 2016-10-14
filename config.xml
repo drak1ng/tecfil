@@ -80,7 +80,7 @@
 <preference name="webviewbounce" value="false" />
 <preference name="DisallowOverscroll" value="true" />
 
-<gap:plugin name="org.apache.cordova.dialogs" />
+<plugin name="cordova-plugin-dialogs" spec="1.1.1" source="pgb" />
 <gap:plugin name="org.apache.cordova.device" />
 
 <!--Network Information-->
