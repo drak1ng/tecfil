@@ -73,14 +73,19 @@
 					var app_busca = window.localStorage.getItem('app_busca');
 					var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
 					
-					window.localStorage.setItem('voltar_busca','1');
-	
+$('#tabela_exibicao').on('click', function(){
 					if(app_busca_tipo=="automoveis"){ $('#table-titulo').html("Automóveis"); db.transaction(filtrarTabelaAutomoveis); }
 					if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html("Caminhões"); db.transaction(filtrarTabelaCaminhoes); }
 					if(app_busca_tipo=="onibus"){ $('#table-titulo').html("Ônibus"); db.transaction(filtrarTabelaOnibus); }
 					if(app_busca_tipo=="tratores"){ $('#table-titulo').html("Tratores"); db.transaction(filtrarTabelaTratores); }
 					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); db.transaction(filtrarTabelaMotoclicletas); }
 					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); db.transaction(filtrarTabelaMaquinasEquipamentos); }
+});
+
+					
+					
+	
+
 					
 				
 				
@@ -495,6 +500,7 @@
 				}
 				
 				$("#bt_tablea_voltar").click(function(){
+					window.localStorage.setItem('voltar_busca','1');
 					$('#tabela_exibicao').remove();
 				//	$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				});
