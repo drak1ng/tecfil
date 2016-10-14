@@ -98,6 +98,7 @@
 				
 				function buscaFiltrar(){
 					var busca = $('#campo-busca-filtrar').val();
+					window.localStorage.setItem('app_busca',busca);
 					filtrarResgistros(busca);
 					return false;
 				}
