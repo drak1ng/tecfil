@@ -40,6 +40,11 @@
 			    <div class="logotipo">
 				    <div style="margin:0px 70px; text-align:center"><b>FILTRAR<b></div>
 				</div>
+			    <div class="barra-busca">
+				    <form action="#" onsubmit="return buscaFiltrar();">
+						<input type="search" id="campo-busca-filtrar">
+					</form>
+				</div>
 		    </div>
 		    
 		    <div class="botoes-rodape">
@@ -51,13 +56,13 @@
 
 			<div role="main" class="ui-content">
 				<div id="listagem_resultados"></div>
-				<div style="text-align:center; padding:28px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
-				    <div class="lista-botoes" id="bt_catalogo_home_01" style="background-image:url(../img/categoria_01.png);">Automóveis</div>
-					<div class="lista-botoes" id="bt_catalogo_home_02" style="background-image:url(../img/categoria_02.png);">Caminhões</div>
-					<div class="lista-botoes" id="bt_catalogo_home_03" style="background-image:url(../img/categoria_03.png);">Ônibus</div>
-					<div class="lista-botoes" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_04.png);">Tratores</div>
-					<div class="lista-botoes" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_05.png);">Motociletas</div>
-					<div class="lista-botoes" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_06.png);">Máquinas e Equipamentos</div>
+				<div style="text-align:center; padding:88px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
+				    <div class="lista-categorias" id="bt_catalogo_home_01" style="background-image:url(../img/categoria_01.png);">Automóveis</div>
+					<div class="lista-categorias" id="bt_catalogo_home_02" style="background-image:url(../img/categoria_02.png);">Caminhões</div>
+					<div class="lista-categorias" id="bt_catalogo_home_03" style="background-image:url(../img/categoria_03.png);">Ônibus</div>
+					<div class="lista-categorias" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_04.png);">Tratores</div>
+					<div class="lista-categorias" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_05.png);">Motociletas</div>
+					<div class="lista-categorias" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_06.png);">Máquinas e Equipamentos</div>
 				</div>
 			</div>
 		
@@ -81,6 +86,11 @@
 				    for (var i=0; i<len; i++){
 					    $('#listagem_resultados').append("<div style='border-bottom:1px solid #CCC; padding:10px;'>"+result.rows.item(i).id+" - "+result.rows.item(i).id_mont+"</div>");
 				    }
+				}
+				
+				function buscaFiltrar(){
+					var busca = $('#campo-busca-filtrar').val();
+					alert("Filtrar por: "+busca);
 				}
 				
 				$("#bt_rodape_buscar_02").click(function(){
