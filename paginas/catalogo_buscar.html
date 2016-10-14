@@ -120,8 +120,7 @@
 				
 				function filtrarAutomoveis(tx){
 					var busca = window.localStorage.getItem('app_busca');
-					//tx.executeSql('SELECT * FROM db_automoveis WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1, ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%"', [], filtrarAutomoveisResultado, errorLISTA);
-					tx.executeSql('SELECT * FROM db_automoveis WHERE modelo LIKE "%'+busca+'%"', [], filtrarAutomoveisResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_automoveis WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%"', [], filtrarAutomoveisResultado, errorLISTA);
 				}
 				
 				function filtrarAutomoveisResultado(tx,result){
