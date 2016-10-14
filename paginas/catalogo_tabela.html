@@ -42,7 +42,7 @@
 				    <div style="margin:0px 70px; text-align:center"><b>FILTRAR<b></div>
 				</div>
 			    <div class="barra-titulo">
-				    <div style="margin:0px 70px; text-align:center" id="table-titulo"><b>NOME CATEGORIA<b></div>
+				    <div style="margin:0px; text-align:center" id="table-titulo"><b>NOME CATEGORIA<b></div>
 				</div>
 		    </div>
 		    
@@ -63,17 +63,21 @@
 			
 			<script>
 				
-				var app_busca = window.localStorage.getItem('app_busca');
-				var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
-				
-				window.localStorage.setItem('voltar_busca','1');
-
-				if(app_busca_tipo=="automoveis"){ $('#table-titulo').html("Automóveis"); db.transaction(filtrarTabelaAutomoveis); }
-				if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html("Caminhões"); db.transaction(filtrarTabelaCaminhoes); }
-				if(app_busca_tipo=="onibus"){ $('#table-titulo').html("Ônibus"); db.transaction(filtrarTabelaOnibus); }
-				if(app_busca_tipo=="tratores"){ $('#table-titulo').html("Tratores"); db.transaction(filtrarTabelaTratores); }
-				if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); db.transaction(filtrarTabelaMotoclicletas); }
-				if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); db.transaction(filtrarTabelaMaquinasEquipamentos); }
+				$(document).ready(function(){
+					
+					var app_busca = window.localStorage.getItem('app_busca');
+					var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
+					
+					window.localStorage.setItem('voltar_busca','1');
+	
+					if(app_busca_tipo=="automoveis"){ $('#table-titulo').html("Automóveis"); db.transaction(filtrarTabelaAutomoveis); }
+					if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html("Caminhões"); db.transaction(filtrarTabelaCaminhoes); }
+					if(app_busca_tipo=="onibus"){ $('#table-titulo').html("Ônibus"); db.transaction(filtrarTabelaOnibus); }
+					if(app_busca_tipo=="tratores"){ $('#table-titulo').html("Tratores"); db.transaction(filtrarTabelaTratores); }
+					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); db.transaction(filtrarTabelaMotoclicletas); }
+					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); db.transaction(filtrarTabelaMaquinasEquipamentos); }
+					
+				});
 				
 				function errorLISTA(err) {
 					alert("Error processing SQL: "+err.message);
