@@ -83,13 +83,21 @@
 					if(email==""){ alert("O campo E-mail deve ser preenchido"); return false; }
 					if(mensagem==""){ alert("O campo Mensagem deve ser preenchido"); return false; }
 					
-					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/contato.php", { area:area, nome:nome, empresa:empresa, telefone:telefone, email:email, mensagem:mensagem }, function(data){
-						if(data=="OK"){
-							$.mobile.changePage("catalogo_contato_obrigado.html", { transition: "fade", changeHash: false });
-						}else{
-							alert("Não foi possuível enviar sua mensagem, tente novamente mais tarde!");
-						}
-					});
+					if(jaFicouOffline==0){
+						
+						$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/contato.php", { area:area, nome:nome, empresa:empresa, telefone:telefone, email:email, mensagem:mensagem }, function(data){
+							if(data=="OK"){
+								$.mobile.changePage("catalogo_contato_obrigado.html", { transition: "fade", changeHash: false });
+							}else{
+								alert("Não foi possuível enviar sua mensagem, tente novamente mais tarde!");
+							}
+						});
+					
+					}else{
+						
+						alert("Você precisa de acesso a internet para enviar sua mensagem.");
+						
+					}
 					
 				});
 				
