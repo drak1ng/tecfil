@@ -58,11 +58,11 @@
 				<div id="listagem_resultados"></div>
 				<div style="text-align:center; padding:88px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
 				    <div class="lista-categorias" id="bt_categoria_automoveis" style="background-image:url(../img/categoria_01.png);"><div class="categoria-quantidade" id="quantidade_busca_automoveis">123</div>Automóveis</div>
-					<div class="lista-categorias" id="bt_categoria_caminhoes" style="background-image:url(../img/categoria_02.png);"><div class="categoria-quantidade">123</div>Caminhões</div>
-					<div class="lista-categorias" id="bt_categoria_onibus" style="background-image:url(../img/categoria_03.png);"><div class="categoria-quantidade">123</div>Ônibus</div>
-					<div class="lista-categorias" id="bt_categoria_tratores" style="background-image:url(../img/categoria_04.png);"><div class="categoria-quantidade">123</div>Tratores</div>
-					<div class="lista-categorias" id="bt_categoria_motocicletas" style="background-image:url(../img/categoria_05.png);"><div class="categoria-quantidade">123</div>Motociletas</div>
-					<div class="lista-categorias" id="bt_categoria_maquinas_equipamentos" style="background-image:url(../img/categoria_06.png);"><div class="categoria-quantidade">123</div>Máquinas e Equipamentos</div>
+					<div class="lista-categorias" id="bt_categoria_caminhoes" style="background-image:url(../img/categoria_02.png);"><div class="categoria-quantidade" id="quantidade_busca_caminhoes">123</div>Caminhões</div>
+					<div class="lista-categorias" id="bt_categoria_onibus" style="background-image:url(../img/categoria_03.png);"><div class="categoria-quantidade" id="quantidade_busca_onibus">123</div>Ônibus</div>
+					<div class="lista-categorias" id="bt_categoria_tratores" style="background-image:url(../img/categoria_04.png);"><div class="categoria-quantidade" id="quantidade_busca_tratores">123</div>Tratores</div>
+					<div class="lista-categorias" id="bt_categoria_motocicletas" style="background-image:url(../img/categoria_05.png);"><div class="categoria-quantidade" id="quantidade_busca_motocicletas">123</div>Motociletas</div>
+					<div class="lista-categorias" id="bt_categoria_maquinas_equipamentos" style="background-image:url(../img/categoria_06.png);"><div class="categoria-quantidade" id="quantidade_busca_maquinas">123</div>Máquinas e Equipamentos</div>
 				</div>
 			</div>
 		
@@ -74,6 +74,13 @@
 				if(app_busca!="" && app_busca!=null){
 					$('#campo-busca-filtrar').val(app_busca);
 					filtrarResgistros(app_busca);
+				}else{
+					$('#quantidade_busca_automoveis').hide();
+					$('#quantidade_busca_caminhoes').hide();
+					$('#quantidade_busca_onibus').hide();
+					$('#quantidade_busca_tratores').hide();
+					$('#quantidade_busca_motocicletas').hide();
+					$('#quantidade_busca_maquinas').hide();
 				}
 					
 				//db.transaction(consultarRegistros);
@@ -114,7 +121,7 @@
 				function filtrarAutomoveis(tx){
 					var busca = window.localStorage.getItem('app_busca');
 					//tx.executeSql('SELECT * FROM db_automoveis WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1, ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%"', [], filtrarAutomoveisResultado, errorLISTA);
-					tx.executeSql('SELECT * FROM db_automoveis', [], filtrarAutomoveisResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_automoveis WHERE modelo LIKE "%'+busca+'%"', [], filtrarAutomoveisResultado, errorLISTA);
 				}
 				
 				function filtrarAutomoveisResultado(tx,result){
