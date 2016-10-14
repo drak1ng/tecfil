@@ -260,6 +260,71 @@
 				
 				function filtrarTabelaOnibusResultado(tx,result){
 					var len = result.rows.length;
+					var linha = "";
+					var classe= "tabelaCabecalho";
+					
+					linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>MODELO</div>";
+					linha = linha + "<div class='"+classe+"'>MOTOR</div>";
+					linha = linha + "<div class='"+classe+"'>ANO DE</div>";
+					linha = linha + "<div class='"+classe+"'>ANO ATÉ</div>";
+					linha = linha + "<div class='"+classe+"'>DESCRIÇÃO</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUSTÍVEL</div>";
+					linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
+					linha = linha + "<div class='"+classe+"'>FILTRO CABINE</div>";
+					linha = linha + "<div class='"+classe+"'>LOCAL CABINE</div>";
+					linha = linha + "<div class='"+classe+"'>AR 1</div>";
+					linha = linha + "<div class='"+classe+"'>AR 2</div>";
+					linha = linha + "<div class='"+classe+"'>LUBR. 1</div>";
+					linha = linha + "<div class='"+classe+"'>LUBR. 2</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUS. 1</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUS. 2</div>";
+					linha = linha + "<div class='"+classe+"'>DIREÇÃO</div>";
+					linha = linha + "<div class='"+classe+"'>SEDIMENTADOR</div>";
+					linha = linha + "<div class='"+classe+"'>DESUMIDIFICADOR</div>";
+					linha = linha + "<div class='"+classe+"'>ÁGUA</div>";
+					linha = linha + "<div class='"+classe+"'>BYPASS</div>";
+					linha = linha + "<div class='"+classe+"'>TRANSMISSÃO</div>";
+					linha = linha + "<div class='"+classe+"'>OUTROS</div>";
+					linha = linha + "<div class='"+classe+"'>OUTROS 2</div>";
+					linha = linha + "<div class='"+classe+"'>OUTROS 3</div>";
+
+					$('#tabela_exibicao_cabecalho').append(linha);
+					$('#tabela_exibicao_cabecalho').css('width','2740px');
+					$('#tabela_exibicao').css('width','2740px');
+					
+					for (var i=0; i<len; i++){
+						
+						if(i%2==1){ classe="tabelaLinha1"; }else{ classe="tabelaLinha2"; }
+						
+						linha = "";
+						linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>"+result.rows.item(i).modelo+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).motor+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano_de+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano_ate+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).descricao+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).combustivel+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).capacidade_carter+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_cabine+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).local_loc+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).lubrificante_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).lubrificante_2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).diesel_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).diesel_2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).direcao+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).sedimentador+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).desumidificador+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).agua+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).bypass+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).transmissao+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).outros+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).outros2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).outros3+"</div>";
+						
+					    $('#tabela_exibicao').append(linha);
+					    
+				    }
 				}
 				
 				function filtrarTabelaTratoresResultado(tx,result){
