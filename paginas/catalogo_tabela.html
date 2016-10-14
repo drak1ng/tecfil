@@ -193,7 +193,7 @@
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).direcao+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).sedimentador+"</div>";
 						
-					    //$('#tabela_exibicao').append(linha);
+					    $('#tabela_exibicao').append(linha);
 					    
 				    }
 				    
@@ -495,8 +495,8 @@
 				}
 				
 				$("#bt_tablea_voltar").click(function(){
-					$('#tabela_exibicao').html("");
-					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
+					$('#tabela_exibicao').remove();
+				//	$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				});
 				
 				$("#bt_rodape_tabela_01").click(function(){
