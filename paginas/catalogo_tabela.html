@@ -65,6 +65,12 @@
 				
 				$(document).ready(function(){
 					
+					//carregarConteudoTabela();
+					
+				});
+				
+				function carregarConteudoTabela(){
+
 					var app_busca = window.localStorage.getItem('app_busca');
 					var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
 					
@@ -77,7 +83,7 @@
 					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); db.transaction(filtrarTabelaMotoclicletas); }
 					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); db.transaction(filtrarTabelaMaquinasEquipamentos); }
 					
-				});
+				}
 				
 				function errorLISTA(err) {
 					alert("Error processing SQL: "+err.message);
