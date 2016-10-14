@@ -170,11 +170,12 @@
 					$('#tabela_exibicao_cabecalho').css('width','1970px');
 					$('#tabela_exibicao').css('width','1970px');
 					
+					linha = "";
+					
 					for (var i=0; i<len; i++){
 						
 						if(i%2==1){ classe="tabelaLinha1"; }else{ classe="tabelaLinha2"; }
 						
-						linha = "";
 						linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>"+result.rows.item(i).modelo+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).motor+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano_de+"</div>";
@@ -192,10 +193,10 @@
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).diesel_2+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).direcao+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).sedimentador+"</div>";
-						
-					    $('#tabela_exibicao').append(linha);
 					    
 				    }
+				    
+				    $('#tabela_exibicao').append(linha);
 				}
 				
 				function filtrarTabelaCaminhoesResultado(tx,result){
