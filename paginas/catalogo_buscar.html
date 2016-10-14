@@ -51,12 +51,20 @@
 
 			<div role="main" class="ui-content">
 				<div id="listagem_resultados"></div>
+				<div style="text-align:center; padding:28px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
+				    <div class="lista-botoes" id="bt_catalogo_home_01" style="background-image:url(../img/categoria_01.png);">Automóveis</div>
+					<div class="lista-botoes" id="bt_catalogo_home_02" style="background-image:url(../img/categoria_02.png);">Caminhões</div>
+					<div class="lista-botoes" id="bt_catalogo_home_03" style="background-image:url(../img/categoria_03.png);">Ônibus</div>
+					<div class="lista-botoes" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_04.png);">Tratores</div>
+					<div class="lista-botoes" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_05.png);">Motociletas</div>
+					<div class="lista-botoes" id="bt_catalogo_home_04" style="background-image:url(../img/categoria_06.png);">Máquinas e Equipamentos</div>
+				</div>
 			</div>
 		
 			
 			<script>
 					
-				db.transaction(consultarRegistros);
+				//db.transaction(consultarRegistros);
 				
 				function consultarRegistros(tx){
 					tx.executeSql('SELECT * FROM db_equipamentos', [], listarRegistros, errorLISTA);
