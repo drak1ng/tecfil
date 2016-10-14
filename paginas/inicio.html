@@ -194,6 +194,7 @@
 							$(xml).find('caminhoes').each(function(){
 								var id = $(this).find('id').text();
 								var id_mont = $(this).find('id_mont').text();
+								var modelo = $(this).find('modelo').text();
 								var descricao = $(this).find('descricao').text();
 								var motor = $(this).find('motor').text();
 								var ano_de = $(this).find('ano_de').text();
@@ -222,7 +223,7 @@
 								itens_atualizados++;
 								$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
-								query_string[x] = 'INSERT INTO db_caminhoes (id, id_mont, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, desumidificador, agua, bypass, transmissao, outros, outros2, outros3, imagem) VALUES ("'+id+'","'+id_mont+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+desumidificador+'","'+agua+'","'+bypass+'","'+transmissao+'","'+outros+'","'+outros2+'","'+outros3+'","'+imagem+'"); ';
+								query_string[x] = 'INSERT INTO db_caminhoes (id, id_mont, modelo, descricao, motor, ano_de, ano_ate, combustivel, capacidade_carter, ar_cabine, local_loc, ar_1, ar_2, lubrificante_1, lubrificante_2, diesel_1, diesel_2, direcao, sedimentador, desumidificador, agua, bypass, transmissao, outros, outros2, outros3, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+descricao+'","'+motor+'","'+ano_de+'","'+ano_ate+'","'+combustivel+'","'+capacidade_carter+'","'+ar_cabine+'","'+local_loc+'","'+ar_1+'","'+ar_2+'","'+lubrificante_1+'","'+lubrificante_2+'","'+diesel_1+'","'+diesel_2+'","'+direcao+'","'+sedimentador+'","'+desumidificador+'","'+agua+'","'+bypass+'","'+transmissao+'","'+outros+'","'+outros2+'","'+outros3+'","'+imagem+'"); ';
 								x = x +1;
 					
 							});
