@@ -63,7 +63,15 @@
 				
 				var id_usuarios = window.localStorage.getItem('id_usuarios');
 				
-				$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/mensagens.php", { id:id_usuarios }, function(data){ $("#id_conteudo_mensagens").html(data); });
+				if(jaFicouOffline==0){
+				
+					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/mensagens.php", { id:id_usuarios }, function(data){ $("#id_conteudo_mensagens").html(data); });
+				
+				}else{
+					
+					$("#id_conteudo_mensagens").html('<div style="width:200px; height:66px; margin:120px auto 0px auto; text-align:center; font-size:13px; color:#999; background:#FFF; padding-top:30px; border-radius:10px;"><br>Você precisa de acesso a internet para visualizar suas mensagens.</div>');
+					
+				}
 				
 				$("#bt_rodape_mensagens_01").click(function(){
 					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
