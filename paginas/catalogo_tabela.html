@@ -379,6 +379,32 @@
 				
 				function filtrarTabelaMotoclicletasResultado(tx,result){
 					var len = result.rows.length;
+					var linha = "";
+					var classe= "tabelaCabecalho";
+					
+					linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>MODELO</div>";
+					linha = linha + "<div class='"+classe+"'>ANO</div>";
+					linha = linha + "<div class='"+classe+"'>AR</div>";
+					linha = linha + "<div class='"+classe+"'>ÓLEO</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUSTÍVEL</div>";
+
+					$('#tabela_exibicao_cabecalho').append(linha);
+					$('#tabela_exibicao_cabecalho').css('width','650px');
+					$('#tabela_exibicao').css('width','650px');
+					
+					for (var i=0; i<len; i++){
+						
+						if(i%2==1){ classe="tabelaLinha1"; }else{ classe="tabelaLinha2"; }
+						
+						linha = "";
+						linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>"+result.rows.item(i).modelo+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).oleo+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).combustivel+"</div>";						
+					    $('#tabela_exibicao').append(linha);
+					    
+				    }
 				}
 				
 				function filtrarTabelaMaquinasEquipamentosResultado(tx,result){
