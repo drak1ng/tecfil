@@ -56,7 +56,12 @@
 			<div role="main" class="ui-content">
 				<div style="width:100%; height: calc(100% - 170px); position:fixed; top:104px; left:0px; font-size:12px; text-transform:none; overflow:scroll;">
 					<div id="tabela_exibicao_cabecalho" style="width:1970px; height:34px;"></div>
-					<div id="tabela_exibicao" style="width:1970px; overflow:scroll; height: calc(100% - 34px);"></div>
+					<div id="tabela_exibicao" style="width:1970px; overflow:scroll; height: calc(100% - 34px);">
+						<div style="width:200px; height:66px; margin:120px auto 0px auto; text-align:center; font-size:13px; color:#999; background:#FFF; padding-top:30px; border-radius:10px;">
+							<img src="../img/loading.gif" width="110" height="10" /><br><br>
+							Aguarde carregando...
+						</div>
+					</div>
 				</div>
 			</div>
 		
@@ -65,7 +70,7 @@
 				
 				$(document).ready(function(){
 					
-					setTimeout(carregarConteudoTabela, 10000)
+					setTimeout(carregarConteudoTabela, 1000);
 					
 				});
 				
