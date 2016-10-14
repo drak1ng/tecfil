@@ -68,19 +68,19 @@
 				$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/mensagens_ficha.php", { id:id_mensagens }, function(data){ $("#id_conteudo_mensagens_ficha").html(data); });
 				
 				$("#bt_mensagens_voltar").click(function(){
-					$.mobile.changePage("catalogo_mensagens.html", { transition: "fade", changeHash: false });
+					$.mobile.changePage("catalogo_mensagens.html", { transition: "none", changeHash: false });
 				});
 				
 				$("#bt_rodape_mensagens2_01").click(function(){
-					$.mobile.changePage("catalogo_buscar.html", { transition: "fade", changeHash: false });
+					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				});
 				
 				$("#bt_rodape_mensagens2_02").click(function(){
-					$.mobile.changePage("catalogo_novidades.html", { transition: "fade", changeHash: false });
+					$.mobile.changePage("catalogo_novidades.html", { transition: "none", changeHash: false });
 				});
 				
 				$("#bt_rodape_mensagens2_04").click(function(){
-					$.mobile.changePage("catalogo_contato.html", { transition: "fade", changeHash: false });
+					$.mobile.changePage("catalogo_contato.html", { transition: "none", changeHash: false });
 				});
 				
 			</script>

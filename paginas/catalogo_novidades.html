@@ -66,15 +66,15 @@
 				$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/novidades.php", { id:id_usuarios }, function(data){ $("#id_conteudo_novidades").html(data); });
 				
 				$("#bt_rodape_novidades_01").click(function(){
-					$.mobile.changePage("catalogo_buscar.html", { transition: "fade", changeHash: false });
+					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				});
 				
 				$("#bt_rodape_novidades_03").click(function(){
-					$.mobile.changePage("catalogo_mensagens.html", { transition: "fade", changeHash: false });
+					$.mobile.changePage("catalogo_mensagens.html", { transition: "none", changeHash: false });
 				});
 				
 				$("#bt_rodape_novidades_04").click(function(){
-					$.mobile.changePage("catalogo_contato.html", { transition: "fade", changeHash: false });
+					$.mobile.changePage("catalogo_contato.html", { transition: "none", changeHash: false });
 				});
 				
 			</script>

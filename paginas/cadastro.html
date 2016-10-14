@@ -77,7 +77,7 @@
 						if(data=="ERRO_EMAIL"){
 							alert("Esse E-mail já foi utilizado em outro Cadastro");
 						}else if(data=="OK"){
-							$.mobile.changePage("cadastro-obrigado.html", { transition: "fade", changeHash: false });
+							$.mobile.changePage("cadastro-obrigado.html", { transition: "none", changeHash: false });
 						}else{
 							alert("Não foi possuível concluir o seu cadastro, tente novamente mais tarde!");
 						}
@@ -86,7 +86,7 @@
 				});
 				
 				$("#bt_cadastro_voltar").click(function(){
-					$.mobile.changePage("inicio.html", { transition: "fade", changeHash: false });
+					$.mobile.changePage("inicio.html", { transition: "none", changeHash: false });
 				});
 				
 			</script>
