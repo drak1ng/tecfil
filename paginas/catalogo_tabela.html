@@ -329,6 +329,54 @@
 				
 				function filtrarTabelaTratoresResultado(tx,result){
 					var len = result.rows.length;
+					var linha = "";
+					var classe= "tabelaCabecalho";
+					
+					modelo, motor, ano, ar_1, ar_2, lubrificante, combustivel_1, combustivel_2, direcao, transmissao_int, transmissao_ext, outros, outros2, outros3, capacidade_carter
+					
+					linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>MODELO</div>";
+					linha = linha + "<div class='"+classe+"'>MOTOR</div>";
+					linha = linha + "<div class='"+classe+"'>ANO</div>";
+					linha = linha + "<div class='"+classe+"'>AR 1</div>";
+					linha = linha + "<div class='"+classe+"'>AR 2</div>";
+					linha = linha + "<div class='"+classe+"'>LUBRIFICANTE</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUS. 1</div>";
+					linha = linha + "<div class='"+classe+"'>COMBUS. 2</div>";
+					linha = linha + "<div class='"+classe+"'>DIREÇÃO</div>";
+					linha = linha + "<div class='"+classe+"'>TRANSMISSÃO INT</div>";
+					linha = linha + "<div class='"+classe+"'>TRANSMISSÃO EXT</div>";
+					linha = linha + "<div class='"+classe+"'>OUTROS</div>";
+					linha = linha + "<div class='"+classe+"'>OUTROS 2</div>";
+					linha = linha + "<div class='"+classe+"'>OUTROS 3</div>";
+					linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
+
+					$('#tabela_exibicao_cabecalho').append(linha);
+					$('#tabela_exibicao_cabecalho').css('width','2740px');
+					$('#tabela_exibicao').css('width','2740px');
+					
+					for (var i=0; i<len; i++){
+						
+						if(i%2==1){ classe="tabelaLinha1"; }else{ classe="tabelaLinha2"; }
+						
+						linha = "";
+						linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>"+result.rows.item(i).modelo+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).motor+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).lubrificante+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).combustivel_1+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).combustivel_2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).direcao+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).transmissao_int+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).transmissao_ext+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).outros+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).outros2+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).outros3+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).capacidade_carter+"</div>";						
+					    $('#tabela_exibicao').append(linha);
+					    
+				    }
 				}
 				
 				function filtrarTabelaMotoclicletasResultado(tx,result){

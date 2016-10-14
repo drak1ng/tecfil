@@ -72,7 +72,7 @@
 				var app_busca = window.localStorage.getItem('app_busca');
 				var voltar_busca = window.localStorage.getItem('voltar_busca');
 				
-				if(voltar_busca=="1"){
+				if(voltar_busca=="1" && app_busca!="" && app_busca!=null){
 					filtrarResgistros(app_busca);
 				}else{
 					window.localStorage.setItem('app_busca','');
