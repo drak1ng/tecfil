@@ -70,6 +70,13 @@
 				
 				$(document).ready(function(){
 					
+					if(app_busca_tipo=="automoveis"){ $('#table-titulo').html("Automóveis"); }
+					if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html("Caminhões"); }
+					if(app_busca_tipo=="onibus"){ $('#table-titulo').html("Ônibus"); }
+					if(app_busca_tipo=="tratores"){ $('#table-titulo').html("Tratores"); }
+					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); }
+					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); }
+					
 					setTimeout(carregarConteudoTabela, 1000);
 					
 				});
@@ -172,7 +179,7 @@
 					linha = linha + "<div class='"+classe+"'>SEDIMENTADOR</div>";
 
 					$('#tabela_exibicao_cabecalho').html(linha);
-					$('#tabela_exibicao').html();
+					$('#tabela_exibicao').html('');
 					$('#tabela_exibicao_cabecalho').css('width','1970px');
 					$('#tabela_exibicao').css('width','1970px');
 					
@@ -236,7 +243,7 @@
 					linha = linha + "<div class='"+classe+"'>OUTROS 3</div>";
 
 					$('#tabela_exibicao_cabecalho').html(linha);
-					$('#tabela_exibicao').html();
+					$('#tabela_exibicao').html('');
 					$('#tabela_exibicao_cabecalho').css('width','2740px');
 					$('#tabela_exibicao').css('width','2740px');
 					
@@ -306,7 +313,7 @@
 					linha = linha + "<div class='"+classe+"'>OUTROS 3</div>";
 
 					$('#tabela_exibicao_cabecalho').html(linha);
-					$('#tabela_exibicao').html();
+					$('#tabela_exibicao').html('');
 					$('#tabela_exibicao_cabecalho').css('width','2740px');
 					$('#tabela_exibicao').css('width','2740px');
 					
@@ -367,7 +374,7 @@
 					linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
 
 					$('#tabela_exibicao_cabecalho').html(linha);
-					$('#tabela_exibicao').html();
+					$('#tabela_exibicao').html('');
 					$('#tabela_exibicao_cabecalho').css('width','1750px');
 					$('#tabela_exibicao').css('width','1750px');
 					
@@ -408,7 +415,7 @@
 					linha = linha + "<div class='"+classe+"'>COMBUSTÍVEL</div>";
 
 					$('#tabela_exibicao_cabecalho').html(linha);
-					$('#tabela_exibicao').html();
+					$('#tabela_exibicao').html('');
 					$('#tabela_exibicao_cabecalho').css('width','650px');
 					$('#tabela_exibicao').css('width','650px');
 					
@@ -450,7 +457,7 @@
 					linha = linha + "<div class='"+classe+"'>CAP. CÁRTER</div>";
 
 					$('#tabela_exibicao_cabecalho').html(linha);
-					$('#tabela_exibicao').html();
+					$('#tabela_exibicao').html('');
 					$('#tabela_exibicao_cabecalho').css('width','1860px');
 					$('#tabela_exibicao').css('width','1860px');
 					
