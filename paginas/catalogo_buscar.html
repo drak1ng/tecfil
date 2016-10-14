@@ -71,10 +71,9 @@
 				
 				var app_busca = window.localStorage.getItem('app_busca');
 				
-				if(app_busca!=""){
+				if(app_busca!="" && app_busca!=null){
 					$('#campo-busca-filtrar').val(app_busca);
-					alert(app_busca);
-					//filtrarResgistros(app_busca);
+					filtrarResgistros(app_busca);
 				}
 					
 				//db.transaction(consultarRegistros);
@@ -114,13 +113,14 @@
 				
 				function filtrarAutomoveis(tx){
 					var busca = window.localStorage.getItem('app_busca');
-					tx.executeSql('SELECT * FROM db_automoveis WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1, ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%"', [], filtrarAutomoveisResultado, errorLISTA);
+					//tx.executeSql('SELECT * FROM db_automoveis WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1, ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%"', [], filtrarAutomoveisResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_automoveis', [], filtrarAutomoveisResultado, errorLISTA);
 				}
 				
 				function filtrarAutomoveisResultado(tx,result){
 					var len = result.rows.length;
-					$('#quantidade_busca_automoveis').css('display','block');
 					$('#quantidade_busca_automoveis').html(len);
+					$('#quantidade_busca_automoveis').show();
 				}
 				
 				$("#bt_rodape_buscar_02").click(function(){
