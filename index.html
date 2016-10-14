@@ -45,14 +45,14 @@
 		</div>
 			<script>
 				
-				var jaFicouOffline = 3;
+				var jaFicouOffline = 1;
 				
 				document.addEventListener("deviceready", onDeviceReady, true);
 				document.addEventListener("online", onOnLine, true);
 				document.addEventListener("offline", onOffLine, true);
 				
 		        function onDeviceReady(){
-		            
+		            setTimeout(carregar, 500);
 		        }
 				
 				function carregar(){
@@ -68,13 +68,11 @@
 				function onOnLine(){
 		            if(jaFicouOffline==1){
 			            jaFicouOffline=0;
-			            setTimeout(carregar, 500);
 			        }
 		        }
 		        
 		        function onOffLine(){
 		            jaFicouOffline = 1;
-		            setTimeout(carregar, 500);
 		        }
 				
 			</script>
