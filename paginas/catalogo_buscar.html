@@ -72,6 +72,7 @@
 				var app_busca = window.localStorage.getItem('app_busca');
 				
 				if(app_busca!="" && app_busca!=null){
+					alert("Consulta: "+app_busca);
 					$('#campo-busca-filtrar').val(app_busca);
 					filtrarResgistros(app_busca);
 				}else{
