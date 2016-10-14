@@ -197,7 +197,10 @@
 					    
 				    }
 				    
-				    alert("Acbou de carregar.");
+				    alert("Acabou de carregar.");
+				    
+				    linha = "";
+				    
 				}
 				
 				function filtrarTabelaCaminhoesResultado(tx,result){
@@ -269,6 +272,9 @@
 					    $('#tabela_exibicao').append(linha);
 					    
 				    }
+				    
+				    linha = "";
+				    
 				}
 				
 				function filtrarTabelaOnibusResultado(tx,result){
@@ -339,6 +345,9 @@
 					    $('#tabela_exibicao').append(linha);
 					    
 				    }
+				    
+				    linha = "";
+				    
 				}
 				
 				function filtrarTabelaTratoresResultado(tx,result){
@@ -390,6 +399,9 @@
 					    $('#tabela_exibicao').append(linha);
 					    
 				    }
+				    
+				    linha = "";
+				    
 				}
 				
 				function filtrarTabelaMotoclicletasResultado(tx,result){
@@ -421,6 +433,9 @@
 					    $('#tabela_exibicao').append(linha);
 					    
 				    }
+				    
+				    linha = "";
+				    
 				}
 				
 				function filtrarTabelaMaquinasEquipamentosResultado(tx,result){
@@ -474,9 +489,13 @@
 					    $('#tabela_exibicao').append(linha);
 					    
 				    }
+				    
+				    linha = "";
+				    
 				}
 				
 				$("#bt_tablea_voltar").click(function(){
+					$('#tabela_exibicao').html("");
 					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				});
 				
