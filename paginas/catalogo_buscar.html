@@ -78,7 +78,6 @@
 					filtrarResgistros(app_busca);
 				}else{
 					window.localStorage.setItem('app_busca','');
-					window.localStorage.setItem('voltar_busca','');
 					$('#quantidade_busca_automoveis').hide();
 					$('#quantidade_busca_caminhoes').hide();
 					$('#quantidade_busca_onibus').hide();
@@ -86,6 +85,8 @@
 					$('#quantidade_busca_motocicletas').hide();
 					$('#quantidade_busca_maquinas').hide();
 				}
+				
+				window.localStorage.setItem('voltar_busca','');
 					
 				//db.transaction(consultarRegistros);
 				
