@@ -45,6 +45,12 @@
 			</div>
 			
 			<script>
+
+				var id_usuarios = window.localStorage.getItem('id_usuarios');
+				
+				if(id_usuarios!="" id_usuarios!=null){
+					$.mobile.changePage("catalogo_home.html", { transition: "none", changeHash: false });
+				}
 				
 				$("#bt_login_acessar").click(function(){
 					
@@ -115,7 +121,10 @@
 				}
 				
 				db = window.openDatabase("Database", "1.0", "Tecfil", 200000);
-				db.transaction(populateDB, errorCB1, successCB);
+				
+				if(jaFicouOffline==0){
+					db.transaction(populateDB, errorCB1, successCB);
+				}
 				
 				
 				//--------------------------------------------------------------------------------//				
