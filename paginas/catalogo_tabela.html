@@ -70,6 +70,8 @@
 				
 				$(document).ready(function(){
 					
+					var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
+					
 					if(app_busca_tipo=="automoveis"){ $('#table-titulo').html("Automóveis"); }
 					if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html("Caminhões"); }
 					if(app_busca_tipo=="onibus"){ $('#table-titulo').html("Ônibus"); }
