@@ -67,7 +67,7 @@
 		
 			
 			<script>
-				
+
 					var app_busca = window.localStorage.getItem('app_busca');
 					var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
 	
@@ -192,8 +192,6 @@
 					    $('#tabela_exibicao').append(linha);
 					    
 				    }
-				    
-				    alert("Acabou de carregar.");
 				    
 				    linha = "";
 				    
@@ -492,8 +490,7 @@
 				
 				$("#bt_tablea_voltar").click(function(){
 					window.localStorage.setItem('voltar_busca','1');
-					$('#tabela_exibicao').remove();
-				//	$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
+					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				});
 				
 				$("#bt_rodape_tabela_01").click(function(){
