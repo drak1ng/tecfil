@@ -520,11 +520,11 @@
 					
 							});
 								
-								alert(query_string[0]);
+
 								
 							var consulta_executar = function(tx){
 								var len = query_string.length;
-								for (var i=0; i<len; i++){
+								for (var i=0; i<2; i++){
 								    tx.executeSql(query_string[i]);
 							    }
 							}
