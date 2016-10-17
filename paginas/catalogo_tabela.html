@@ -176,18 +176,18 @@
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano_de+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ano_ate+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).descricao+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).combustivel+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).capacidade_carter+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_cabine+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).local_loc+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_1+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).ar_2+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).lubrificante_1+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).lubrificante_2+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).diesel_1+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).diesel_2+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).direcao+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).sedimentador+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).combustivel+"')>"+result.rows.item(i).combustivel+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).capacidade_carter+"')>"+result.rows.item(i).capacidade_carter+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).ar_cabine+"')>"+result.rows.item(i).ar_cabine+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).local_loc+"')>"+result.rows.item(i).local_loc+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).ar_1+"')>"+result.rows.item(i).ar_1+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).ar_2+"')>"+result.rows.item(i).ar_2+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).lubrificante_1+"')>"+result.rows.item(i).lubrificante_1+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).lubrificante_2+"')>"+result.rows.item(i).lubrificante_2+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).diesel_1+"')>"+result.rows.item(i).diesel_1+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).diesel_2+"')>"+result.rows.item(i).diesel_2+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).direcao+"')>"+result.rows.item(i).direcao+"</div>";
+						linha = linha + "<div class='"+classe+"' onclick=exibirInformacoesFiltro('"+result.rows.item(i).sedimentador+"')>"+result.rows.item(i).sedimentador+"</div>";
 						
 					    $('#tabela_exibicao').append(linha);
 					    
@@ -488,10 +488,9 @@
 				    
 				}
 				
-				$(".tabelaLinha1").click(function(){
-					var x = $(this).html;
+				function exibirInformacoesFiltro(x){
 					alert(x);
-				});
+				}
 				
 				$("#bt_tablea_voltar").click(function(){
 					window.localStorage.setItem('voltar_busca','1');
