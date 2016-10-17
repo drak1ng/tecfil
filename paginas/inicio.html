@@ -512,6 +512,9 @@
 								var desenv = $(this).find('desenv').text();
 								var imagem = $(this).find('imagem').text();
 					
+								observacao = observacao.replace("'","&#39;");
+								observacao = observacao.replace('"',"&quot;");
+					
 								itens_atualizados++;
 								//$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
@@ -520,11 +523,10 @@
 					
 							});
 								
-
 								
 							var consulta_executar = function(tx){
 								var len = query_string.length;
-								for (var i=0; i<2; i++){
+								for (var i=0; i<len; i++){
 								    tx.executeSql(query_string[i]);
 							    }
 							}
