@@ -512,62 +512,62 @@
 								var desenv = $(this).find('desenv').text();
 								var imagem = $(this).find('imagem').text();
 					
-								id = id.replace("'","&#39;");
-								id = id.replace('"',"&quot;");
+								id = id.replace(/'/g,"&#39;");
+								id = id.replace(/"/g,"&quot;");
 					
-								id_cat = id_cat.replace("'","&#39;");
-								id_cat = id_cat.replace('"',"&quot;");
+								id_cat = id_cat.replace(/'/g,"&#39;");
+								id_cat = id_cat.replace(/"/g,"&quot;");
 					
-								id_estilo = id_estilo.replace("'","&#39;");
-								id_estilo = id_estilo.replace('"',"&quot;");
+								id_estilo = id_estilo.replace(/'/g,"&#39;");
+								id_estilo = id_estilo.replace(/"/g,"&quot;");
 					
-								codigo = codigo.replace("'","&#39;");
-								codigo = codigo.replace('"',"&quot;");
+								codigo = codigo.replace(/'/g,"&#39;");
+								codigo = codigo.replace(/"/g,"&quot;");
 					
-								original = original.replace("'","&#39;");
-								original = original.replace('"',"&quot;");
+								original = original.replace(/'/g,"&#39;");
+								original = original.replace(/"/g,"&quot;");
 					
-								caixa = caixa.replace("'","&#39;");
-								caixa = caixa.replace('"',"&quot;");
+								caixa = caixa.replace(/'/g,"&#39;");
+								caixa = caixa.replace(/"/g,"&quot;");
 					
-								elemento = elemento.replace("'","&#39;");
-								elemento = elemento.replace('"',"&quot;");
+								elemento = elemento.replace(/'/g,"&#39;");
+								elemento = elemento.replace(/"/g,"&quot;");
 					
-								altura = altura.replace("'","&#39;");
-								altura = altura.replace('"',"&quot;");
+								altura = altura.replace(/'/g,"&#39;");
+								altura = altura.replace(/"/g,"&quot;");
 					
-								dia_ext_comp = dia_ext_comp.replace("'","&#39;");
-								dia_ext_comp = dia_ext_comp.replace('"',"&quot;");
+								dia_ext_comp = dia_ext_comp.replace(/'/g,"&#39;");
+								dia_ext_comp = dia_ext_comp.replace(/"/g,"&quot;");
 					
-								dia_int_larg = dia_int_larg.replace("'","&#39;");
-								dia_int_larg = dia_int_larg.replace('"',"&quot;");
+								dia_int_larg = dia_int_larg.replace(/'/g,"&#39;");
+								dia_int_larg = dia_int_larg.replace(/"/g,"&quot;");
 					
-								peso_bruto = peso_bruto.replace("'","&#39;");
-								peso_bruto = peso_bruto.replace('"',"&quot;");
+								peso_bruto = peso_bruto.replace(/'/g,"&#39;");
+								peso_bruto = peso_bruto.replace(/"/g,"&quot;");
 					
-								peso_liquido = peso_liquido.replace("'","&#39;");
-								peso_liquido = peso_liquido.replace('"',"&quot;");
+								peso_liquido = peso_liquido.replace(/'/g,"&#39;");
+								peso_liquido = peso_liquido.replace(/"/g,"&quot;");
 					
-								rosca = rosca.replace("'","&#39;");
-								rosca = rosca.replace('"',"&quot;");
+								rosca = rosca.replace(/'/g,"&#39;");
+								rosca = rosca.replace(/"/g,"&quot;");
 					
-								valvula_anti_retorno = valvula_anti_retorno.replace("'","&#39;");
-								valvula_anti_retorno = valvula_anti_retorno.replace('"',"&quot;");
+								valvula_anti_retorno = valvula_anti_retorno.replace(/'/g,"&#39;");
+								valvula_anti_retorno = valvula_anti_retorno.replace(/"/g,"&quot;");
 					
-								valvula_alivio = valvula_alivio.replace("'","&#39;");
-								valvula_alivio = valvula_alivio.replace('"',"&quot;");
+								valvula_alivio = valvula_alivio.replace(/'/g,"&#39;");
+								valvula_alivio = valvula_alivio.replace(/"/g,"&quot;");
 					
-								observacao = observacao.replace("'","&#39;");
-								observacao = observacao.replace('"',"&quot;");
+								observacao = observacao.replace(/'/g,"&#39;");
+								observacao = observacao.replace(/"/g,"&quot;");
 					
-								fora_de_linha = fora_de_linha.replace("'","&#39;");
-								fora_de_linha = fora_de_linha.replace('"',"&quot;");
+								fora_de_linha = fora_de_linha.replace(/'/g,"&#39;");
+								fora_de_linha = fora_de_linha.replace(/"/g,"&quot;");
 					
-								desenv = desenv.replace("'","&#39;");
-								desenv = desenv.replace('"',"&quot;");
+								desenv = desenv.replace(/'/g,"&#39;");
+								desenv = desenv.replace(/"/g,"&quot;");
 					
-								imagem = imagem.replace("'","&#39;");
-								imagem = imagem.replace('"',"&quot;");
+								imagem = imagem.replace(/'/g,"&#39;");
+								imagem = imagem.replace(/"/g,"&quot;");
 					
 								itens_atualizados++;
 								//$('#login_email').val("Total Atualizado: "+itens_atualizados);
@@ -580,7 +580,7 @@
 								
 							var consulta_executar = function(tx){
 								var len = query_string.length;
-								for (var i=0; i<322; i++){
+								for (var i=0; i<len; i++){
 								    tx.executeSql(query_string[i]);
 							    }
 							}
