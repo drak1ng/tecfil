@@ -512,8 +512,44 @@
 								var desenv = $(this).find('desenv').text();
 								var imagem = $(this).find('imagem').text();
 					
+								caixa = caixa.replace("'","&#39;");
+								caixa = caixa.replace('"',"&quot;");
+					
+								elemento = elemento.replace("'","&#39;");
+								elemento = elemento.replace('"',"&quot;");
+					
+								altura = altura.replace("'","&#39;");
+								altura = altura.replace('"',"&quot;");
+					
+								dia_ext_comp = dia_ext_comp.replace("'","&#39;");
+								dia_ext_comp = dia_ext_comp.replace('"',"&quot;");
+					
+								dia_int_larg = dia_int_larg.replace("'","&#39;");
+								dia_int_larg = dia_int_larg.replace('"',"&quot;");
+					
+								peso_bruto = peso_bruto.replace("'","&#39;");
+								peso_bruto = peso_bruto.replace('"',"&quot;");
+					
+								peso_liquido = peso_liquido.replace("'","&#39;");
+								peso_liquido = peso_liquido.replace('"',"&quot;");
+					
+								rosca = rosca.replace("'","&#39;");
+								rosca = rosca.replace('"',"&quot;");
+					
+								valvula_anti_retorno = valvula_anti_retorno.replace("'","&#39;");
+								valvula_anti_retorno = valvula_anti_retorno.replace('"',"&quot;");
+					
+								valvula_alivio = valvula_alivio.replace("'","&#39;");
+								valvula_alivio = valvula_alivio.replace('"',"&quot;");
+					
 								observacao = observacao.replace("'","&#39;");
 								observacao = observacao.replace('"',"&quot;");
+					
+								fora_de_linha = fora_de_linha.replace("'","&#39;");
+								fora_de_linha = fora_de_linha.replace('"',"&quot;");
+					
+								desenv = desenv.replace("'","&#39;");
+								desenv = desenv.replace('"',"&quot;");
 					
 								itens_atualizados++;
 								//$('#login_email').val("Total Atualizado: "+itens_atualizados);
