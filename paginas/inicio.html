@@ -114,6 +114,9 @@
 				function errorCB3(err) {
 					alert("Error processing SQL3: "+err.code);
 				}
+				function errorCB4(err) {
+					alert("Error processing SQL4: "+err.code);
+				}
 				
 				
 				function successCB() {
@@ -524,7 +527,7 @@
 							    }
 							}
 							
-							db.transaction(consulta_executar, errorCB3);
+							db.transaction(consulta_executar, errorCB4);
 							
 							update_concluido();
 						}
