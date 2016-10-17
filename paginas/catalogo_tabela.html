@@ -90,7 +90,7 @@
 					if(busca!=""  && busca!=null){
 						where = 'WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%"';
 					}
-					tx.executeSql('SELECT * FROM db_automoveis ' + where, [], filtrarTabelaAutomoveisResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_automoveis ' + where + ' LIMIT 0,100', [], filtrarTabelaAutomoveisResultado, errorLISTA);
 				}
 				
 				function filtrarTabelaCaminhoes(tx){
@@ -99,7 +99,7 @@
 					if(busca!=""  && busca!=null){
 						where = 'WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%" OR desumidificador LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR transmissao LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%"';
 					}
-					tx.executeSql('SELECT * FROM db_caminhoes ' + where, [], filtrarTabelaCaminhoesResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_caminhoes ' + where + ' LIMIT 0,100', [], filtrarTabelaCaminhoesResultado, errorLISTA);
 				}
 				
 				function filtrarTabelaOnibus(tx){
@@ -108,7 +108,7 @@
 					if(busca!=""  && busca!=null){
 						where = 'WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%" OR desumidificador LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR transmissao LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%"';
 					}
-					tx.executeSql('SELECT * FROM db_onibus ' + where, [], filtrarTabelaOnibusResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_onibus ' + where + ' LIMIT 0,100', [], filtrarTabelaOnibusResultado, errorLISTA);
 				}
 				
 				function filtrarTabelaTratores(tx){
@@ -117,7 +117,7 @@
 					if(busca!=""  && busca!=null){
 						where = 'WHERE modelo LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante LIKE "%'+busca+'%" OR combustivel_1 LIKE "%'+busca+'%" OR combustivel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR transmissao_int LIKE "%'+busca+'%" OR transmissao_ext LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%"';
 					}
-					tx.executeSql('SELECT * FROM db_tratores ' + where, [], filtrarTabelaTratoresResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_tratores ' + where + ' LIMIT 0,100', [], filtrarTabelaTratoresResultado, errorLISTA);
 				}
 				
 				function filtrarTabelaMotoclicletas(tx){
@@ -126,7 +126,7 @@
 					if(busca!=""  && busca!=null){
 						where = 'WHERE modelo LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar LIKE "%'+busca+'%" OR oleo LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%"';
 					}
-					tx.executeSql('SELECT * FROM db_motocicletas ' + where, [], filtrarTabelaMotoclicletasResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_motocicletas ' + where + ' LIMIT 0,100', [], filtrarTabelaMotoclicletasResultado, errorLISTA);
 				}
 				
 				function filtrarTabelaMaquinasEquipamentos(tx){
@@ -135,7 +135,7 @@
 					if(busca!=""  && busca!=null){
 						where = 'WHERE modelo LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR combustivel_1 LIKE "%'+busca+'%" OR combustivel_2 LIKE "%'+busca+'%" OR hidraulico LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%"';
 					}
-					tx.executeSql('SELECT * FROM db_equipamentos ' + where, [], filtrarTabelaMaquinasEquipamentosResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_equipamentos ' + where + ' LIMIT 0,100', [], filtrarTabelaMaquinasEquipamentosResultado, errorLISTA);
 				}
 				
 				function filtrarTabelaAutomoveisResultado(tx,result){
