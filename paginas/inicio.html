@@ -512,6 +512,21 @@
 								var desenv = $(this).find('desenv').text();
 								var imagem = $(this).find('imagem').text();
 					
+								id = id.replace("'","&#39;");
+								id = id.replace('"',"&quot;");
+					
+								id_cat = id_cat.replace("'","&#39;");
+								id_cat = id_cat.replace('"',"&quot;");
+					
+								id_estilo = id_estilo.replace("'","&#39;");
+								id_estilo = id_estilo.replace('"',"&quot;");
+					
+								codigo = codigo.replace("'","&#39;");
+								codigo = codigo.replace('"',"&quot;");
+					
+								original = original.replace("'","&#39;");
+								original = original.replace('"',"&quot;");
+					
 								caixa = caixa.replace("'","&#39;");
 								caixa = caixa.replace('"',"&quot;");
 					
@@ -550,6 +565,9 @@
 					
 								desenv = desenv.replace("'","&#39;");
 								desenv = desenv.replace('"',"&quot;");
+					
+								imagem = imagem.replace("'","&#39;");
+								imagem = imagem.replace('"',"&quot;");
 					
 								itens_atualizados++;
 								//$('#login_email').val("Total Atualizado: "+itens_atualizados);
