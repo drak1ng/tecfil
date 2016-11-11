@@ -489,14 +489,12 @@
 				}
 				
 				function exibirInformacoesFiltro(x){
-					alert('Olá Funcao');
 					window.localStorage.setItem('id_filtro',x);
 					db.transaction(consultaFiltro);
 				}
 				
 				function consultaFiltro(tx){
 					var id_filtro = window.localStorage.getItem('id_filtro');
-					alert('Olá Consulta');
 					tx.executeSql('SELECT * FROM db_filtros WHERE codigo="'+id_filtro+'" LIMIT 0,1', [], consultaFiltroResultado, errorLISTA);
 				}
 				
