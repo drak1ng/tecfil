@@ -408,6 +408,7 @@ h1 {
 .ficha-produto-modal-box-btfechar {
 	width:30px;
 	left:30px;
+	background:url(../img/bt_fechar.png) center center no-repeat;
 	position:fixed;
 	z-index:99999;
 	left:50%;
