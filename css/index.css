@@ -401,8 +401,18 @@ h1 {
 	left:0px;
 	position:fixed;
 	background-color: rgba(255,255,255,0.7);
-	z-index:99999;
+	z-index:99997;
 	display:none;
+}
+
+.ficha-produto-modal-box-btfechar {
+	width:30px;
+	left:30px;
+	position:fixed;
+	z-index:99999;
+	left:50%;
+	top:50%;
+	margin:-240px 0px 0px 100px:
 }
 
 .ficha-produto-modal-box {
@@ -413,16 +423,16 @@ h1 {
 	position:fixed;
 	margin:-220px 0px 0px -140px;
 	background-color:#FFF;
-	border-radius:6px;
 	-webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
 	box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
 	overflow:scroll;
 	text-align:center;
+	z-index:99998;
 }
 
 .ficha-produto-modal-box-linha {
 	border-top:1px solid #CCC;
-	padding:10px 5px;
+	padding:10px 15px;
 	text-align:right;
 	font-size:14px;
 	color:#666;
