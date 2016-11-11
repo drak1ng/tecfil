@@ -45,7 +45,6 @@
 			</div>
 			
 			<script>
-
 				var id_usuarios = window.localStorage.getItem('id_usuarios');
 				
 				if(id_usuarios!="" && id_usuarios!=null){
@@ -82,7 +81,6 @@
 			</script>
 			
 			<script type="text/javascript" charset="utf-8">
-
 				var db = "";
 				
 				function populateDB(tx) {
@@ -91,17 +89,17 @@
 					tx.executeSql('DROP TABLE IF EXISTS db_caminhoes');
 					tx.executeSql('DROP TABLE IF EXISTS db_onibus');
 					tx.executeSql('DROP TABLE IF EXISTS db_tratores');
+					tx.executeSql('DROP TABLE IF EXISTS db_colheitadeiras');
 					tx.executeSql('DROP TABLE IF EXISTS db_motocicletas');
 					tx.executeSql('DROP TABLE IF EXISTS db_equipamentos');
-					tx.executeSql('DROP TABLE IF EXISTS db_filtros');
 					
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_automoveis ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_caminhoes ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_onibus ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_tratores ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, direcao TEXT NOT NULL, transmissao_int TEXT NOT NULL, transmissao_ext TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_colheitadeiras ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico_int TEXT NOT NULL, hidraulico_ext TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_motocicletas ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, ano TEXT NOT NULL, ar TEXT NOT NULL, oleo TEXT NOT NULL, combustivel TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_equipamentos ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, bypass TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico TEXT NOT NULL, direcao TEXT NOT NULL, agua TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
-					tx.executeSql('CREATE TABLE IF NOT EXISTS db_filtros ( id TEXT NOT NULL, id_cat TEXT NOT NULL, id_estilo TEXT NOT NULL, codigo TEXT NOT NULL, original TEXT NOT NULL, caixa TEXT NOT NULL, elemento TEXT NOT NULL, altura TEXT NOT NULL, dia_ext_comp TEXT NOT NULL, dia_int_larg TEXT NOT NULL, peso_bruto TEXT NOT NULL, peso_liquido TEXT NOT NULL, rosca TEXT NOT NULL, valvula_anti_retorno TEXT NOT NULL, valvula_alivio TEXT NOT NULL, observacao TEXT NOT NULL, fora_de_linha TEXT NOT NULL, desenv TEXT NOT NULL, imagem TEXT NOT NULL )');
 					
 				}
 				
@@ -114,9 +112,6 @@
 				function errorCB3(err) {
 					alert("Error processing SQL3: "+err.code);
 				}
-				function errorCB4(err) {
-					alert("Error processing SQL4: "+err.message);
-				}
 				
 				
 				function successCB() {
@@ -125,7 +120,6 @@
 				
 				db = window.openDatabase("Database", "1.0", "Tecfil", 200000);
 				
-
 				db.transaction(populateDB, errorCB1, successCB);
 				
 				
@@ -369,6 +363,61 @@
 							
 							db.transaction(consulta_executar, errorCB3);
 							
+							update_colheitadeiras();
+						}
+					});
+				}
+				
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS COLHEITADEIRAS ------------------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_colheitadeiras(){
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=colheitadeiras.xml",
+						dataType: "xml",
+						success: function(xml){
+							var query_string = [];
+							var x=0;
+							
+							$(xml).find('colheitadeiras').each(function(){
+								var id = $(this).find('id').text();
+								var id_mont = $(this).find('id_mont').text();
+								var modelo = $(this).find('modelo').text();
+								var motor = $(this).find('motor').text();
+								var ano = $(this).find('ano').text();
+								var ar_1 = $(this).find('ar_1').text();
+								var ar_2 = $(this).find('ar_2').text();
+								var lubrificante = $(this).find('lubrificante').text();
+								var combustivel_1 = $(this).find('combustivel_1').text();
+								var combustivel_2 = $(this).find('combustivel_2').text();
+								var hidraulico_int = $(this).find('hidraulico_int').text();
+								var hidraulico_ext = $(this).find('hidraulico_ext').text();
+								var outros = $(this).find('outros').text();
+								var outros2 = $(this).find('outros2').text();
+								var outros3 = $(this).find('outros3').text();
+								var capacidade_carter = $(this).find('capacidade_carter').text();
+								var imagem = $(this).find('imagem').text();
+					
+								itens_atualizados++;
+								//$('#login_email').val("Total Atualizado: "+itens_atualizados);
+								
+								query_string[x] = 'INSERT INTO db_colheitadeiras (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, combustivel_1, combustivel_2, hidraulico_int, hidraulico_ext, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+combustivel_1+'","'+combustivel_2+'","'+hidraulico_int+'","'+hidraulico_ext+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'"); ';
+								x = x +1;
+					
+							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
 							update_motocicletas();
 						}
 					});
@@ -382,7 +431,7 @@
 				function update_motocicletas(){
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=motocicletas.xml",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/motocicletas.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
@@ -425,14 +474,10 @@
 				//-- ATUALIZAR DADOS DOS MAQUINAS E EQUIPAMENTOS ---------------------------------//
 				//--------------------------------------------------------------------------------//
 				
-				function update_maquinasEquipamentos(){
+				function update_maquinasEquipamentos(tx){
 					$.ajax({
 						type: "GET",
-<<<<<<< HEAD
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/motocicletas.xml.php",
-=======
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=maquinasEquipamentos.xml",
->>>>>>> origin/master
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/maquinas_equipamentos.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
@@ -475,125 +520,6 @@
 							}
 							
 							db.transaction(consulta_executar, errorCB3);
-							
-							update_Filtros();
-						}
-					});
-				}
-				
-				
-				//--------------------------------------------------------------------------------//				
-				//-- ATUALIZAR DADOS DOS FILTROS ---------------------------------//
-				//--------------------------------------------------------------------------------//
-				
-				function update_Filtros(){
-					$.ajax({
-						type: "GET",
-<<<<<<< HEAD
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/maquinas_equipamentos.xml.php",
-=======
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/update.php?id=filtros.xml",
->>>>>>> origin/master
-						dataType: "xml",
-						success: function(xml){
-							var query_string = [];
-							var x=0;
-							
-							$(xml).find('filtros').each(function(){
-								var id = $(this).find('id').text();
-								var id_cat = $(this).find('id_cat').text();
-								var id_estilo = $(this).find('id_estilo').text();
-								var codigo = $(this).find('codigo').text();
-								var original = $(this).find('original').text();
-								var caixa = $(this).find('caixa').text();
-								var elemento = $(this).find('elemento').text();
-								var altura = $(this).find('altura').text();
-								var dia_ext_comp = $(this).find('dia_ext_comp').text();
-								var dia_int_larg = $(this).find('dia_int_larg').text();
-								var peso_bruto = $(this).find('peso_bruto').text();
-								var peso_liquido = $(this).find('peso_liquido').text();
-								var rosca = $(this).find('rosca').text();
-								var valvula_anti_retorno = $(this).find('valvula_anti_retorno').text();
-								var valvula_alivio = $(this).find('valvula_alivio').text();
-								var observacao = $(this).find('observacao').text();
-								var fora_de_linha = $(this).find('fora_de_linha').text();
-								var desenv = $(this).find('desenv').text();
-								var imagem = $(this).find('imagem').text();
-					
-								id = id.replace(/'/g,"&#39;");
-								id = id.replace(/"/g,"&quot;");
-					
-								id_cat = id_cat.replace(/'/g,"&#39;");
-								id_cat = id_cat.replace(/"/g,"&quot;");
-					
-								id_estilo = id_estilo.replace(/'/g,"&#39;");
-								id_estilo = id_estilo.replace(/"/g,"&quot;");
-					
-								codigo = codigo.replace(/'/g,"&#39;");
-								codigo = codigo.replace(/"/g,"&quot;");
-					
-								original = original.replace(/'/g,"&#39;");
-								original = original.replace(/"/g,"&quot;");
-					
-								caixa = caixa.replace(/'/g,"&#39;");
-								caixa = caixa.replace(/"/g,"&quot;");
-					
-								elemento = elemento.replace(/'/g,"&#39;");
-								elemento = elemento.replace(/"/g,"&quot;");
-					
-								altura = altura.replace(/'/g,"&#39;");
-								altura = altura.replace(/"/g,"&quot;");
-					
-								dia_ext_comp = dia_ext_comp.replace(/'/g,"&#39;");
-								dia_ext_comp = dia_ext_comp.replace(/"/g,"&quot;");
-					
-								dia_int_larg = dia_int_larg.replace(/'/g,"&#39;");
-								dia_int_larg = dia_int_larg.replace(/"/g,"&quot;");
-					
-								peso_bruto = peso_bruto.replace(/'/g,"&#39;");
-								peso_bruto = peso_bruto.replace(/"/g,"&quot;");
-					
-								peso_liquido = peso_liquido.replace(/'/g,"&#39;");
-								peso_liquido = peso_liquido.replace(/"/g,"&quot;");
-					
-								rosca = rosca.replace(/'/g,"&#39;");
-								rosca = rosca.replace(/"/g,"&quot;");
-					
-								valvula_anti_retorno = valvula_anti_retorno.replace(/'/g,"&#39;");
-								valvula_anti_retorno = valvula_anti_retorno.replace(/"/g,"&quot;");
-					
-								valvula_alivio = valvula_alivio.replace(/'/g,"&#39;");
-								valvula_alivio = valvula_alivio.replace(/"/g,"&quot;");
-					
-								observacao = observacao.replace(/'/g,"&#39;");
-								observacao = observacao.replace(/"/g,"&quot;");
-					
-								fora_de_linha = fora_de_linha.replace(/'/g,"&#39;");
-								fora_de_linha = fora_de_linha.replace(/"/g,"&quot;");
-					
-								desenv = desenv.replace(/'/g,"&#39;");
-								desenv = desenv.replace(/"/g,"&quot;");
-					
-								imagem = imagem.replace(/'/g,"&#39;");
-								imagem = imagem.replace(/"/g,"&quot;");
-					
-								itens_atualizados++;
-								//$('#login_email').val("Total Atualizado: "+itens_atualizados);
-								
-								query_string[x] = 'INSERT INTO db_filtros (id, id_cat, id_estilo, codigo, original, caixa, elemento, altura, dia_ext_comp, dia_int_larg, peso_bruto, peso_liquido, rosca, valvula_anti_retorno, valvula_alivio, observacao, fora_de_linha, desenv, imagem) VALUES ("'+id+'","'+id_cat+'","'+id_estilo+'","'+codigo+'","'+original+'","'+caixa+'","'+elemento+'","'+altura+'","'+dia_ext_comp+'","'+dia_int_larg+'","'+peso_bruto+'","'+peso_liquido+'","'+rosca+'","'+valvula_anti_retorno+'","'+valvula_alivio+'","'+observacao+'","'+fora_de_linha+'","'+desenv+'","'+imagem+'"); ';
-								x = x +1;
-					
-							});
-								
-								
-							var consulta_executar = function(tx){
-								var len = query_string.length;
-								for (var i=0; i<len; i++){
-								    tx.executeSql(query_string[i]);
-							    }
-							}
-							
-							db.transaction(consulta_executar, errorCB4);
 							
 							update_concluido();
 						}
