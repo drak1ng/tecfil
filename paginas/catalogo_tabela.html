@@ -502,26 +502,26 @@
 					var len = result.rows.length;
 					var info = "";
 					var linha = "";
-					
-					alert('Ola Resultado'+result.rows.item(0).codigo);
+
+					if(result.rows.item(0).imagem!="" && result.rows.item(0).imagem!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><img src='http://homologacao.gruposofape.com.br/tecfil/catalogo/"+result.rows.item(0).imagem+"'>"; }
 											
-					if(result.rows.item(0).codigo!="" && result.rows.item(0).codigo!=null){ linha = linha + "<b>Código:</b> "+result.rows.item(0).codigo+"\n"; }
-					if(result.rows.item(0).original!="" && result.rows.item(0).original!=null){ linha = linha + "<b>Original:</b> "+result.rows.item(0).original+"\n"; }
-					if(result.rows.item(0).caixa!="" && result.rows.item(0).caixa!=null){ linha = linha + "<b>Caixa:</b> "+result.rows.item(0).caixa+"\n"; }
-					if(result.rows.item(0).elemento!="" && result.rows.item(0).elemento!=null){ linha = linha + "<b>Elemento:</b> "+result.rows.item(0).elemento+"\n"; }
-					if(result.rows.item(0).altura!="" && result.rows.item(0).altura!=null){ linha = linha + "<b>Altura:</b> "+result.rows.item(0).altura+"\n"; }
-					if(result.rows.item(0).dia_ext_comp!="" && result.rows.item(0).dia_ext_comp!=null){ linha = linha + "<b>Dia. Ext. Comp.:</b> "+result.rows.item(0).dia_ext_comp+"\n"; }
-					if(result.rows.item(0).dia_int_larg!="" && result.rows.item(0).dia_int_larg!=null){ linha = linha + "<b>Dia. Int. Larg.:</b> "+result.rows.item(0).dia_int_larg+"\n"; }
-					if(result.rows.item(0).peso_bruto!="" && result.rows.item(0).peso_bruto!=null){ linha = linha + "<b>Peso Bruto/Kg:</b> "+result.rows.item(0).peso_bruto+"\n"; }
-					if(result.rows.item(0).peso_liquido!="" && result.rows.item(0).peso_liquido!=null){ linha = linha + "<b>Peso Líquido/Kg:</b> "+result.rows.item(0).peso_liquido+"\n"; }
-					if(result.rows.item(0).rosca!="" && result.rows.item(0).rosca!=null){ linha = linha + "<b>Rosca</b> "+result.rows.item(0).rosca+"\n"; }
-					if(result.rows.item(0).valvula_anti_retorno!="" && result.rows.item(0).valvula_anti_retorno!=null){ linha = linha + "<b>Válvula Anti-Retorno:</b> "+result.rows.item(0).valvula_anti_retorno+"\n"; }
-					if(result.rows.item(0).valvula_alivio!="" && result.rows.item(0).valvula_alivio!=null){ linha = linha + "<b>Válvula Alívio:</b> "+result.rows.item(0).valvula_alivio+"\n"; }
-					if(result.rows.item(0).observacao!="" && result.rows.item(0).observacao!=null){ linha = linha + "<b></b> "+result.rows.item(0).observacao+"\n"; }
-					if(result.rows.item(0).fora_de_linha!="" && result.rows.item(0).fora_de_linha!=null){ linha = linha + "<b></b> "+result.rows.item(0).fora_de_linha+"\n"; }
-					if(result.rows.item(0).imagem!="" && result.rows.item(0).imagem!=null){ linha = linha + "<b>Imagem</b> "+result.rows.item(0).imagem+"\n"; }
+					if(result.rows.item(0).codigo!="" && result.rows.item(0).codigo!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Código:</b> "+result.rows.item(0).codigo+"</div>"; }
+					if(result.rows.item(0).original!="" && result.rows.item(0).original!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Original:</b> "+result.rows.item(0).original+"</div>"; }
+					if(result.rows.item(0).caixa!="" && result.rows.item(0).caixa!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Caixa:</b> "+result.rows.item(0).caixa+"</div>"; }
+					if(result.rows.item(0).elemento!="" && result.rows.item(0).elemento!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Elemento:</b> "+result.rows.item(0).elemento+"</div>"; }
+					if(result.rows.item(0).altura!="" && result.rows.item(0).altura!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Altura:</b> "+result.rows.item(0).altura+"</div>"; }
+					if(result.rows.item(0).dia_ext_comp!="" && result.rows.item(0).dia_ext_comp!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Dia. Ext. Comp.:</b> "+result.rows.item(0).dia_ext_comp+"</div>"; }
+					if(result.rows.item(0).dia_int_larg!="" && result.rows.item(0).dia_int_larg!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Dia. Int. Larg.:</b> "+result.rows.item(0).dia_int_larg+"</div>"; }
+					if(result.rows.item(0).peso_bruto!="" && result.rows.item(0).peso_bruto!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Peso Bruto/Kg:</b> "+result.rows.item(0).peso_bruto+"</div>"; }
+					if(result.rows.item(0).peso_liquido!="" && result.rows.item(0).peso_liquido!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Peso Líquido/Kg:</b> "+result.rows.item(0).peso_liquido+"</div>"; }
+					if(result.rows.item(0).rosca!="" && result.rows.item(0).rosca!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Rosca</b> "+result.rows.item(0).rosca+"</div>"; }
+					if(result.rows.item(0).valvula_anti_retorno!="" && result.rows.item(0).valvula_anti_retorno!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Válvula Anti-Retorno:</b> "+result.rows.item(0).valvula_anti_retorno+"</div>"; }
+					if(result.rows.item(0).valvula_alivio!="" && result.rows.item(0).valvula_alivio!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Válvula Alívio:</b> "+result.rows.item(0).valvula_alivio+"</div>"; }
+					if(result.rows.item(0).observacao!="" && result.rows.item(0).observacao!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'>"+result.rows.item(0).observacao+"</div>"; }
+
 				    
-				    alert('Olá: '+linha);
+				    $('.ficha-produto-modal-box').html(linha);
+				    $('.ficha-produto-modal').show();
 				    
 				}
 				
