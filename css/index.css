@@ -408,6 +408,11 @@ h1 {
 	 display:none;
 }
 
+#listagem_resultados {
+	color:#000;
+	text-align:center;
+}
+
 .ficha-produto-modal-box-botao {
 	background:#003162;
 	width:200px;
