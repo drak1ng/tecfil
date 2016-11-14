@@ -131,8 +131,14 @@
 					db.transaction(filtrarMotoclicletas);
 					db.transaction(filtrarMaquinasEquipamentos);
 					db.transaction(filtrarConversoes);
+
+					var add = "";
+
+					if(y!="" && y!=null){
+						add = "<br>Montadora: " + y;
+					}
 					
-					$('#listagem_resultados').html("Exibindo resultados para: " + x);
+					$('#listagem_resultados').html("Filtrar por: " + x + add);
 				}
 				
 				function filtrarAutomoveis(tx){

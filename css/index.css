@@ -411,6 +411,9 @@ h1 {
 #listagem_resultados {
 	color:#000;
 	text-align:center;
+	text-transform:uppercase;
+	padding:10px 0px;
+	background:#ebebeb;
 }
 
 .ficha-produto-modal-box-botao {
