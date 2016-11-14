@@ -530,7 +530,12 @@
 				
 				
 				function update_concluido(){
-					alert("As informações do catálogo foram atualizadas!");
+					$('.db_update').slideDown();
+					setTimeout(update_concluido_hide,4000);
+				}
+				
+				function update_concluido_hide(){
+					$('.db_update').slideUp();
 				}
 				
 			</script>
