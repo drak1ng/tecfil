@@ -501,21 +501,21 @@
 					var linha = "";
 					var classe= "tabelaCabecalho";
 					
-					linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>FILTRO</div>";
+					linha = linha + "<div class='"+classe+"' style='text-align:left;'>FILTRO</div>";
 					linha = linha + "<div class='"+classe+"'>CONCORRENTE</div>";
 					linha = linha + "<div class='"+classe+"'>CÓDIGO</div>";
 
 					$('#tabela_exibicao_cabecalho').html(linha);
 					$('#tabela_exibicao').html('');
-					$('#tabela_exibicao_cabecalho').css('width','400px');
-					$('#tabela_exibicao').css('width','400px');
+					$('#tabela_exibicao_cabecalho').css('width','360px');
+					$('#tabela_exibicao').css('width','360px');
 					
 					for (var i=0; i<len; i++){
 						
 						if(i%2==1){ classe="tabelaLinha1"; }else{ classe="tabelaLinha2"; }
 						
 						linha = "";
-						linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;' onclick=exibirInformacoesFiltro('"+result.rows.item(i).filtro+"')>"+result.rows.item(i).filtro+"</div>";
+						linha = linha + "<div class='"+classe+"'text-align:left;' onclick=exibirInformacoesFiltro('"+result.rows.item(i).filtro+"')>"+result.rows.item(i).filtro+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).concorrente+"</div>";
 						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).codigo+"</div>";				
 					    $('#tabela_exibicao').append(linha);
