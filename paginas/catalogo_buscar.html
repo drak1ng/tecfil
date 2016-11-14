@@ -80,6 +80,16 @@
 				if(voltar_busca=="1" && app_busca!="" && app_busca!=null){
 					$('#campo-busca-filtrar').val(app_busca);
 					$('#campo-busca-montadoras').val(app_busca_montadora);
+					
+					// Grab a select field
+					var el = $('#campo-busca-filtrar');
+					
+					// Select the relevant option, de-select any others
+					el.val(app_busca).attr('selected', true).siblings('option').removeAttr('selected');
+					
+					// jQM refresh
+					el.selectmenu("refresh", true);
+					
 					filtrarResgistros(app_busca,app_busca_montadora);
 				}else{
 					window.localStorage.setItem('app_busca','');
@@ -134,11 +144,19 @@
 
 					var add = "";
 
-					if(y!="" && y!=null){
-						add = "<br>Montadora: " + y;
+					if(x!="" && x!=null){
+						add = "Filtrando por: " + x;
 					}
 					
-					$('#listagem_resultados').html("Filtrar por: " + x + add);
+					if(x!="" && x!=null && y!="" && y!=null){
+						add = add + "<br>";
+					}
+					
+					if(y!="" && y!=null){
+						add = add + "Montadora: " + y;
+					}
+					
+					$('#listagem_resultados').html(add);
 				}
 				
 				function filtrarAutomoveis(tx){
