@@ -78,7 +78,7 @@
 					if(app_busca_tipo=="tratores"){ $('#table-titulo').html("Tratores"); db.transaction(filtrarTabelaTratores); }
 					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); db.transaction(filtrarTabelaMotoclicletas); }
 					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); db.transaction(filtrarTabelaMaquinasEquipamentos); }
-					
+					if(app_busca_tipo=="conversao_direta"){ $('#table-titulo').html("Conversão Direta"); db.transaction(filtrarTabelaConversaoDireta); }
 				
 				
 				function errorLISTA(err) {
@@ -138,6 +138,15 @@
 					if(busca_montadora!="" && busca_montadora!=null){ where = where + ' AND id_mont = "'+busca_montadora+'"'; }
 					tx.executeSql('SELECT * FROM db_equipamentos WHERE 1 ' + where + ' LIMIT 0,100', [], filtrarTabelaMaquinasEquipamentosResultado, errorLISTA);
 				}
+				
+				function filtrarTabelaConversaoDireta(tx){
+					var busca = window.localStorage.getItem('app_busca');
+					var where = "";
+					if(busca!="" && busca!=null){ where = ' AND (filtro LIKE "%'+busca+'%" OR concorrente LIKE "%'+busca+'%" OR codigo LIKE "%'+busca+'%")'; }
+					tx.executeSql('SELECT * FROM db_conversoes WHERE 1 ' + where + ' LIMIT 0,100', [], filtrarTabelaConversaoDiretaResultado, errorLISTA);
+				}
+				
+				
 				
 				function filtrarTabelaAutomoveisResultado(tx,result){
 					var len = result.rows.length;
@@ -485,9 +494,37 @@
 					    
 				    }
 				    
-				    
+				}
+				filtro LIKE "%'+busca+'%" OR concorrente LIKE "%'+busca+'%" OR codigo LIKE "%'+busca+'%"
+				function filtrarTabelaConversaoDiretaResultado(tx,result){
+					var len = result.rows.length;
+					var linha = "";
+					var classe= "tabelaCabecalho";
+					
+					linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;'>FILTRO</div>";
+					linha = linha + "<div class='"+classe+"'>CONCORRENTE</div>";
+					linha = linha + "<div class='"+classe+"'>CÓDIGO</div>";
+
+					$('#tabela_exibicao_cabecalho').html(linha);
+					$('#tabela_exibicao').html('');
+					$('#tabela_exibicao_cabecalho').css('width','400px');
+					$('#tabela_exibicao').css('width','400px');
+					
+					for (var i=0; i<len; i++){
+						
+						if(i%2==1){ classe="tabelaLinha1"; }else{ classe="tabelaLinha2"; }
+						
+						linha = "";
+						linha = linha + "<div class='"+classe+"' style='width:200px; text-align:left;' onclick=exibirInformacoesFiltro('"+result.rows.item(i).filtro+"')>"+result.rows.item(i).filtro+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).concorrente+"</div>";
+						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).codigo+"</div>";				
+					    $('#tabela_exibicao').append(linha);
+					    
+				    }
 				    
 				}
+				
+				
 				
 				function exibirInformacoesFiltro(x){
 					window.localStorage.setItem('id_filtro',x);
