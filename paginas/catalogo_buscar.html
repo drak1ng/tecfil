@@ -77,23 +77,27 @@
 				var app_busca_montadora = window.localStorage.getItem('app_busca_montadora');
 				var voltar_busca = window.localStorage.getItem('voltar_busca');
 				
-				if(voltar_busca=="1" && ((app_busca!="" && app_busca!=null) || (app_busca_montadora!="" && app_busca_montadora!=null))){
-					$('#campo-busca-filtrar').val(app_busca);
-					$('#campo-busca-montadoras').val(app_busca_montadora);
+				$(document).ready(function(){
 				
-					filtrarResgistros(app_busca,app_busca_montadora);
-				}else{
-					window.localStorage.setItem('app_busca','');
-					window.localStorage.setItem('app_busca_montadora','');
-					$('#quantidade_busca_automoveis').hide();
-					$('#quantidade_busca_caminhoes').hide();
-					$('#quantidade_busca_onibus').hide();
-					$('#quantidade_busca_tratores').hide();
-					$('#quantidade_busca_motocicletas').hide();
-					$('#quantidade_busca_maquinas').hide();
+					if(voltar_busca=="1" && ((app_busca!="" && app_busca!=null) || (app_busca_montadora!="" && app_busca_montadora!=null))){
+						$('#campo-busca-filtrar').val(app_busca);
+						$('#campo-busca-montadoras').val(app_busca_montadora).selectmenu('refresh');
+					
+						filtrarResgistros(app_busca,app_busca_montadora);
+					}else{
+						window.localStorage.setItem('app_busca','');
+						window.localStorage.setItem('app_busca_montadora','');
+						$('#quantidade_busca_automoveis').hide();
+						$('#quantidade_busca_caminhoes').hide();
+						$('#quantidade_busca_onibus').hide();
+						$('#quantidade_busca_tratores').hide();
+						$('#quantidade_busca_motocicletas').hide();
+						$('#quantidade_busca_maquinas').hide();
+					}
+					
+					window.localStorage.setItem('voltar_busca','');
+					
 				}
-				
-				window.localStorage.setItem('voltar_busca','');
 					
 				//db.transaction(consultarRegistros);
 				
