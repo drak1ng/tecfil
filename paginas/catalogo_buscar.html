@@ -123,7 +123,7 @@
 					return false;
 				}
 				
-				function filtrarResgistros(x){
+				function filtrarResgistros(x,y){
 					db.transaction(filtrarAutomoveis);
 					db.transaction(filtrarCaminhoes);
 					db.transaction(filtrarOnibus);
@@ -131,6 +131,8 @@
 					db.transaction(filtrarMotoclicletas);
 					db.transaction(filtrarMaquinasEquipamentos);
 					db.transaction(filtrarConversoes);
+					
+					$('#listagem_resultados').html("Exibindo resultados para: " + x);
 				}
 				
 				function filtrarAutomoveis(tx){

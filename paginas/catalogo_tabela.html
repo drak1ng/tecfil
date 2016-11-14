@@ -543,7 +543,7 @@
 
 					if(result.rows.item(0).imagem!="" && result.rows.item(0).imagem!=null){ linha = linha + "<img src='http://homologacao.gruposofape.com.br/tecfil/catalogo/"+result.rows.item(0).imagem+"'>"; }
 					
-					linha = linha + "<div class='ficha-produto-modal-box-botao'>Veja Aplicações</div>";
+					linha = linha + "<div class='ficha-produto-modal-box-botao' onclick=verAplicacoes('"+result.rows.item(0).codigo+"') >Veja Aplicações</div>";
 					
 					if(result.rows.item(0).codigo!="" && result.rows.item(0).codigo!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Código:</b> "+result.rows.item(0).codigo+"</div>"; }
 					if(result.rows.item(0).original!="" && result.rows.item(0).original!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Original:</b> "+result.rows.item(0).original+"</div>"; }
@@ -585,6 +585,12 @@
 				$("#bt_rodape_tabela_04").click(function(){
 					$.mobile.changePage("catalogo_contato.html", { transition: "none", changeHash: false });
 				});
+				
+				function verAplicacoes(x){
+					window.localStorage.setItem('app_busca',x);
+					window.localStorage.setItem('voltar_busca','1');
+					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
+				}
 				
 			</script>
 			
