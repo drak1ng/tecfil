@@ -93,6 +93,7 @@
 					tx.executeSql('DROP TABLE IF EXISTS db_filtros');
 					tx.executeSql('DROP TABLE IF EXISTS db_motocicletas');
 					tx.executeSql('DROP TABLE IF EXISTS db_equipamentos');
+					tx.executeSql('DROP TABLE IF EXISTS db_conversoes');
 					
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_montadoras ( id TEXT NOT NULL, nome TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_automoveis ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, imagem TEXT NOT NULL )');
@@ -102,6 +103,7 @@
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_filtros (id TEXT NOT NULL, id_cat TEXT NOT NULL, id_estilo TEXT NOT NULL, codigo TEXT NOT NULL, original TEXT NOT NULL, caixa TEXT NOT NULL, elemento TEXT NOT NULL, altura TEXT NOT NULL, dia_ext_comp TEXT NOT NULL, dia_int_larg TEXT NOT NULL, peso_bruto TEXT NOT NULL, peso_liquido TEXT NOT NULL, rosca TEXT NOT NULL, valvula_anti_retorno TEXT NOT NULL, valvula_alivio TEXT NOT NULL, observacao TEXT NOT NULL, fora_de_linha TEXT NOT NULL, desenv TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_motocicletas ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, ano TEXT NOT NULL, ar TEXT NOT NULL, oleo TEXT NOT NULL, combustivel TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_equipamentos ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, motor TEXT NOT NULL, ano TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante TEXT NOT NULL, bypass TEXT NOT NULL, combustivel_1 TEXT NOT NULL, combustivel_2 TEXT NOT NULL, hidraulico TEXT NOT NULL, direcao TEXT NOT NULL, agua TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, capacidade_carter TEXT NOT NULL, imagem TEXT NOT NULL )');
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_conversoes ( id TEXT NOT NULL, filtro TEXT NOT NULL, concorrente TEXT NOT NULL, codigo TEXT NOT NULL )');
 					
 				}
 				
@@ -553,6 +555,48 @@
 								//$('#login_email').val("Total Atualizado: "+itens_atualizados);
 								
 								query_string[x] = 'INSERT INTO db_equipamentos (id, id_mont, modelo, motor, ano, ar_1, ar_2, lubrificante, bypass, combustivel_1, combustivel_2, hidraulico, direcao, agua, outros, outros2, outros3, capacidade_carter, imagem) VALUES ("'+id+'","'+id_mont+'","'+modelo+'","'+motor+'","'+ano+'","'+ar_1+'","'+ar_2+'","'+lubrificante+'","'+bypass+'","'+combustivel_1+'","'+combustivel_2+'","'+hidraulico+'","'+direcao+'","'+agua+'","'+outros+'","'+outros2+'","'+outros3+'","'+capacidade_carter+'","'+imagem+'"); ';
+								x = x +1;
+					
+							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
+							update_conversoes();
+						}
+					});
+				}
+				
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS MAQUINAS E EQUIPAMENTOS ---------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_conversoes(tx){
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/conversoes.xml.php",
+						dataType: "xml",
+						success: function(xml){
+							var query_string = [];
+							var x=0;
+							
+							$(xml).find('conversoes').each(function(){
+								var id = $(this).find('id').text();
+								var filtro = $(this).find('filtro').text();
+								var concorrente = $(this).find('concorrente').text();
+								var codigo = $(this).find('codigo').text();
+					
+								itens_atualizados++;
+								//$('#login_email').val("Total Atualizado: "+itens_atualizados);
+								
+								query_string[x] = 'INSERT INTO db_equipamentos (id, filtro, concorrente, codigo) VALUES ("'+id+'","'+filtro+'","'+concorrente+'","'+codigo+'"); ';
 								x = x +1;
 					
 							});
