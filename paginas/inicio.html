@@ -124,7 +124,10 @@
 				
 				db = window.openDatabase("Database", "1.0", "Tecfil", 200000);
 				
-				db.transaction(populateDB, errorCB1, successCB);
+				var app_update = window.localStorage.getItem('app_update');
+				if(app_update!='1'){
+					db.transaction(populateDB, errorCB1, successCB);
+				}
 				
 				
 				//--------------------------------------------------------------------------------//				
@@ -619,6 +622,7 @@
 				function update_concluido(){
 					$('.db_update').slideDown();
 					setTimeout(update_concluido_hide,4000);
+					window.localStorage.setItem('app_update','1');
 				}
 				
 				function update_concluido_hide(){
