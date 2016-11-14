@@ -79,7 +79,7 @@
 				
 				if(voltar_busca=="1" && ((app_busca!="" && app_busca!=null) || (app_busca_montadora!="" && app_busca_montadora!=null))){
 					$('#campo-busca-filtrar').val(app_busca);
-					$('#campo-busca-montadoras').val(app_busca_montadora).selectmenu('refresh');
+					$('#campo-busca-montadoras').val(app_busca_montadora);
 				
 					filtrarResgistros(app_busca,app_busca_montadora);
 				}else{
