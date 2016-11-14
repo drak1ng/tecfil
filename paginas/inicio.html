@@ -85,6 +85,7 @@
 				
 				function populateDB(tx) {
 					
+					tx.executeSql('DROP TABLE IF EXISTS db_montadoras');
 					tx.executeSql('DROP TABLE IF EXISTS db_automoveis');
 					tx.executeSql('DROP TABLE IF EXISTS db_caminhoes');
 					tx.executeSql('DROP TABLE IF EXISTS db_onibus');
@@ -93,6 +94,7 @@
 					tx.executeSql('DROP TABLE IF EXISTS db_motocicletas');
 					tx.executeSql('DROP TABLE IF EXISTS db_equipamentos');
 					
+					tx.executeSql('CREATE TABLE IF NOT EXISTS db_montadoras ( id TEXT NOT NULL, nome TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_automoveis ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_caminhoes ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
 					tx.executeSql('CREATE TABLE IF NOT EXISTS db_onibus ( id TEXT NOT NULL, id_mont TEXT NOT NULL, modelo TEXT NOT NULL, descricao TEXT NOT NULL, motor TEXT NOT NULL, ano_de TEXT NOT NULL, ano_ate TEXT NOT NULL, combustivel TEXT NOT NULL, capacidade_carter TEXT NOT NULL, ar_cabine TEXT NOT NULL, local_loc TEXT NOT NULL, ar_1 TEXT NOT NULL, ar_2 TEXT NOT NULL, lubrificante_1 TEXT NOT NULL, lubrificante_2 TEXT NOT NULL, diesel_1 TEXT NOT NULL, diesel_2 TEXT NOT NULL, direcao TEXT NOT NULL, sedimentador TEXT NOT NULL, desumidificador TEXT NOT NULL, agua TEXT NOT NULL, bypass TEXT NOT NULL, transmissao TEXT NOT NULL, outros TEXT NOT NULL, outros2 TEXT NOT NULL, outros3 TEXT NOT NULL, imagem TEXT NOT NULL )');
@@ -115,12 +117,53 @@
 				
 				
 				function successCB() {
-					update_automoveis();
+					update_montadoras();
 				}
 				
 				db = window.openDatabase("Database", "1.0", "Tecfil", 200000);
 				
 				db.transaction(populateDB, errorCB1, successCB);
+				
+				
+				//--------------------------------------------------------------------------------//				
+				//-- ATUALIZAR DADOS DOS AUTOMOVEIS ----------------------------------------------//
+				//--------------------------------------------------------------------------------//
+				
+				function update_montadoras(){
+				
+					itens_atualizados = 0;
+				
+					$.ajax({
+						type: "GET",
+						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/montadoras.xml.php",
+						dataType: "xml",
+						success: function(xml, tx){
+							var query_string = [];
+							var x=0;
+							
+							$(xml).find('montadoras').each(function(){
+								var id = $(this).find('id').text();
+								var nome = $(this).find('nome').text();
+					
+								itens_atualizados++;
+								
+								query_string[x] = 'INSERT INTO db_montadoras (id, nome) VALUES ("'+id+'","'+nome+'"); ';
+								x = x +1;
+							});
+								
+							var consulta_executar = function(tx){
+								var len = query_string.length;
+								for (var i=0; i<len; i++){
+								    tx.executeSql(query_string[i]);
+							    }
+							}
+							
+							db.transaction(consulta_executar, errorCB3);
+							
+							update_automoveis();
+						}
+					});
+				}
 				
 				
 				//--------------------------------------------------------------------------------//				

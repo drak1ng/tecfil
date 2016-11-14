@@ -43,7 +43,7 @@
 			    <div class="barra-busca">
 				    <form action="#" onsubmit="return buscaFiltrar();">
 						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;">
-							<option value='Montadoras'></option>
+							<option value=''>Montadoras</option>
 						</select>
 						<input type="search" id="campo-busca-filtrar" style="padding-top:0.5em; padding-bottom:0.5em;">
 					</form>
@@ -232,6 +232,23 @@
 				$("#bt_rodape_buscar_04").click(function(){
 					$.mobile.changePage("catalogo_contato.html", { transition: "none", changeHash: false });
 				});
+				
+				db.transaction(filtrarTabelaMontadoras);
+				
+				function errorLISTA(err) {
+					alert("Error processing SQL: "+err.message);
+				}
+				
+				function filtrarTabelaMontadoras(tx){
+					tx.executeSql('SELECT * FROM db_montadoras', [], filtrarTabelaMontadorasResultado, errorLISTA);
+				}
+				
+				function filtrarTabelaMontadorasResultado(tx,result){
+					var len = result.rows.length;
+					for (var i=0; i<len; i++){
+					    $('#campo-busca-montadoras').append("<option value='"+result.rows.item(i).id+"'>"+result.rows.item(i).nome+"</option>");
+				    }				    
+				}
 				
 			</script>
 		
