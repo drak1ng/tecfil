@@ -81,16 +81,6 @@
 					$('#campo-busca-filtrar').val(app_busca);
 					$('#campo-busca-montadoras').val(app_busca_montadora);
 					
-					var el = $('#campo-busca-filtrar');
-					
-					// Select the relevant option, de-select any others
-					el.val('some value').attr('selected', true).siblings('option').removeAttr('selected');
-					
-					// Initialize the selectmenu
-					el.selectmenu();
-					
-					// jQM refresh
-					el.selectmenu("refresh", true);	
 				
 					filtrarResgistros(app_busca,app_busca_montadora);
 				}else{
