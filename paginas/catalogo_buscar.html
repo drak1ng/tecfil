@@ -42,7 +42,7 @@
 				</div>
 			    <div class="barra-busca">
 				    <form action="#" onsubmit="return buscaFiltrar();">
-						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;">
+						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;" onchange="buscaFiltrar();">
 							<option value=''>Montadoras</option>
 						</select>
 						<input type="search" id="campo-busca-filtrar" style="padding-top:0.5em; padding-bottom:0.5em;">
@@ -73,12 +73,14 @@
 			<script>
 				
 				var app_busca = window.localStorage.getItem('app_busca');
+				var app_busca_montadora = window.localStorage.getItem('app_busca_montadora');
 				var voltar_busca = window.localStorage.getItem('voltar_busca');
 				
 				if(voltar_busca=="1" && app_busca!="" && app_busca!=null){
-					filtrarResgistros(app_busca);
+					filtrarResgistros(app_busca,app_busca_montadora);
 				}else{
 					window.localStorage.setItem('app_busca','');
+					window.localStorage.setItem('app_busca_montadora','');
 					$('#quantidade_busca_automoveis').hide();
 					$('#quantidade_busca_caminhoes').hide();
 					$('#quantidade_busca_onibus').hide();
@@ -110,8 +112,10 @@
 				
 				function buscaFiltrar(){
 					var busca = $('#campo-busca-filtrar').val();
+					var busca_montadora = $('#campo-busca-montadoras').val();
 					window.localStorage.setItem('app_busca',busca);
-					filtrarResgistros(busca);
+					window.localStorage.setItem('app_busca_montadora',busca_montadora);
+					filtrarResgistros(busca, busca_montadora);
 					$('#campo-busca-filtrar').blur();
 					return false;
 				}
@@ -126,33 +130,69 @@
 				}
 				
 				function filtrarAutomoveis(tx){
-					var busca = window.localStorage.getItem('app_busca');
-					tx.executeSql('SELECT * FROM db_automoveis WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%"', [], filtrarAutomoveisResultado, errorLISTA);
+					var busca = $('#campo-busca-filtrar').val();
+					var busca_montadora = $('#campo-busca-montadoras').val();
+					var where = "";
+					
+					if(busca!="" && busca!=null){ where = ' AND (modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%")'; }
+					if(busca_montadora!="" && busca_montadora!=null){ where = where + ' AND id_mont = "'+busca_montadora+'"'; }
+					
+					tx.executeSql('SELECT * FROM db_automoveis WHERE ' + where, [], filtrarAutomoveisResultado, errorLISTA);
 				}
 				
 				function filtrarCaminhoes(tx){
-					var busca = window.localStorage.getItem('app_busca');
-					tx.executeSql('SELECT * FROM db_caminhoes WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%" OR desumidificador LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR transmissao LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%"', [], filtrarCaminhoesResultado, errorLISTA);
+					var busca = $('#campo-busca-filtrar').val();
+					var busca_montadora = $('#campo-busca-montadoras').val();
+					var where = "";
+					
+					if(busca!="" && busca!=null){ where = ' AND (modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%" OR desumidificador LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR transmissao LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%")'; }
+					if(busca_montadora!="" && busca_montadora!=null){ where = where + ' AND id_mont = "'+busca_montadora+'"'; }
+					
+					tx.executeSql('SELECT * FROM db_caminhoes WHERE ' + where, [], filtrarCaminhoesResultado, errorLISTA);
 				}
 				
 				function filtrarOnibus(tx){
-					var busca = window.localStorage.getItem('app_busca');
-					tx.executeSql('SELECT * FROM db_onibus WHERE modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%" OR desumidificador LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR transmissao LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%"', [], filtrarOnibusResultado, errorLISTA);
+					var busca = $('#campo-busca-filtrar').val();
+					var busca_montadora = $('#campo-busca-montadoras').val();
+					var where = "";
+					
+					if(busca!="" && busca!=null){ where = ' AND (modelo LIKE "%'+busca+'%" OR descricao LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano_de LIKE "%'+busca+'%" OR ano_ate LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%" OR ar_cabine LIKE "%'+busca+'%" OR local_loc LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante_1 LIKE "%'+busca+'%" OR lubrificante_2 LIKE "%'+busca+'%" OR diesel_1 LIKE "%'+busca+'%" OR diesel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR sedimentador LIKE "%'+busca+'%" OR desumidificador LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR transmissao LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%")'; }
+					if(busca_montadora!="" && busca_montadora!=null){ where = where + ' AND id_mont = "'+busca_montadora+'"'; }
+					
+					tx.executeSql('SELECT * FROM db_onibus WHERE ' + where, [], filtrarOnibusResultado, errorLISTA);
 				}
 				
 				function filtrarTratores(tx){
-					var busca = window.localStorage.getItem('app_busca');
-					tx.executeSql('SELECT * FROM db_tratores WHERE modelo LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante LIKE "%'+busca+'%" OR combustivel_1 LIKE "%'+busca+'%" OR combustivel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR transmissao_int LIKE "%'+busca+'%" OR transmissao_ext LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%"', [], filtrarTratoresResultado, errorLISTA);
+					var busca = $('#campo-busca-filtrar').val();
+					var busca_montadora = $('#campo-busca-montadoras').val();
+					var where = "";
+					
+					if(busca!="" && busca!=null){ where = ' AND (modelo LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante LIKE "%'+busca+'%" OR combustivel_1 LIKE "%'+busca+'%" OR combustivel_2 LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR transmissao_int LIKE "%'+busca+'%" OR transmissao_ext LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%")'; }
+					if(busca_montadora!="" && busca_montadora!=null){ where = where + ' AND id_mont = "'+busca_montadora+'"'; }
+					
+					tx.executeSql('SELECT * FROM db_tratores WHERE ' + where, [], filtrarTratoresResultado, errorLISTA);
 				}
 				
 				function filtrarMotoclicletas(tx){
-					var busca = window.localStorage.getItem('app_busca');
-					tx.executeSql('SELECT * FROM db_motocicletas WHERE modelo LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar LIKE "%'+busca+'%" OR oleo LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%"', [], filtrarMotoclicletasResultado, errorLISTA);
+					var busca = $('#campo-busca-filtrar').val();
+					var busca_montadora = $('#campo-busca-montadoras').val();
+					var where = "";
+					
+					if(busca!="" && busca!=null){ where = ' AND (modelo LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar LIKE "%'+busca+'%" OR oleo LIKE "%'+busca+'%" OR combustivel LIKE "%'+busca+'%")'; }
+					if(busca_montadora!="" && busca_montadora!=null){ where = where + ' AND id_mont = "'+busca_montadora+'"'; }
+					
+					tx.executeSql('SELECT * FROM db_motocicletas WHERE ' + where, [], filtrarMotoclicletasResultado, errorLISTA);
 				}
 				
 				function filtrarMaquinasEquipamentos(tx){
-					var busca = window.localStorage.getItem('app_busca');
-					tx.executeSql('SELECT * FROM db_equipamentos WHERE modelo LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR combustivel_1 LIKE "%'+busca+'%" OR combustivel_2 LIKE "%'+busca+'%" OR hidraulico LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%"', [], filtrarMaquinasEquipamentosResultado, errorLISTA);
+					var busca = $('#campo-busca-filtrar').val();
+					var busca_montadora = $('#campo-busca-montadoras').val();
+					var where = "";
+					
+					if(busca!="" && busca!=null){ where = ' AND (modelo LIKE "%'+busca+'%" OR motor LIKE "%'+busca+'%" OR ano LIKE "%'+busca+'%" OR ar_1 LIKE "%'+busca+'%" OR ar_2 LIKE "%'+busca+'%" OR lubrificante LIKE "%'+busca+'%" OR bypass LIKE "%'+busca+'%" OR combustivel_1 LIKE "%'+busca+'%" OR combustivel_2 LIKE "%'+busca+'%" OR hidraulico LIKE "%'+busca+'%" OR direcao LIKE "%'+busca+'%" OR agua LIKE "%'+busca+'%" OR outros LIKE "%'+busca+'%" OR outros2 LIKE "%'+busca+'%" OR outros3 LIKE "%'+busca+'%" OR capacidade_carter LIKE "%'+busca+'%")'; }
+					if(busca_montadora!="" && busca_montadora!=null){ where = where + ' AND id_mont = "'+busca_montadora+'"'; }
+					
+					tx.executeSql('SELECT * FROM db_equipamentos WHERE 1 ' + where, [], filtrarMaquinasEquipamentosResultado, errorLISTA);
 				}
 				
 				function filtrarAutomoveisResultado(tx,result){
