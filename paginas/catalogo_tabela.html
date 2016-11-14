@@ -542,7 +542,9 @@
 					var linha = "";
 
 					if(result.rows.item(0).imagem!="" && result.rows.item(0).imagem!=null){ linha = linha + "<img src='http://homologacao.gruposofape.com.br/tecfil/catalogo/"+result.rows.item(0).imagem+"'>"; }
-											
+					
+					linha = linha = "<div class='ficha-produto-modal-box-botao'>Veja Aplicações</div>";
+					
 					if(result.rows.item(0).codigo!="" && result.rows.item(0).codigo!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Código:</b> "+result.rows.item(0).codigo+"</div>"; }
 					if(result.rows.item(0).original!="" && result.rows.item(0).original!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Original:</b> "+result.rows.item(0).original+"</div>"; }
 					if(result.rows.item(0).caixa!="" && result.rows.item(0).caixa!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Caixa:</b> "+result.rows.item(0).caixa+"</div>"; }
