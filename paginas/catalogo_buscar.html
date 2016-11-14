@@ -77,6 +77,8 @@
 				var voltar_busca = window.localStorage.getItem('voltar_busca');
 				
 				if(voltar_busca=="1" && app_busca!="" && app_busca!=null){
+					$('#campo-busca-filtrar').val(app_busca);
+					$('#campo-busca-montadoras').val(app_busca_montadora);
 					filtrarResgistros(app_busca,app_busca_montadora);
 				}else{
 					window.localStorage.setItem('app_busca','');
@@ -287,7 +289,10 @@
 					var len = result.rows.length;
 					for (var i=0; i<len; i++){
 					    $('#campo-busca-montadoras').append("<option value='"+result.rows.item(i).nome+"'>"+result.rows.item(i).nome+"</option>");
-				    }				    
+				    }
+				    
+					var app_busca_montadora = window.localStorage.getItem('app_busca_montadora');
+					$('#campo-busca-montadoras').val(app_busca_montadora);
 				}
 				
 			</script>
