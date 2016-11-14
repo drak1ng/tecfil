@@ -503,12 +503,12 @@
 					
 					linha = linha + "<div class='"+classe+"' style='text-align:left;'>FILTRO</div>";
 					linha = linha + "<div class='"+classe+"' style='width:150px; text-align:left;'>CONCORRENTE</div>";
-					linha = linha + "<div class='"+classe+"'>CÓDIGO</div>";
+					linha = linha + "<div class='"+classe+"' style='width:150px;'>CÓDIGO</div>";
 
 					$('#tabela_exibicao_cabecalho').html(linha);
 					$('#tabela_exibicao').html('');
-					$('#tabela_exibicao_cabecalho').css('width','380px');
-					$('#tabela_exibicao').css('width','380px');
+					$('#tabela_exibicao_cabecalho').css('width','430px');
+					$('#tabela_exibicao').css('width','430px');
 					
 					for (var i=0; i<len; i++){
 						
@@ -517,7 +517,7 @@
 						linha = "";
 						linha = linha + "<div class='"+classe+"' style='text-align:left; text-decoration:underline;' onclick=exibirInformacoesFiltro('"+result.rows.item(i).filtro+"')>"+result.rows.item(i).filtro+"</div>";
 						linha = linha + "<div class='"+classe+"' style='width:150px; text-align:left;'>"+result.rows.item(i).concorrente+"</div>";
-						linha = linha + "<div class='"+classe+"'>"+result.rows.item(i).codigo+"</div>";				
+						linha = linha + "<div class='"+classe+"' style='width:150px;'>"+result.rows.item(i).codigo+"</div>";				
 					    $('#tabela_exibicao').append(linha);
 					    
 				    }
