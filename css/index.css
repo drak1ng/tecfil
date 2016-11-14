@@ -414,6 +414,7 @@ h1 {
 	text-transform:uppercase;
 	padding:10px 0px;
 	background:#ebebeb;
+	display:none;
 }
 
 .ficha-produto-modal-box-botao {
