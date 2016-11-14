@@ -588,6 +588,7 @@
 				
 				function verAplicacoes(x){
 					window.localStorage.setItem('app_busca',x);
+					window.localStorage.setItem('app_busca_montadora','');
 					window.localStorage.setItem('voltar_busca','1');
 					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				}
