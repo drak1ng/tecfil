@@ -86,6 +86,7 @@
 
 <!--Network Information-->
 <gap:plugin name="cordova-plugin-network-information" source="npm" />
+<gap:plugin name="cordova-sqlite-storage-dependencies" source="npm" />
 <gap:plugin name="cordova-sqlite-storage" source="npm" version="1.4.0" />
 
 
