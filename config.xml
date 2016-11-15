@@ -86,7 +86,7 @@
 
 <!--Network Information-->
 <gap:plugin name="cordova-plugin-network-information" source="npm" />
-<gap:plugin name="cordova-sqlite-storage" source="npm" />
+
 
 <!-- Custom Preferences-->
 <!--<preference name="phonegap-version" value="3.7.0" />-->          <!-- all: current version of PhoneGap -->
