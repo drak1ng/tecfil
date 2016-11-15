@@ -63,7 +63,8 @@
 <!--<feature name="http://api.phonegap.com/1.0/contacts"/>-->
 <!--<feature name="http://api.phonegap.com/1.0/media"/>-->
 
-<plugin name="cordova-plugin-whitelist" version="1" />
+<gap:plugin name="cordova-plugin-whitelist" source="npm"  />
+
 <access origin="*" />
 <allow-navigation href="*" />
 <allow-intent href="*" />
@@ -80,13 +81,12 @@
 <preference name="webviewbounce" value="false" />
 <preference name="DisallowOverscroll" value="true" />
 
-<plugin name="cordova-plugin-dialogs" spec="1.1.1" source="pgb" />
-<gap:plugin name="org.apache.cordova.device" />
+<gap:plugin name="cordova-plugin-dialogs" source="npm"  />
+<gap:plugin name="cordova-plugin-device" source="npm" />
 
 <!--Network Information-->
-<plugin name="cordova-plugin-network-information" spec="1.0.1" source="pgb" />
-
-<plugin name="io.litehelpers.cordova.sqlitestorage" spec="0.7.5" source="pgb" />
+<gap:plugin name="cordova-plugin-network-information" source="npm" />
+<gap:plugin name="cordova-sqlite-storage" source="npm" />
 
 <!-- Custom Preferences-->
 <!--<preference name="phonegap-version" value="3.7.0" />-->          <!-- all: current version of PhoneGap -->
