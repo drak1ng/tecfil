@@ -106,6 +106,19 @@
 <preference name="android-minSdkVersion"      value="14" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
 <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
+<!-- Windows only preferences -->
+<preference name="windows-appx-target" value="uap" />
+<preference name="windows-arch" value="arm" />
+<preference name="windows-phone-target-version" value="10.0" />
+<preference name="windows-target-version" value="10.0" />
+<preference name="Windows.Universal" value="10.0.10240.0" />
+<preference name="WindowsDefaultUriPrefix" value="ms-appx://" />
+<preference name="Windows.Mobile-MaxVersionTested" value="10.0.10031.0" />
+<preference name="Windows.Universal-MinVersion" value="10.0.0.0" />
+<preference name="WindowsStoreIdentityName" value="2164WebSide.TesteTecfil" />
+<preference name="WindowsStorePublisherName" value="CN=F3328E96-09BE-499C-84A4-A01CD469DEE1, C=BR" />
+<preference name="WindowsToastCapable" value="true" />
+<preference name="uap-target-min-version" value="10.0.10586.0" />
 
 
 </widget>
