@@ -58,6 +58,7 @@
 				
 				function carregar(){
 					if(jaFicouOffline!=3){
+						StatusBar.styleBlackOpaque();
 						$.mobile.changePage("./paginas/inicio.html", { transition: "none", changeHash: false });
 					}
 				}
@@ -75,12 +76,6 @@
 		        function onOffLine(){
 		            jaFicouOffline = 1;
 		        }
-		        
-				if (cordova.platformId == 'android') {
-					StatusBar.backgroundColorByHexString("#333");
-				}
-				
-				StatusBar.overlaysWebView(false);
 				
 			</script>
     </body>
