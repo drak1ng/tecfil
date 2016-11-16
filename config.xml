@@ -117,7 +117,7 @@
 <preference name="Windows.Mobile-MaxVersionTested" value="10.0.10031.0" />
 <preference name="Windows.Universal-MinVersion" value="10.0.0.0" />
 <preference name="WindowsStoreIdentityName" value="2164WebSide.TesteTecfil" />
-<preference name="WindowsStorePublisherName" value="CN=F3328E96-09BE-499C-84A4-A01CD469DEE1, O=WebSide, L=São Caetano do Sul, S=São Paulo, C=BR" />
+<preference name="WindowsStorePublisherName" value="CN=WebSide, O=WebSide, L=São Caetano do Sul, S=São Paulo, C=BR" />
 <preference name="WindowsToastCapable" value="true" />
 <preference name="uap-target-min-version" value="10.0.10586.0" />
 
