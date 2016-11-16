@@ -74,7 +74,7 @@
 	<param name="ios-package" value="CDVStatusBar" onload="true" />
 </feature>
 <gap:plugin name="cordova-plugin-statusbar" source="npm" >
-	<preference name="StatusBarStyle" value="blackopaque" />
+	<preference name="StatusBarStyle" value="lightcontent" />
 	<preference name="StatusBarOverlaysWebView" value="true" />
 	<preference name="StatusBarBackgroundColor" value="#FFFFFF"/>
 </gap:plugin>
