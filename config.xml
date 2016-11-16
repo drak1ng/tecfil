@@ -76,7 +76,7 @@
 <gap:plugin name="cordova-plugin-statusbar" source="npm" >
 	<preference name="StatusBarStyle" value="blackopaque" />
 	<preference name="StatusBarOverlaysWebView" value="true" />
-	<preference name="StatusBarBackgroundColor" value="#000000"/>
+	<preference name="StatusBarBackgroundColor" value="#FFFFFF"/>
 </gap:plugin>
 <preference name="webviewbounce" value="false" />
 <preference name="DisallowOverscroll" value="true" />
