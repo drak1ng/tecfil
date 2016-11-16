@@ -74,9 +74,9 @@
 	<param name="ios-package" value="CDVStatusBar" onload="true" />
 </feature>
 <gap:plugin name="cordova-plugin-statusbar" source="npm" >
-	<preference name="StatusBarStyle" value="lightcontent" />
 	<preference name="StatusBarOverlaysWebView" value="true" />
-	<preference name="StatusBarBackgroundColor" value="#FFFFFF"/>
+	<preference name="StatusBarBackgroundColor" value="#000000" />
+	<preference name="StatusBarStyle" value="lightcontent" />
 </gap:plugin>
 <preference name="webviewbounce" value="false" />
 <preference name="DisallowOverscroll" value="true" />

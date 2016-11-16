@@ -75,6 +75,10 @@
 		        function onOffLine(){
 		            jaFicouOffline = 1;
 		        }
+		        
+				if (cordova.platformId == 'android') {
+					StatusBar.backgroundColorByHexString("#333");
+				}
 				
 			</script>
     </body>
