@@ -87,7 +87,7 @@
 <!--Network Information-->
 <gap:plugin name="cordova-plugin-network-information" source="npm" />
 <gap:plugin name="cordova-sqlite-evcore-extbuild-free" source="npm" />
-<gap:plugin name="cordova-open" source="npm" />
+<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
 
 
 
