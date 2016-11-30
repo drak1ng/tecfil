@@ -38,9 +38,9 @@
 	    
 	    <style>
 		    
-		    .fht-table tbody tr td								{ background:#FFFFFF; color:#666; border-bottom:1px solid #CCC }
+		    .fht-table tbody tr td								{ background:#FFFFFF; color:#666; border-bottom:1px solid #CCC; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 		    .fht-table tbody tr td:first-child					{ width:150px !important; }
-		    .fht-table tbody tr.odd td							{ background:#ebebeb !important; color:#666 !important; border-bottom:1px solid #CCC }
+		    .fht-table tbody tr.odd td							{ background:#ebebeb !important; color:#666 !important; border-bottom:1px solid #CCC; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 		    .fht-fixed-column .fht-thead th						{ border-bottom:1px solid #CCC; }
 		    
 		    .fht-table th										{ background:#999; }
@@ -78,7 +78,7 @@
 		    </div>
 
 			<div role="main" class="ui-content">
-				<div style="width:100%; height: calc(100% - 50px); position:fixed; top:84px; left:0px; font-size:12px; text-transform:none; overflow:scroll;">
+				<div style="width:100%; height: calc(100% - 50px); position:fixed; top:84px; left:0px; z-index:99999; font-size:12px; text-transform:none; overflow:scroll;">
 					<table id="tabela_teste" cellpadding="0" cellspacing="1">
 						<thead>
 							<tr id="tabela_cabecalho">
