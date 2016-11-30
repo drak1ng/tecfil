@@ -65,22 +65,6 @@
 			
 			<script>
 				
-				$("#bt_catalogo_home_01").click(function(){
-					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
-				});
-				
-				$("#bt_catalogo_home_02").click(function(){
-					$.mobile.changePage("catalogo_novidades.html", { transition: "none", changeHash: false });
-				});
-				
-				$("#bt_catalogo_home_03").click(function(){
-					$.mobile.changePage("catalogo_mensagens.html", { transition: "none", changeHash: false });
-				});
-				
-				$("#bt_catalogo_home_04").click(function(){
-					$.mobile.changePage("catalogo_contato.html", { transition: "none", changeHash: false });
-				});
-				
 				$("#bt_rodape_home_02").click(function(){
 					$.mobile.changePage("catalogo_novidades.html", { transition: "none", changeHash: false });
 				});
@@ -92,6 +76,36 @@
 				$("#bt_rodape_home_04").click(function(){
 					$.mobile.changePage("catalogo_contato.html", { transition: "none", changeHash: false });
 				});
+				
+				function buscaFiltrar(){
+					var busca = $('#campo-busca-filtrar').val();
+					var busca_montadora = $('#campo-busca-montadoras').val();
+					window.localStorage.setItem('app_busca',busca);
+					window.localStorage.setItem('app_busca_montadora',busca_montadora);
+					filtrarResgistros(busca, busca_montadora);
+					$('#campo-busca-filtrar').blur();
+					return false;
+				}
+				
+				db.transaction(filtrarTabelaMontadoras);
+				
+				function errorLISTA(err) {
+					alert("Error processing SQL: "+err.message);
+				}
+				
+				function filtrarTabelaMontadoras(tx){
+					tx.executeSql('SELECT * FROM db_montadoras', [], filtrarTabelaMontadorasResultado, errorLISTA);
+				}
+				
+				function filtrarTabelaMontadorasResultado(tx,result){
+					var len = result.rows.length;
+					for (var i=0; i<len; i++){
+					    $('#campo-busca-montadoras').append("<option value='"+result.rows.item(i).nome+"'>"+result.rows.item(i).nome+"</option>");
+				    }
+				    
+					var app_busca_montadora = window.localStorage.getItem('app_busca_montadora');
+					$('#campo-busca-montadoras').val(app_busca_montadora);
+				}
 				
 			</script>
 		
