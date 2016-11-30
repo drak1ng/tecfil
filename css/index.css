@@ -487,3 +487,24 @@ h1 {
 }
 
 
+
+.fht-table tbody tr td								{ background:#FFFFFF; color:#666; border-bottom:1px solid #CCC }
+.fht-table tbody tr td:first-child					{ width:150px !important; }
+.fht-table tbody tr.odd td							{ background:#ebebeb !important; color:#666 !important; border-bottom:1px solid #CCC }
+.fht-fixed-column .fht-thead th						{ border-bottom:1px solid #CCC; }
+
+.fht-table th										{ background:#999; }
+.fht-table th:first-child							{ width:150px !important; }
+
+.fht-fixed-column									{ width:150px; }
+.fht-fixed-column .fht-table						{ width:150px; }
+.fht-fixed-column .fht-thead						{ width:150px; }
+.fht-fixed-column .fht-tbody						{ width:150px; }
+
+.fht-fixed-body th									{ width:auto; }
+.fht-tbody td										{ width:auto; text-align:center; }
+
+.fht-table-init										{ width:2000px !important; }
+.fht-fixed-body .fht-thead .fht-table				{ width:2000px !important; }
+
+
