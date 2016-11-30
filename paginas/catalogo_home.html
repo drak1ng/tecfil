@@ -50,11 +50,15 @@
 		    </div>
 
 			<div role="main" class="ui-content">
-				<div style="text-align:center; padding:8px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
-				    <div class="lista-botoes" id="bt_catalogo_home_01" style="background-image:url(../img/icone_01_on.png);">Buscar</div>
-					<div class="lista-botoes" id="bt_catalogo_home_02" style="background-image:url(../img/icone_02_on.png);">Novidades</div>
-					<div class="lista-botoes" id="bt_catalogo_home_03" style="background-image:url(../img/icone_03_on.png);">Mensagens</div>
-					<div class="lista-botoes" id="bt_catalogo_home_04" style="background-image:url(../img/icone_04_on.png);">Contato</div>
+				<div style="text-align:center; padding:48px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
+					
+					<form action="#" onsubmit="return buscaFiltrar();">
+						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;" onchange="buscaFiltrar();">
+							<option value=''>Montadoras</option>
+						</select>
+						<input type="search" id="campo-busca-filtrar" style="padding-top:0.5em; padding-bottom:0.5em;">
+					</form>
+					
 				</div>
 			</div>
 		
