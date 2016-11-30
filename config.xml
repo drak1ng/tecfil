@@ -89,6 +89,8 @@
 <gap:plugin name="cordova-sqlite-evcore-extbuild-free" source="npm" />
 <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
 
+<gap:plugin name="cordova-plugin-screen-orientation" source="npm" />
+
 
 
 
