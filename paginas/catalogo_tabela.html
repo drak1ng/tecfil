@@ -275,7 +275,7 @@
 						linha = linha + "<td>"+result.rows.item(i).motor+"</td>";
 						linha = linha + "<td>"+result.rows.item(i).ano_de+"</td>";
 						linha = linha + "<td>"+result.rows.item(i).ano_ate+"</td>";
-						linha = linha + "<div>"+result.rows.item(i).descricao+"</td>";
+						linha = linha + "<td>"+result.rows.item(i).descricao+"</td>";
 						linha = linha + "<td>"+result.rows.item(i).combustivel+"</td>";
 						linha = linha + "<td>"+result.rows.item(i).capacidade_carter+"</td>";
 						linha = linha + "<td onclick=exibirInformacoesFiltro('"+result.rows.item(i).ar_cabine+"')>"+result.rows.item(i).ar_cabine+"</td>";
@@ -422,7 +422,7 @@
 						linha = linha + "<td onclick=exibirInformacoesFiltro('"+result.rows.item(i).outros+"')>"+result.rows.item(i).outros+"</td>";
 						linha = linha + "<td onclick=exibirInformacoesFiltro('"+result.rows.item(i).outros2+"')>"+result.rows.item(i).outros2+"</td>";
 						linha = linha + "<td onclick=exibirInformacoesFiltro('"+result.rows.item(i).outros3+"')>"+result.rows.item(i).outros3+"</td>";
-						linha = linha + "<td>"+result.rows.item(i).capacidade_carter+"</div>";		
+						linha = linha + "<td>"+result.rows.item(i).capacidade_carter+"</td>";		
 						linha = linha + "</tr>";
 										
 					    $('#tabela_conteudo').append(linha);
