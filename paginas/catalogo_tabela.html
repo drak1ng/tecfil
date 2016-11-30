@@ -52,7 +52,7 @@
 		    .fht-fixed-column .fht-tbody						{ width:150px; }
 		    
 		    .fht-fixed-body th									{ width:auto; }
-		    .fht-tbody td										{ width:auto; text-align:center; }
+		    .fht-tbody td										{ width:auto; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 		    
 		    .fht-table-init										{ width:2000px !important; }
 		    .fht-fixed-body .fht-thead .fht-table				{ width:2000px !important; }
@@ -78,7 +78,7 @@
 		    </div>
 
 			<div role="main" class="ui-content">
-				<div style="width:100%; height: calc(100% - 170px); position:fixed; top:104px; left:0px; font-size:12px; text-transform:none; overflow:scroll;">
+				<div style="width:100%; height: calc(100% - 150px); position:fixed; top:84px; left:0px; font-size:12px; text-transform:none; overflow:scroll;">
 					<table id="tabela_teste" cellpadding="0" cellspacing="1">
 						<thead>
 							<tr id="tabela_cabecalho">
