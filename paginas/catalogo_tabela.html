@@ -93,11 +93,15 @@
 			
 			<script>
 				
-					screen.lockOrientation('landscape');
+				screen.lockOrientation('landscape');
 
-					var app_busca = window.localStorage.getItem('app_busca');
-					var app_busca_montadora = window.localStorage.getItem('app_busca_montadora');
-					var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
+				var app_busca = window.localStorage.getItem('app_busca');
+				var app_busca_montadora = window.localStorage.getItem('app_busca_montadora');
+				var app_busca_tipo = window.localStorage.getItem('app_busca_tipo');
+				
+				setTimeout(carregarTabela, 500);
+				
+				function carregarTabela(){
 	
 					if(app_busca_tipo=="automoveis"){ $('#table-titulo').html("Automóveis"); db.transaction(filtrarTabelaAutomoveis); }
 					if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html("Caminhões"); db.transaction(filtrarTabelaCaminhoes); }
@@ -106,7 +110,8 @@
 					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); db.transaction(filtrarTabelaMotoclicletas); }
 					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); db.transaction(filtrarTabelaMaquinasEquipamentos); }
 					if(app_busca_tipo=="conversao_direta"){ $('#table-titulo').html("Conversão Direta"); db.transaction(filtrarTabelaConversaoDireta); }
-				
+					
+				}
 				
 				function errorLISTA(err) {
 					alert("Error processing SQL: "+err.message);
