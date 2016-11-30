@@ -608,9 +608,13 @@
 				
 				$("#bt_tablea_voltar").click(function(){
 					screen.lockOrientation('portrait');
+					setTimeout(tabela_voltar, 500);
+				});
+				
+				function tabela_voltar(){
 					window.localStorage.setItem('voltar_busca','1');
 					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
-				});
+				}
 				
 				$("#bt_rodape_tabela_01").click(function(){
 					screen.lockOrientation('portrait');
