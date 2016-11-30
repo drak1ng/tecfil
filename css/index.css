@@ -142,7 +142,8 @@ h1 {
 }
 
 .topo .logotipo {
-	background:#ffe01b;
+	background:url(../img/t_logo2.png) right center no-repeat #ffe01b;
+	background-size:contain;
 	text-align:center;
 	padding:15px 10px 9px 10px;
 	text-shadow: none;
