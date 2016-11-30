@@ -50,13 +50,14 @@
 		    </div>
 
 			<div role="main" class="ui-content">
-				<div style="text-align:center; padding:48px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
+				<div style="text-align:center; padding:48px 20px 41px 20px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
 					
 					<form action="#" onsubmit="return buscaFiltrar();">
-						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;" onchange="buscaFiltrar();">
+						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;">
 							<option value=''>Montadoras</option>
 						</select>
 						<input type="search" id="campo-busca-filtrar" style="padding-top:0.5em; padding-bottom:0.5em;">
+						<input type="submit" value="Buscar" style="padding-top:0.5em; padding-bottom:0.5em;">
 					</form>
 					
 				</div>
@@ -82,8 +83,9 @@
 					var busca_montadora = $('#campo-busca-montadoras').val();
 					window.localStorage.setItem('app_busca',busca);
 					window.localStorage.setItem('app_busca_montadora',busca_montadora);
-					filtrarResgistros(busca, busca_montadora);
-					$('#campo-busca-filtrar').blur();
+					
+					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
+					
 					return false;
 				}
 				
