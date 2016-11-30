@@ -428,7 +428,7 @@ h1 {
 	text-align:center;
 }
 
-ficha-produto-modal-fora-linha {
+.ficha-produto-modal-fora-linha {
 	background:#CC3300;
 	margin:10px auto;
 	padding:10px 0px;
