@@ -69,13 +69,6 @@
 				    <div style="margin:0px; text-align:center" id="table-titulo"><b>NOME CATEGORIA<b></div>
 				</div>
 		    </div>
-		    
-		    <div class="botoes-rodape" style="display:none;">
-			    <div class="botoes-rodape-bloco2" id="bt_rodape_tabela_01" style="background-image:url(../img/icone_01_on.png);">Buscar</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_tabela_02" style="background-image:url(../img/icone_02.png);">Novidades</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_tabela_03" style="background-image:url(../img/icone_03.png);">Mensagens</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_tabela_04" style="background-image:url(../img/icone_04.png);">Contato</div>
-		    </div>
 
 			<div role="main" class="ui-content">
 				<div style="width:100%; height: calc(100% - 50px); position:fixed; top:84px; left:0px; z-index:99999; font-size:12px; text-transform:none; overflow:scroll;" id="conteudo_frame_tabela">
@@ -608,9 +601,7 @@
 				
 				$("#bt_tablea_voltar").click(function(){
 					$('#conteudo_frame_tabela').html('');
-					
-					setTimeout(tabela_voltar, 1000);
-
+					setTimeout(tabela_voltar, 400);
 				});
 				
 				function tabela_voltar(){
@@ -619,31 +610,15 @@
 					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				}
 				
-				
-				$("#bt_rodape_tabela_01").click(function(){
-					screen.lockOrientation('portrait');
-					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
-				});
-				
-				$("#bt_rodape_tabela_02").click(function(){
-					screen.lockOrientation('portrait');
-					$.mobile.changePage("catalogo_novidades.html", { transition: "none", changeHash: false });
-				});
-				
-				$("#bt_rodape_tabela_03").click(function(){
-					screen.lockOrientation('portrait');
-					$.mobile.changePage("catalogo_mensagens.html", { transition: "none", changeHash: false });
-				});
-				
-				$("#bt_rodape_tabela_04").click(function(){
-					screen.lockOrientation('portrait');
-					$.mobile.changePage("catalogo_contato.html", { transition: "none", changeHash: false });
-				});
-				
 				function verAplicacoes(x){
+					$('#conteudo_frame_tabela').html('');
 					window.localStorage.setItem('app_busca',x);
 					window.localStorage.setItem('app_busca_montadora','');
 					window.localStorage.setItem('voltar_busca','1');
+					setTimeout(tabela_voltarAplicacao, 400);
+				}
+				
+				function tabela_voltarAplicacao(){
 					screen.lockOrientation('portrait');
 					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				}
