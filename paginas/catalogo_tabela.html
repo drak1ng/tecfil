@@ -579,6 +579,10 @@
 					
 					linha = linha + "<div class='ficha-produto-modal-box-botao' onclick=verAplicacoes('"+result.rows.item(0).codigo+"') >Veja Aplicações</div>";
 					
+					if(result.rows.item(0).fora_de_linha=="1"){
+						linha = linha + "<div class='ficha-produto-modal-fora-linha'>FORA DE LINHA</div>";
+					}
+					
 					if(result.rows.item(0).codigo!="" && result.rows.item(0).codigo!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Código:</b> "+result.rows.item(0).codigo+"</div>"; }
 					if(result.rows.item(0).original!="" && result.rows.item(0).original!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Original:</b> "+result.rows.item(0).original+"</div>"; }
 					if(result.rows.item(0).caixa!="" && result.rows.item(0).caixa!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Caixa:</b> "+result.rows.item(0).caixa+"</div>"; }

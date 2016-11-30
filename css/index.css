@@ -428,6 +428,16 @@ h1 {
 	text-align:center;
 }
 
+ficha-produto-modal-fora-linha {
+	background:#CC3300;
+	margin:10px auto;
+	padding:10px 0px;
+	border-radius:6px;
+	color:#FFF;
+	text-shadow: 0 0 0 #000;
+	text-align:center;	
+}
+
 .ficha-produto-modal {
 	width:100%;
 	height:100%;
