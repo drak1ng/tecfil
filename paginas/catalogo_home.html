@@ -43,7 +43,7 @@
 		    </div>
 		    
 		    <div class="botoes-rodape">
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_01" style="background-image:url(../img/icone_01.png);">Buscar</div>
+			    <div class="botoes-rodape-bloco2" id="bt_rodape_home_01" style="background-image:url(../img/icone_01.png);">Buscar</div>
 			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_02" style="background-image:url(../img/icone_02.png);">Novidades</div>
 			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_03" style="background-image:url(../img/icone_03.png);">Mensagens</div>
 			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_04" style="background-image:url(../img/icone_04.png);">Contato</div>
@@ -52,12 +52,12 @@
 			<div role="main" class="ui-content">
 				<div style="text-align:center; padding:48px 20px 41px 20px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
 					
-					<form action="#" onsubmit="return buscaFiltrar();">
+					<form action="#" onsubmit="return buscaFiltrar();" id="form_busca_enviar">
 						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;">
 							<option value=''>Montadoras</option>
 						</select>
 						<input type="search" id="campo-busca-filtrar" style="padding-top:0.5em; padding-bottom:0.5em;">
-						<input type="submit" value="Buscar" style="padding-top:0.5em; padding-bottom:0.5em; text-align:center; background:#003263;">
+						<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none; text-align:center;" id="bt_busca_enviar">Buscar</div>
 					</form>
 					
 				</div>
@@ -65,6 +65,10 @@
 		
 			
 			<script>
+				
+				$("#bt_busca_enviar").click(function(){
+					$('#form_busca_enviar').submit();
+				});
 				
 				$("#bt_rodape_home_02").click(function(){
 					$.mobile.changePage("catalogo_novidades.html", { transition: "none", changeHash: false });
