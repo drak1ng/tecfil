@@ -430,9 +430,9 @@ h1 {
 
 .ficha-produto-modal-fora-linha {
 	background:#CC3300;
-	margin:10px auto;
+	margin:10px auto 0px auto;
 	padding:10px 0px;
-	border-radius:6px;
+	border-radius:0px;
 	color:#FFF;
 	text-shadow: 0 0 0 #000;
 	text-align:center;	
