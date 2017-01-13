@@ -84,7 +84,9 @@
 				});
 				
 				$("#bt_sair_app").click(function(){
-					confirm("Tem certeza que deseja sair?");
+					if(confirm("Deseja realmente sair?")){
+						$.mobile.changePage("inicio.html", { transition: "none", changeHash: false });
+					}
 				});
 				
 				function buscaFiltrar(){
