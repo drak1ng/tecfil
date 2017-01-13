@@ -100,7 +100,7 @@
 				}
 				
 				function filtrarTabelaMontadoras(tx){
-					tx.executeSql('SELECT * FROM db_montadoras', [], filtrarTabelaMontadorasResultado, errorLISTA);
+					tx.executeSql('SELECT * FROM db_montadoras ORDER BY nome', [], filtrarTabelaMontadorasResultado, errorLISTA);
 				}
 				
 				function filtrarTabelaMontadorasResultado(tx,result){
