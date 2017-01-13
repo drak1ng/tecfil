@@ -58,6 +58,7 @@
 						</select>
 						<input type="search" id="campo-busca-filtrar" style="padding-top:0.5em; padding-bottom:0.5em;">
 						<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none; text-align:center;" id="bt_busca_enviar">Buscar</div>
+						<div style="border:1px solid #cccccc; border-radius:10px; background:#FFFFFF; color:#999; padding:11px; margin-top:40px; text-shadow: none; text-transform:none; text-align:center; font-weight:normal;" id="bt_sair_app">Sair do Aplicativo</div>
 					</form>
 					
 				</div>
@@ -80,6 +81,10 @@
 				
 				$("#bt_rodape_home_04").click(function(){
 					$.mobile.changePage("catalogo_contato.html", { transition: "none", changeHash: false });
+				});
+				
+				$("bt_sair_app").click(function(){
+					confirm("Tem certeza que deseja sair?");
 				});
 				
 				function buscaFiltrar(){
@@ -112,6 +117,7 @@
 					var app_busca_montadora = window.localStorage.getItem('app_busca_montadora');
 					$('#campo-busca-montadoras').val(app_busca_montadora);
 				}
+				
 				
 			</script>
 		
