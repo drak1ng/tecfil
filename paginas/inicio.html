@@ -60,13 +60,12 @@
 					if(senha==""){ alert("O campo Senha deve ser preenchido"); return false; }
 					
 					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/login.php", { email:email, senha:senha }, function(data){
-						//if(data=="ERRO"){
-							alert(data);
-							//alert("O E-mail ou a Senha utilizados não são válidos");
-						//}else{
-						//	window.localStorage.setItem('id_usuarios',data);
-						//	$.mobile.changePage("catalogo_home.html", { transition: "none", changeHash: false });
-						//}
+						if(data=="ERRO"){
+							alert("O E-mail ou a Senha utilizados não são válidos");
+						}else{
+							window.localStorage.setItem('id_usuarios',data);
+							$.mobile.changePage("catalogo_home.html", { transition: "none", changeHash: false });
+						}
 					});
 					
 				});
