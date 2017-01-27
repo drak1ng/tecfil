@@ -85,6 +85,7 @@
 				
 				$("#bt_sair_app").click(function(){
 					if(confirm("Deseja realmente sair?")){
+						window.localStorage.setItem('id_usuarios','');
 						$.mobile.changePage("inicio.html", { transition: "none", changeHash: false });
 					}
 				});
