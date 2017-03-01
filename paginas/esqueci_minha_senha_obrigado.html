@@ -38,22 +38,28 @@
 	    <div data-role="page" style="background:#FFF;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="margin:0px 80px; text-align:center"><b>RECUPERAR<b></div>
+				    <div style="margin:0px 80px; text-align:center" id="recuperar_obrigado_titulo"></div>
 				</div>
 		    </div>
 
 			<div role="main" class="ui-content">
 				<div id="id_conteudo_cadastro_sucesso" style="text-align:center; padding:50px 0px 50px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify;">
 					<br><br>
-					<h1><b>SUCESSO!<b></h1>
-					<p style="font-size:13px; text-align:center;">E-mail enviado com sucesso!<br>Em breve você recebera por e-mail, um link para cadastrar uma nova senha.</p>
+					<h1 id="recuperar_obrigado_subtitulo"></h1>
+					<p style="font-size:13px; text-align:center;" id="recuperar_obrigado_texto"></p>
 					<br><br>
-					<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:20px; text-shadow: none; text-transform:none; text-align:center;" id="bt_recuperar_acessar">Acessar</div>
+					<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:20px; text-shadow: none; text-transform:none; text-align:center;" id="bt_recuperar_acessar"></div>
 				</div>
 			</div>
 		
 			
 			<script>
+				
+				$('#recuperar_obrigado_titulo').html(window.localStorage.getItem('linguage_025'));
+				$('#recuperar_obrigado_subtitulo').html(window.localStorage.getItem('linguage_022'));
+				$('#bt_recuperar_acessar').html(window.localStorage.getItem('linguage_024'));
+				$('#recuperar_obrigado_texto').html(window.localStorage.getItem('linguage_029'));
+				
 				
 				$("#bt_recuperar_acessar").click(function(){
 					$.mobile.changePage("inicio.html", { transition: "none", changeHash: false });
