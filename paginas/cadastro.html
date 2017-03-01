@@ -38,25 +38,37 @@
 	    <div data-role="page" style="background:#F3F3F3;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="min-width:10px; float:left;" id="bt_cadastro_voltar">Voltar</div>
-				    <div style="margin:0px 80px; text-align:center"><b>CADASTRE-SE<b></div>
+				    <div style="min-width:10px; float:left;" id="bt_cadastro_voltar"></div>
+				    <div style="margin:0px 80px; text-align:center" id="cadatro_titulo"></div>
 				</div>
 		    </div>
 
 			<div role="main" class="ui-content">
 				<div id="id_conteudo_cadastro" style="text-align:center; padding:40px 0px 0px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify;">
-					<p style='margin-bottom:30px;'>Preencha todos os campos abaixo para se cadastrar e ter acesso ao nosso catálogo de produtos.</p>
-					<input type="text" id="cadastro_nome" placeholder="Nome Completo">
-					<input type="text" id="cadastro_empresa" placeholder="Empresa">
-					<input type="tel" id="cadastro_telefone" placeholder="Telefone">
-					<input type="email" id="cadastro_email" placeholder="E-mail">
-					<input type="password" id="cadastro_senha" placeholder="Senha">
-					<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:20px; text-shadow: none; text-transform:none; text-align:center;" id="bt_cadastro_salvar">Quero me Cadastrar</div>
+					<p style='margin-bottom:30px;' id="legenda_cadastro"></p>
+					<input type="text" id="cadastro_nome" placeholder="">
+					<input type="text" id="cadastro_empresa" placeholder="">
+					<input type="tel" id="cadastro_telefone" placeholder="">
+					<input type="email" id="cadastro_email" placeholder="">
+					<input type="password" id="cadastro_senha" placeholder="">
+					<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:20px; text-shadow: none; text-transform:none; text-align:center;" id="bt_cadastro_salvar"></div>
 				</div>
 			</div>
 		
 			
 			<script>
+
+				$('#bt_cadastro_voltar').html(window.localStorage.getItem('linguage_014'));
+				$('#cadatro_titulo').html(window.localStorage.getItem('linguage_020'));
+				$('#legenda_cadastro').html(window.localStorage.getItem('linguage_021'));
+				
+				$('#cadastro_nome').attr('placeholder',window.localStorage.getItem('linguage_010'));
+				$('#cadastro_empresa').attr('placeholder',window.localStorage.getItem('linguage_011'));
+				$('#cadastro_telefone').attr('placeholder',window.localStorage.getItem('linguage_012'));
+				$('#cadastro_email').attr('placeholder',window.localStorage.getItem('linguage_002'));
+				$('#cadastro_senha').attr('placeholder',window.localStorage.getItem('linguage_003'));
+				$('#bt_cadastro_salvar').html(window.localStorage.getItem('linguage_013'));
+
 				
 				$('#cadastro_telefone').mask('(99) 9999-9999?9');
 				
@@ -67,19 +79,19 @@
 					var email = $('#cadastro_email').val();
 					var senha = $('#cadastro_senha').val();
 					
-					if(nome==""){ alert("O campo Nome deve ser preenchido"); return false; }
-					if(empresa==""){ alert("O campo Empresa deve ser preenchido"); return false; }
-					if(telefone==""){ alert("O campo Telefone deve ser preenchido"); return false; }
-					if(email==""){ alert("O campo E-mail deve ser preenchido"); return false; }
-					if(senha==""){ alert("O campo Senha deve ser preenchido"); return false; }
+					if(nome==""){ alert(window.localStorage.getItem('linguage_015')); return false; }
+					if(empresa==""){ alert(window.localStorage.getItem('linguage_016')); return false; }
+					if(telefone==""){ alert(window.localStorage.getItem('linguage_017')); return false; }
+					if(email==""){ alert(window.localStorage.getItem('linguage_007')); return false; }
+					if(senha==""){ alert(window.localStorage.getItem('linguage_008')); return false; }
 					
 					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/cadastro.php", { nome:nome, empresa:empresa, telefone:telefone, email:email, senha:senha }, function(data){
 						if(data=="ERRO_EMAIL"){
-							alert("Esse E-mail já foi utilizado em outro Cadastro");
+							alert(window.localStorage.getItem('linguage_018'));
 						}else if(data=="OK"){
 							$.mobile.changePage("cadastro-obrigado.html", { transition: "none", changeHash: false });
 						}else{
-							alert("Não foi possuível concluir o seu cadastro, tente novamente mais tarde!");
+							alert(window.localStorage.getItem('linguage_019'));
 						}
 					});
 					

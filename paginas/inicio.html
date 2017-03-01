@@ -50,9 +50,9 @@
 				$('#login_email').attr('placeholder',window.localStorage.getItem('linguage_002'));
 				$('#login_senha').attr('placeholder',window.localStorage.getItem('linguage_003'));
 				
-				$('#bt_login_acessar').attr('placeholder',window.localStorage.getItem('linguage_004'));
-				$('#bt_login_esqueci_senha').attr('placeholder',window.localStorage.getItem('linguage_005'));
-				$('#bt_login_criar_conta').attr('placeholder',window.localStorage.getItem('linguage_006'));
+				$('#bt_login_acessar').html(window.localStorage.getItem('linguage_004'));
+				$('#bt_login_esqueci_senha').html(window.localStorage.getItem('linguage_005'));
+				$('#bt_login_criar_conta').html(window.localStorage.getItem('linguage_006'));
 				
 				
 				if(id_usuarios!="" && id_usuarios!=null){
