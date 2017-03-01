@@ -39,9 +39,9 @@
 			    <br>
 			  <input type="email" id="login_email" placeholder="">
 			  <input type="password" id="login_senha" placeholder="">
-			  <div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_acessar"><script> document.write(window.localStorage.getItem('linguage_004')); </script></div>
-			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:40px; text-shadow: none; text-transform:none;" id="bt_login_esqueci_senha"><script> document.write(window.localStorage.getItem('linguage_005')); </script></div>
-			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_criar_conta"><script> document.write(window.localStorage.getItem('linguage_006')); </script></div>
+			  <div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_acessar"></div>
+			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:40px; text-shadow: none; text-transform:none;" id="bt_login_esqueci_senha"></div>
+			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_criar_conta"></div>
 			</div>
 			
 			<script>
@@ -49,6 +49,11 @@
 				
 				$('#login_email').attr('placeholder',window.localStorage.getItem('linguage_002'));
 				$('#login_senha').attr('placeholder',window.localStorage.getItem('linguage_003'));
+				
+				$('#bt_login_acessar').attr('placeholder',window.localStorage.getItem('linguage_004'));
+				$('#bt_login_esqueci_senha').attr('placeholder',window.localStorage.getItem('linguage_005'));
+				$('#bt_login_criar_conta').attr('placeholder',window.localStorage.getItem('linguage_006'));
+				
 				
 				if(id_usuarios!="" && id_usuarios!=null){
 					$.mobile.changePage("catalogo_home.html", { transition: "none", changeHash: false });

@@ -40,7 +40,7 @@
 
 	</head>
     <body>
-	    <div class="db_update"><script> document.write(window.localStorage.getItem('linguage_001')); </script></div>
+	    <div class="db_update"></div>
 	    <div data-role="page" style="background:#ffe01a;">
 		    <div style="text-align:center; width:100%; height:100%; position:fixed; top:0px; left:0px;">
 			    <br><br><br><br><br>
@@ -48,6 +48,8 @@
 		    </div>
 		</div>
 			<script>
+				
+				$('.db_update').html(window.localStorage.getItem('linguage_001'));
 				
 				var jaFicouOffline = 0;
 				
