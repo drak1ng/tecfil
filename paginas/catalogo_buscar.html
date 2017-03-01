@@ -38,33 +38,49 @@
 	    <div data-role="page" style="background:#FFF;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="min-width:10px; float:left;" id="bt_busca_categorias_voltar">Voltar</div>
-				    <div style="margin:0px 70px; text-align:center"><b>FILTRAR<b></div>
+				    <div style="min-width:10px; float:left;" id="bt_busca_categorias_voltar"></div>
+				    <div style="margin:0px 70px; text-align:center" id="busca_categorias_titulo"></div>
 				</div>
 		    </div>
 		    
 		    <div class="botoes-rodape">
-			    <div class="botoes-rodape-bloco2" id="bt_rodape_buscar_01" style="background-image:url(../img/icone_01_on.png);">Buscar</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_buscar_02" style="background-image:url(../img/icone_02.png);">Lançamentos</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_buscar_03" style="background-image:url(../img/icone_03.png);">Notícias</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_buscar_04" style="background-image:url(../img/icone_04.png);">Contato</div>
+			    <div class="botoes-rodape-bloco2" id="bt_rodape_buscar_01" style="background-image:url(../img/icone_01_on.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_buscar_02" style="background-image:url(../img/icone_02.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_buscar_03" style="background-image:url(../img/icone_03.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_buscar_04" style="background-image:url(../img/icone_04.png);"></div>
 		    </div>
 
 			<div role="main" class="ui-content">
 				<div style="text-align:center; padding:8px 0px 49px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
 					<div id="listagem_resultados"></div>
-				    <div class="lista-categorias" id="bt_categoria_automoveis" style="background-image:url(../img/categoria_01.png);"><div class="categoria-quantidade" id="quantidade_busca_automoveis">123</div>Automóveis</div>
-					<div class="lista-categorias" id="bt_categoria_caminhoes" style="background-image:url(../img/categoria_02.png);"><div class="categoria-quantidade" id="quantidade_busca_caminhoes">123</div>Caminhões</div>
-					<div class="lista-categorias" id="bt_categoria_onibus" style="background-image:url(../img/categoria_03.png);"><div class="categoria-quantidade" id="quantidade_busca_onibus">123</div>Ônibus</div>
-					<div class="lista-categorias" id="bt_categoria_tratores" style="background-image:url(../img/categoria_04.png);"><div class="categoria-quantidade" id="quantidade_busca_tratores">123</div>Tratores</div>
-					<div class="lista-categorias" id="bt_categoria_motocicletas" style="background-image:url(../img/categoria_05.png);"><div class="categoria-quantidade" id="quantidade_busca_motocicletas">123</div>Motocicletas</div>
-					<div class="lista-categorias" id="bt_categoria_maquinas_equipamentos" style="background-image:url(../img/categoria_06.png);"><div class="categoria-quantidade" id="quantidade_busca_maquinas">123</div>Máquinas e Equipamentos</div>
-					<div class="lista-categorias" id="bt_categoria_conversao_direta" style="background-image:url(../img/categoria_07.png); display:none;"><div class="categoria-quantidade" id="quantidade_busca_conversoes">123</div>Conversão Direta</div>
+				    <div class="lista-categorias" id="bt_categoria_automoveis" style="background-image:url(../img/categoria_01.png);"><div class="categoria-quantidade" id="quantidade_busca_automoveis">123</div><span id="bt_categoria_automoveis_legenda"></span></div>
+					<div class="lista-categorias" id="bt_categoria_caminhoes" style="background-image:url(../img/categoria_02.png);"><div class="categoria-quantidade" id="quantidade_busca_caminhoes">123</div><span id="bt_categoria_caminhoes_legenda"></span></div>
+					<div class="lista-categorias" id="bt_categoria_onibus" style="background-image:url(../img/categoria_03.png);"><div class="categoria-quantidade" id="quantidade_busca_onibus">123</div><span id="bt_categoria_onibus_legenda"></span></div>
+					<div class="lista-categorias" id="bt_categoria_tratores" style="background-image:url(../img/categoria_04.png);"><div class="categoria-quantidade" id="quantidade_busca_tratores">123</div><span id="bt_categoria_tratores_legenda"></span></div>
+					<div class="lista-categorias" id="bt_categoria_motocicletas" style="background-image:url(../img/categoria_05.png);"><div class="categoria-quantidade" id="quantidade_busca_motocicletas">123</div><span id="bt_categoria_motocicletas_legenda"></span></div>
+					<div class="lista-categorias" id="bt_categoria_maquinas_equipamentos" style="background-image:url(../img/categoria_06.png);"><div class="categoria-quantidade" id="quantidade_busca_maquinas">123</div><span id="bt_categoria_maquinas_equipamentos_legenda"></span></div>
+					<div class="lista-categorias" id="bt_categoria_conversao_direta" style="background-image:url(../img/categoria_07.png); display:none;"><div class="categoria-quantidade" id="quantidade_busca_conversoes">123</div><span id="bt_categoria_conversao_direta_legenda"></span></div>
 				</div>
 			</div>
 		
 			
 			<script>
+				
+				$('#bt_busca_categorias_voltar').html(window.localStorage.getItem('linguage_014'));
+				$('#busca_categorias_titulo').html(window.localStorage.getItem('linguage_030'));
+				
+				$('#bt_rodape_buscar_01').html(window.localStorage.getItem('linguage_031'));
+				$('#bt_rodape_buscar_02').html(window.localStorage.getItem('linguage_032'));
+				$('#bt_rodape_buscar_03').html(window.localStorage.getItem('linguage_033'));
+				$('#bt_rodape_buscar_04').html(window.localStorage.getItem('linguage_034'));
+				
+				$('#bt_categoria_automoveis_legenda').html(window.localStorage.getItem('linguage_037'));
+				$('#bt_categoria_caminhoes_legenda').html(window.localStorage.getItem('linguage_038'));
+				$('#bt_categoria_onibus_legenda').html(window.localStorage.getItem('linguage_039'));
+				$('#bt_categoria_tratores_legenda').html(window.localStorage.getItem('linguage_040'));
+				$('#bt_categoria_motocicletas_legenda').html(window.localStorage.getItem('linguage_041'));
+				$('#bt_categoria_maquinas_equipamentos_legenda').html(window.localStorage.getItem('linguage_042'));
+				$('#bt_categoria_conversao_direta_legenda').html(window.localStorage.getItem('linguage_043'));
 				
 				$("#bt_busca_categorias_voltar").click(function(){
 					$.mobile.changePage("catalogo_home.html", { transition: "none", changeHash: false });
@@ -120,7 +136,7 @@
 					var add = "";
 
 					if(x!="" && x!=null){
-						add = "Filtrando por: " + x;
+						add = window.localStorage.getItem('linguage_035') + ": " + x;
 					}
 					
 					if(x!="" && x!=null && y!="" && y!=null){
@@ -128,7 +144,7 @@
 					}
 					
 					if(y!="" && y!=null){
-						add = add + "Montadora: " + y;
+						add = add + window.localStorage.getItem('linguage_036') + ": " + y;
 					}
 
 					$('#listagem_resultados').html(add);
