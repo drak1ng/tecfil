@@ -51,6 +51,8 @@
 				
 				window.localStorage.setItem('language_sistema','pt-BR');
 				
+				carregarIdioma();
+				
 				$('.db_update').html(window.localStorage.getItem('linguage_001'));
 				
 				var jaFicouOffline = 0;
@@ -62,11 +64,10 @@
 		        function onDeviceReady(){
 			        
 			        navigator.globalization.getPreferredLanguage(
-					    function(language){ window.localStorage.setItem('language_sistema',language.value); },
-					    function(){ console.log('Error getting language'); }
+					    function(language){ window.localStorage.setItem('language_sistema',language.value); carregarIdioma(); setTimeout(carregar, 500); },
+					    function(){ console.log('Error getting language'); setTimeout(carregar, 500); }
 					);
 					
-		            setTimeout(carregar, 500);
 		        }
 				
 				function carregar(){
