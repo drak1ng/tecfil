@@ -38,29 +38,38 @@
 	    <div data-role="page" style="background:#FFF;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="min-width:10px; float:left;" id="bt_mensagens_voltar">Voltar</div>
-				    <div style="margin:0px 70px; text-align:center"><b>NOTÍCIAS<b></div>
+				    <div style="min-width:10px; float:left;" id="bt_mensagens_voltar"></div>
+				    <div style="margin:0px 70px; text-align:center" id="mensagens2_titulo"></div>
 				</div>
 		    </div>
 		    
 		    <div class="botoes-rodape">
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_mensagens2_01" style="background-image:url(../img/icone_01.png);">Buscar</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_mensagens2_02" style="background-image:url(../img/icone_02.png);">Lançamentos</div>
-			    <div class="botoes-rodape-bloco2" id="bt_rodape_mensagens2_03" style="background-image:url(../img/icone_03_on.png);">Notícias</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_mensagens2_04" style="background-image:url(../img/icone_04.png);">Contato</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_mensagens2_01" style="background-image:url(../img/icone_01.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_mensagens2_02" style="background-image:url(../img/icone_02.png);"></div>
+			    <div class="botoes-rodape-bloco2" id="bt_rodape_mensagens2_03" style="background-image:url(../img/icone_03_on.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_mensagens2_04" style="background-image:url(../img/icone_04.png);"></div>
 		    </div>
 
 			<div role="main" class="ui-content">
 				<div id="id_conteudo_mensagens_ficha" style="text-align:center; padding:8px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
 					<div style="width:200px; height:66px; margin:120px auto 0px auto; text-align:center; font-size:13px; color:#999; background:#FFF; padding-top:30px; border-radius:10px;">
 						<img src="../img/loading.gif" width="110" height="10" /><br><br>
-						Aguarde carregando...
+						<span class="legenda_aguarde">Aguarde carregando...</span>
 					</div>
 				</div>
 			</div>
 		
 			
 			<script>
+				
+				$('#bt_mensagens_voltar').html(window.localStorage.getItem('linguage_014'));
+				$('#mensagens2_titulo').html(window.localStorage.getItem('linguage_056'));
+				$('.legenda_aguarde').html(window.localStorage.getItem('linguage_057'));
+				
+				$('#bt_rodape_mensagens2_01').html(window.localStorage.getItem('linguage_031'));
+				$('#bt_rodape_mensagens2_02').html(window.localStorage.getItem('linguage_032'));
+				$('#bt_rodape_mensagens2_03').html(window.localStorage.getItem('linguage_033'));
+				$('#bt_rodape_mensagens2_04').html(window.localStorage.getItem('linguage_034'));
 				
 				var id_usuarios = window.localStorage.getItem('id_usuarios');
 				var id_mensagens = window.localStorage.getItem('id_mensagens');

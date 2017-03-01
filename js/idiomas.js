@@ -54,9 +54,9 @@
 	window.localStorage.setItem('linguage_053','Sua mensagem foi enviada com sucesso.<br>Em breve entraremos em contato.');
 	window.localStorage.setItem('linguage_054','<b>CATÁLOGO TECFIL<b>');
 	window.localStorage.setItem('linguage_055','Sair do Aplicativo');
-	window.localStorage.setItem('linguage_056','');
-	window.localStorage.setItem('linguage_057','');
-	window.localStorage.setItem('linguage_058','');
+	window.localStorage.setItem('linguage_056','<b>NOTÍCIAS<b>');
+	window.localStorage.setItem('linguage_057','Aguarde carregando...');
+	window.localStorage.setItem('linguage_058','Você precisa de acesso a internet para visualizar suas mensagens.');
 	window.localStorage.setItem('linguage_059','');
 	window.localStorage.setItem('linguage_060','');
 	window.localStorage.setItem('linguage_061','');
