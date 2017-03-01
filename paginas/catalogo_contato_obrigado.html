@@ -38,29 +38,40 @@
 	    <div data-role="page" style="background:#FFF;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="margin:0px 70px; text-align:center"><b>CONTATO<b></div>
+				    <div style="margin:0px 70px; text-align:center" id="contato_titulo2"></div>
 				</div>
 		    </div>
 		    
 		    <div class="botoes-rodape">
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_contato2_01" style="background-image:url(../img/icone_01.png);">Buscar</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_contato2_02" style="background-image:url(../img/icone_02.png);">Lançamentos</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_contato2_03" style="background-image:url(../img/icone_03.png);">Notícias</div>
-			    <div class="botoes-rodape-bloco2" id="bt_rodape_contato2_04" style="background-image:url(../img/icone_04_on.png);">Contato</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_contato2_01" style="background-image:url(../img/icone_01.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_contato2_02" style="background-image:url(../img/icone_02.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_contato2_03" style="background-image:url(../img/icone_03.png);"></div>
+			    <div class="botoes-rodape-bloco2" id="bt_rodape_contato2_04" style="background-image:url(../img/icone_04_on.png);"></div>
 		    </div>
 
 			<div role="main" class="ui-content">
 				<div id="id_conteudo_contato_sucesso" style="text-align:center; padding:50px 0px 50px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify;">
 					<br><br>
-					<h1><b>SUCESSO!<b></h1>
-					<p style="font-size:13px; text-align:center;">Sua mensagem foi enviada com sucesso.<br>Em breve entraremos em contato.</p>
+					<h1 id="contato_subtitulo2"></h1>
+					<p style="font-size:13px; text-align:center;" id="contato_texto2"></p>
 					<br><br>
-					<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:20px; text-shadow: none; text-transform:none; text-align:center;" id="bt_contato_voltar">Voltar</div>
+					<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:20px; text-shadow: none; text-transform:none; text-align:center;" id="bt_contato_voltar"></div>
 				</div>
 			</div>
 		
 			
 			<script>
+				
+				$('#bt_contato_voltar').html(window.localStorage.getItem('linguage_014'));
+				
+				$('#contato_titulo2').html(window.localStorage.getItem('linguage_044'));
+				$('#contato_subtitulo2').html(window.localStorage.getItem('linguage_022'));
+				$('#contato_texto2').html(window.localStorage.getItem('linguage_053'));
+				
+				$('#bt_rodape_contato2_01').html(window.localStorage.getItem('linguage_031'));
+				$('#bt_rodape_contato2_02').html(window.localStorage.getItem('linguage_032'));
+				$('#bt_rodape_contato2_03').html(window.localStorage.getItem('linguage_033'));
+				$('#bt_rodape_contato2_04').html(window.localStorage.getItem('linguage_034'));
 				
 				$("#bt_contato_voltar").click(function(){
 					$.mobile.changePage("catalogo_home.html", { transition: "none", changeHash: false });
