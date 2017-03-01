@@ -38,22 +38,22 @@
 	    <div data-role="page" style="background:#FFF;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="margin:0px 70px; text-align:center"><b>LANÇAMENTOS<b></div>
+				    <div style="margin:0px 70px; text-align:center" id="novidades_titulo"></div>
 				</div>
 		    </div>
 		    
 		    <div class="botoes-rodape">
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_01" style="background-image:url(../img/icone_01.png);">Buscar</div>
-			    <div class="botoes-rodape-bloco2" id="bt_rodape_novidades_02" style="background-image:url(../img/icone_02_on.png);">Lançamentos</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_03" style="background-image:url(../img/icone_03.png);">Notícias</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_04" style="background-image:url(../img/icone_04.png);">Contato</div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_01" style="background-image:url(../img/icone_01.png);"></div>
+			    <div class="botoes-rodape-bloco2" id="bt_rodape_novidades_02" style="background-image:url(../img/icone_02_on.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_03" style="background-image:url(../img/icone_03.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_novidades_04" style="background-image:url(../img/icone_04.png);"></div>
 		    </div>
 
 			<div role="main" class="ui-content">
 				<div id="id_conteudo_novidades" style="text-align:center; padding:8px 0px 41px 0px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
 					<div style="width:200px; height:66px; margin:120px auto 0px auto; text-align:center; font-size:13px; color:#999; background:#FFF; padding-top:30px; border-radius:10px;">
 						<img src="../img/loading.gif" width="110" height="10" /><br><br>
-						Aguarde carregando...
+						<span class="legenda_aguarde">Aguarde carregando...</span>
 					</div>
 				</div>
 			</div>
@@ -61,12 +61,20 @@
 			
 			<script>
 				
+				$('#novidades_titulo').html(window.localStorage.getItem('linguage_059'));
+				$('.legenda_aguarde').html(window.localStorage.getItem('linguage_057'));
+				
+				$('#bt_rodape_novidades_01').html(window.localStorage.getItem('linguage_031'));
+				$('#bt_rodape_novidades_02').html(window.localStorage.getItem('linguage_032'));
+				$('#bt_rodape_novidades_03').html(window.localStorage.getItem('linguage_033'));
+				$('#bt_rodape_novidades_04').html(window.localStorage.getItem('linguage_034'));
+				
 				var id_usuarios = window.localStorage.getItem('id_usuarios');
 				
 				if(jaFicouOffline==0){
 					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/novidades.php", { id:id_usuarios }, function(data){ $("#id_conteudo_novidades").html(data); });
 				}else{
-					$("#id_conteudo_novidades").html('<div style="width:200px; height:66px; margin:120px auto 0px auto; text-align:center; font-size:13px; color:#999; background:#FFF; padding-top:30px; border-radius:10px;"><br>Você precisa de acesso a internet para visualizar as novidades.</div>');	
+					$("#id_conteudo_novidades").html('<div style="width:200px; height:66px; margin:120px auto 0px auto; text-align:center; font-size:13px; color:#999; background:#FFF; padding-top:30px; border-radius:10px;"><br>'+window.localStorage.getItem('linguage_060')+'</div>');	
 				}
 				
 				$("#bt_rodape_novidades_01").click(function(){

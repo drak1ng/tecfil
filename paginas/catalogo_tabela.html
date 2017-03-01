@@ -62,8 +62,8 @@
 	    <div data-role="page" style="background:#FFF;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="min-width:10px; float:left;" id="bt_tablea_voltar">Voltar</div>
-				    <div style="margin:0px 70px; text-align:center"><b>FILTRAR<b></div>
+				    <div style="min-width:10px; float:left;" id="bt_tablea_voltar"></div>
+				    <div style="margin:0px 70px; text-align:center" id="tabela_titulo"></div>
 				</div>
 			    <div class="barra-titulo">
 				    <div style="margin:0px; text-align:center" id="table-titulo"><b>NOME CATEGORIA<b></div>
@@ -86,6 +86,9 @@
 			
 			<script>
 				
+				$('#bt_tablea_voltar').html(window.localStorage.getItem('linguage_014'));
+				$('#tabela_titulo').html(window.localStorage.getItem('linguage_030'));
+				
 				screen.lockOrientation('landscape');
 
 				var app_busca = window.localStorage.getItem('app_busca');
@@ -96,13 +99,13 @@
 				
 				function carregarTabela(){
 	
-					if(app_busca_tipo=="automoveis"){ $('#table-titulo').html("Automóveis"); db.transaction(filtrarTabelaAutomoveis); }
-					if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html("Caminhões"); db.transaction(filtrarTabelaCaminhoes); }
-					if(app_busca_tipo=="onibus"){ $('#table-titulo').html("Ônibus"); db.transaction(filtrarTabelaOnibus); }
-					if(app_busca_tipo=="tratores"){ $('#table-titulo').html("Tratores"); db.transaction(filtrarTabelaTratores); }
-					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html("Motocicletas"); db.transaction(filtrarTabelaMotoclicletas); }
-					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html("Máquinas e Equipamentos"); db.transaction(filtrarTabelaMaquinasEquipamentos); }
-					if(app_busca_tipo=="conversao_direta"){ $('#table-titulo').html("Conversão Direta"); db.transaction(filtrarTabelaConversaoDireta); }
+					if(app_busca_tipo=="automoveis"){ $('#table-titulo').html(window.localStorage.getItem('linguage_037')); db.transaction(filtrarTabelaAutomoveis); }
+					if(app_busca_tipo=="caminhoes"){ $('#table-titulo').html(window.localStorage.getItem('linguage_038')); db.transaction(filtrarTabelaCaminhoes); }
+					if(app_busca_tipo=="onibus"){ $('#table-titulo').html(window.localStorage.getItem('linguage_039')); db.transaction(filtrarTabelaOnibus); }
+					if(app_busca_tipo=="tratores"){ $('#table-titulo').html(window.localStorage.getItem('linguage_040')); db.transaction(filtrarTabelaTratores); }
+					if(app_busca_tipo=="motocicletas"){ $('#table-titulo').html(window.localStorage.getItem('linguage_041')); db.transaction(filtrarTabelaMotoclicletas); }
+					if(app_busca_tipo=="maquinas_equipamentos"){ $('#table-titulo').html(window.localStorage.getItem('linguage_042')); db.transaction(filtrarTabelaMaquinasEquipamentos); }
+					if(app_busca_tipo=="conversao_direta"){ $('#table-titulo').html(window.localStorage.getItem('linguage_043')); db.transaction(filtrarTabelaConversaoDireta); }
 					
 				}
 				
@@ -177,23 +180,23 @@
 					var len = result.rows.length;
 					var linha = "";
 					
-					linha = linha + "<th>MODELO</th>";
-					linha = linha + "<th>MOTOR</th>";
-					linha = linha + "<th>ANO DE</th>";
-					linha = linha + "<th>ANO ATÉ</th>";
-					linha = linha + "<th>DESCRIÇÃO</th>";
-					linha = linha + "<th>COMBUSTÍVEL</th>";
-					linha = linha + "<th>CAP. CÁRTER</th>";
-					linha = linha + "<th>FILTRO CABINE</th>";
-					linha = linha + "<th>LOCAL CABINE</th>";
-					linha = linha + "<th>AR 1</th>";
-					linha = linha + "<th>AR 2</th>";
-					linha = linha + "<th>LUBR. 1</th>";
-					linha = linha + "<th>LUBR. 2</th>";
-					linha = linha + "<th>COMBUS. 1</th>";
-					linha = linha + "<th>COMBUS. 2</th>";
-					linha = linha + "<th>DIREÇÃO</th>";
-					linha = linha + "<th>SEDIMENTADOR</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_061')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_062')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_063')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_064')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_066')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_067')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_068')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_069')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_070')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_071')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_072')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_073')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_074')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_075')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_076')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_077')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_078')+"</th>";
 
 					$('#tabela_cabecalho').html(linha);
 					$('#tabela_conteudo').html('');
@@ -236,30 +239,30 @@
 					var len = result.rows.length;
 					var linha = "";
 					
-					linha = linha + "<th>MODELO</th>";
-					linha = linha + "<th>MOTOR</th>";
-					linha = linha + "<th>ANO DE</th>";
-					linha = linha + "<th>ANO ATÉ</th>";
-					linha = linha + "<th>DESCRIÇÃO</th>";
-					linha = linha + "<th>COMBUSTÍVEL</th>";
-					linha = linha + "<th>CAP. CÁRTER</th>";
-					linha = linha + "<th>FILTRO CABINE</th>";
-					linha = linha + "<th>LOCAL CABINE</th>";
-					linha = linha + "<th>AR 1</th>";
-					linha = linha + "<th>AR 2</th>";
-					linha = linha + "<th>LUBR. 1</th>";
-					linha = linha + "<th>LUBR. 2</th>";
-					linha = linha + "<th>COMBUS. 1</th>";
-					linha = linha + "<th>COMBUS. 2</th>";
-					linha = linha + "<th>DIREÇÃO</th>";
-					linha = linha + "<th>SEDIMENTADOR</th>";
-					linha = linha + "<th>DESUMIDIFICADOR</th>";
-					linha = linha + "<th>ÁGUA</th>";
-					linha = linha + "<th>BYPASS</th>";
-					linha = linha + "<th>TRANSMISSÃO</th>";
-					linha = linha + "<th>OUTROS</th>";
-					linha = linha + "<th>OUTROS 2</th>";
-					linha = linha + "<th>OUTROS 3</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_061')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_062')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_063')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_064')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_066')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_067')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_068')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_069')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_070')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_071')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_072')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_073')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_074')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_075')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_076')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_077')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_078')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_079')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_080')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_081')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_082')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_083')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_084')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_085')+"</th>";
 
 					$('#tabela_cabecalho').html(linha);
 					$('#tabela_conteudo').html('');
@@ -309,30 +312,30 @@
 					var len = result.rows.length;
 					var linha = "";
 					
-					linha = linha + "<th>MODELO</th>";
-					linha = linha + "<th>MOTOR</th>";
-					linha = linha + "<th>ANO DE</th>";
-					linha = linha + "<th>ANO ATÉ</th>";
-					linha = linha + "<th>DESCRIÇÃO</th>";
-					linha = linha + "<th>COMBUSTÍVEL</th>";
-					linha = linha + "<th>CAP. CÁRTER</th>";
-					linha = linha + "<th>FILTRO CABINE</th>";
-					linha = linha + "<th>LOCAL CABINE</th>";
-					linha = linha + "<th>AR 1</th>";
-					linha = linha + "<th>AR 2</th>";
-					linha = linha + "<th>LUBR. 1</th>";
-					linha = linha + "<th>LUBR. 2</th>";
-					linha = linha + "<th>COMBUS. 1</th>";
-					linha = linha + "<th>COMBUS. 2</th>";
-					linha = linha + "<th>DIREÇÃO</th>";
-					linha = linha + "<th>SEDIMENTADOR</th>";
-					linha = linha + "<th>DESUMIDIFICADOR</th>";
-					linha = linha + "<th>ÁGUA</th>";
-					linha = linha + "<th>BYPASS</th>";
-					linha = linha + "<th>TRANSMISSÃO</th>";
-					linha = linha + "<th>OUTROS</th>";
-					linha = linha + "<th>OUTROS 2</th>";
-					linha = linha + "<th>OUTROS 3</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_061')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_062')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_063')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_064')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_066')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_067')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_068')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_069')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_070')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_071')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_072')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_073')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_074')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_075')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_076')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_077')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_078')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_079')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_080')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_081')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_082')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_083')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_084')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_085')+"</th>";
 
 					$('#tabela_cabecalho').html(linha);
 					$('#tabela_conteudo').html('');
@@ -382,21 +385,21 @@
 					var len = result.rows.length;
 					var linha = "";
 					
-					linha = linha + "<th>MODELO</th>";
-					linha = linha + "<th>MOTOR</th>";
-					linha = linha + "<th>ANO</th>";
-					linha = linha + "<th>AR 1</th>";
-					linha = linha + "<th>AR 2</th>";
-					linha = linha + "<th>LUBRIFICANTE</th>";
-					linha = linha + "<th>COMBUS. 1</th>";
-					linha = linha + "<th>COMBUS. 2</th>";
-					linha = linha + "<th>DIREÇÃO</th>";
-					linha = linha + "<th>TRANSMISSÃO INT</th>";
-					linha = linha + "<th>TRANSMISSÃO EXT</th>";
-					linha = linha + "<th>OUTROS</th>";
-					linha = linha + "<th>OUTROS 2</th>";
-					linha = linha + "<th>OUTROS 3</th>";
-					linha = linha + "<th>CAP. CÁRTER</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_061')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_062')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_065')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_071')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_072')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_086')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_075')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_076')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_077')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_087')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_088')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_083')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_084')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_085')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_068')+"</th>";
 
 					$('#tabela_cabecalho').html(linha);
 					$('#tabela_conteudo').html('');
@@ -437,11 +440,11 @@
 					var len = result.rows.length;
 					var linha = "";
 					
-					linha = linha + "<th>MODELO</th>";
-					linha = linha + "<th>ANO</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_061')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_065')+"</th>";
 					linha = linha + "<th>AR</th>";
 					linha = linha + "<th>ÓLEO</th>";
-					linha = linha + "<th>COMBUSTÍVEL</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_067')+"</th>";
 
 					$('#tabela_cabecalho').html(linha);
 					$('#tabela_conteudo').html('');
@@ -472,22 +475,22 @@
 					var len = result.rows.length;
 					var linha = "";
 					
-					linha = linha + "<th>MODELO</th>";
-					linha = linha + "<th>MOTOR</th>";
-					linha = linha + "<th>ANO</th>";
-					linha = linha + "<th>AR 1</th>";
-					linha = linha + "<th>AR 2</th>";
-					linha = linha + "<th>LUBRIFICANTE</th>";
-					linha = linha + "<th>BYPASS</th>";
-					linha = linha + "<th>COMBUS. 1</th>";
-					linha = linha + "<th>COMBUS. 2</th>";
-					linha = linha + "<th>HIDRÁULICO</th>";
-					linha = linha + "<th>DIREÇÃO</th>";
-					linha = linha + "<th>ÁGUA</th>";
-					linha = linha + "<th>OUTROS</th>";
-					linha = linha + "<th>OUTROS 2</th>";
-					linha = linha + "<th>OUTROS 3</th>";
-					linha = linha + "<th>CAP. CÁRTER</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_061')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_062')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_065')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_071')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_072')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_086')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_081')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_075')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_076')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_089')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_077')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_080')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_083')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_084')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_085')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_068')+"</th>";
 
 					$('#tabela_cabecalho').html(linha);
 					$('#tabela_conteudo').html('');
@@ -529,9 +532,9 @@
 					var len = result.rows.length;
 					var linha = "";
 					
-					linha = linha + "<th>FILTRO</th>";
-					linha = linha + "<th>CONCORRENTE</th>";
-					linha = linha + "<th>CÓDIGO</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_090')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_091')+"</th>";
+					linha = linha + "<th>"+window.localStorage.getItem('linguage_092')+"</th>";
 
 					$('#tabela_cabecalho').html(linha);
 					$('#tabela_conteudo').html('');
@@ -576,25 +579,25 @@
 					var linha = "";
 
 					if(result.rows.item(0).fora_de_linha=="1"){
-						linha = linha + "<div class='ficha-produto-modal-fora-linha'>FORA DE LINHA</div>";
+						linha = linha + "<div class='ficha-produto-modal-fora-linha'>"+window.localStorage.getItem('linguage_093')+"</div>";
 					}
 
 					if(result.rows.item(0).imagem!="" && result.rows.item(0).imagem!=null){ linha = linha + "<img src='http://homologacao.gruposofape.com.br/tecfil/catalogo/"+result.rows.item(0).imagem+"'>"; }
 					
 					linha = linha + "<div class='ficha-produto-modal-box-botao' onclick=verAplicacoes('"+result.rows.item(0).codigo+"') >Veja Aplicações</div>";
 					
-					if(result.rows.item(0).codigo!="" && result.rows.item(0).codigo!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Código:</b> "+result.rows.item(0).codigo+"</div>"; }
-					if(result.rows.item(0).original!="" && result.rows.item(0).original!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Original:</b> "+result.rows.item(0).original+"</div>"; }
-					if(result.rows.item(0).caixa!="" && result.rows.item(0).caixa!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Caixa:</b> "+result.rows.item(0).caixa+"</div>"; }
-					if(result.rows.item(0).elemento!="" && result.rows.item(0).elemento!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Elemento:</b> "+result.rows.item(0).elemento+"</div>"; }
-					if(result.rows.item(0).altura!="" && result.rows.item(0).altura!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Altura:</b> "+result.rows.item(0).altura+"</div>"; }
-					if(result.rows.item(0).dia_ext_comp!="" && result.rows.item(0).dia_ext_comp!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Dia. Ext. Comp.:</b> "+result.rows.item(0).dia_ext_comp+"</div>"; }
-					if(result.rows.item(0).dia_int_larg!="" && result.rows.item(0).dia_int_larg!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Dia. Int. Larg.:</b> "+result.rows.item(0).dia_int_larg+"</div>"; }
-					if(result.rows.item(0).peso_bruto!="" && result.rows.item(0).peso_bruto!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Peso Bruto/Kg:</b> "+result.rows.item(0).peso_bruto+"</div>"; }
-					if(result.rows.item(0).peso_liquido!="" && result.rows.item(0).peso_liquido!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Peso Líquido/Kg:</b> "+result.rows.item(0).peso_liquido+"</div>"; }
-					if(result.rows.item(0).rosca!="" && result.rows.item(0).rosca!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Rosca</b> "+result.rows.item(0).rosca+"</div>"; }
-					if(result.rows.item(0).valvula_anti_retorno!="" && result.rows.item(0).valvula_anti_retorno!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Válvula Anti-Retorno:</b> "+result.rows.item(0).valvula_anti_retorno+"</div>"; }
-					if(result.rows.item(0).valvula_alivio!="" && result.rows.item(0).valvula_alivio!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>Válvula Alívio:</b> "+result.rows.item(0).valvula_alivio+"</div>"; }
+					if(result.rows.item(0).codigo!="" && result.rows.item(0).codigo!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_094')+":</b> "+result.rows.item(0).codigo+"</div>"; }
+					if(result.rows.item(0).original!="" && result.rows.item(0).original!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_095')+":</b> "+result.rows.item(0).original+"</div>"; }
+					if(result.rows.item(0).caixa!="" && result.rows.item(0).caixa!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_096')+":</b> "+result.rows.item(0).caixa+"</div>"; }
+					if(result.rows.item(0).elemento!="" && result.rows.item(0).elemento!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_097')+":</b> "+result.rows.item(0).elemento+"</div>"; }
+					if(result.rows.item(0).altura!="" && result.rows.item(0).altura!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_098')+":</b> "+result.rows.item(0).altura+"</div>"; }
+					if(result.rows.item(0).dia_ext_comp!="" && result.rows.item(0).dia_ext_comp!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_099')+":</b> "+result.rows.item(0).dia_ext_comp+"</div>"; }
+					if(result.rows.item(0).dia_int_larg!="" && result.rows.item(0).dia_int_larg!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_100')+":</b> "+result.rows.item(0).dia_int_larg+"</div>"; }
+					if(result.rows.item(0).peso_bruto!="" && result.rows.item(0).peso_bruto!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_101')+":</b> "+result.rows.item(0).peso_bruto+"</div>"; }
+					if(result.rows.item(0).peso_liquido!="" && result.rows.item(0).peso_liquido!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_102')+":</b> "+result.rows.item(0).peso_liquido+"</div>"; }
+					if(result.rows.item(0).rosca!="" && result.rows.item(0).rosca!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_103')+"</b> "+result.rows.item(0).rosca+"</div>"; }
+					if(result.rows.item(0).valvula_anti_retorno!="" && result.rows.item(0).valvula_anti_retorno!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_104')+":</b> "+result.rows.item(0).valvula_anti_retorno+"</div>"; }
+					if(result.rows.item(0).valvula_alivio!="" && result.rows.item(0).valvula_alivio!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'><b>"+window.localStorage.getItem('linguage_105')+":</b> "+result.rows.item(0).valvula_alivio+"</div>"; }
 					if(result.rows.item(0).observacao!="" && result.rows.item(0).observacao!=null){ linha = linha + "<div class='ficha-produto-modal-box-linha'>"+result.rows.item(0).observacao+"</div>"; }
 
 				    
