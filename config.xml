@@ -90,8 +90,7 @@
 <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
 
 <gap:plugin name="cordova-plugin-screen-orientation" source="npm" />
-
-
+<gap:plugin name="cordova-plugin-globalization" source="npm" />
 
 
 <!-- Custom Preferences-->
