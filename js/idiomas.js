@@ -52,8 +52,8 @@
 	window.localStorage.setItem('linguage_051','Não foi possuível enviar sua mensagem, tente novamente mais tarde!');
 	window.localStorage.setItem('linguage_052','Você precisa de acesso a internet para enviar sua mensagem.');
 	window.localStorage.setItem('linguage_053','Sua mensagem foi enviada com sucesso.<br>Em breve entraremos em contato.');
-	window.localStorage.setItem('linguage_054','');
-	window.localStorage.setItem('linguage_055','');
+	window.localStorage.setItem('linguage_054','<b>CATÁLOGO TECFIL<b>');
+	window.localStorage.setItem('linguage_055','Sair do Aplicativo');
 	window.localStorage.setItem('linguage_056','');
 	window.localStorage.setItem('linguage_057','');
 	window.localStorage.setItem('linguage_058','');

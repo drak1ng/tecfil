@@ -38,27 +38,25 @@
 	    <div data-role="page" style="background:#FFF;">
 		    <div class="topo">
 			    <div class="logotipo">
-				    <div style="margin:0px 70px; text-align:center"><b>CATÁLOGO TECFIL<b></div>
+				    <div style="margin:0px 70px; text-align:center" id="home_titulo"></div>
 				</div>
 		    </div>
 		    
 		    <div class="botoes-rodape">
-			    <div class="botoes-rodape-bloco2" id="bt_rodape_home_01" style="background-image:url(../img/icone_01_on.png);">Buscar</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_02" style="background-image:url(../img/icone_02.png);">Lançamentos</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_03" style="background-image:url(../img/icone_03.png);">Notícias</div>
-			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_04" style="background-image:url(../img/icone_04.png);">Contato</div>
+			    <div class="botoes-rodape-bloco2" id="bt_rodape_home_01" style="background-image:url(../img/icone_01_on.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_02" style="background-image:url(../img/icone_02.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_03" style="background-image:url(../img/icone_03.png);"></div>
+			    <div class="botoes-rodape-bloco1" id="bt_rodape_home_04" style="background-image:url(../img/icone_04.png);"></div>
 		    </div>
 
 			<div role="main" class="ui-content">
 				<div style="text-align:center; padding:48px 20px 41px 20px; color:#999; font-size:14px; text-transform:none; text-align:justify; margin:0px -16px;">
 					
 					<form action="#" onsubmit="return buscaFiltrar();" id="form_busca_enviar">
-						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;">
-							<option value=''>Montadoras</option>
-						</select>
+						<select id="campo-busca-montadoras" style="padding-top:0.5em; padding-bottom:0.5em;"></select>
 						<input type="search" id="campo-busca-filtrar" style="padding-top:0.5em; padding-bottom:0.5em;">
-						<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none; text-align:center;" id="bt_busca_enviar">Buscar</div>
-						<div style="border:1px solid #cccccc; border-radius:10px; background:#FFFFFF; color:#999; padding:11px; margin-top:40px; text-shadow: none; text-transform:none; text-align:center; font-weight:normal;" id="bt_sair_app">Sair do Aplicativo</div>
+						<div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none; text-align:center;" id="bt_busca_enviar"></div>
+						<div style="border:1px solid #cccccc; border-radius:10px; background:#FFFFFF; color:#999; padding:11px; margin-top:40px; text-shadow: none; text-transform:none; text-align:center; font-weight:normal;" id="bt_sair_app"></div>
 					</form>
 					
 				</div>
@@ -66,6 +64,18 @@
 		
 			
 			<script>
+				
+				$('#home_titulo').html(window.localStorage.getItem('linguage_054'));
+				
+				$('#bt_rodape_home_01').html(window.localStorage.getItem('linguage_031'));
+				$('#bt_rodape_home_02').html(window.localStorage.getItem('linguage_032'));
+				$('#bt_rodape_home_03').html(window.localStorage.getItem('linguage_033'));
+				$('#bt_rodape_home_04').html(window.localStorage.getItem('linguage_034'));
+				
+				$('#bt_busca_enviar').html(window.localStorage.getItem('linguage_031'));
+				$('#bt_sair_app').html(window.localStorage.getItem('linguage_055'));
+				
+				
 				
 				$("#bt_busca_enviar").click(function(){
 					$('#form_busca_enviar').submit();
@@ -113,6 +123,9 @@
 				
 				function filtrarTabelaMontadorasResultado(tx,result){
 					var len = result.rows.length;
+					
+				    $('#campo-busca-montadoras').append("<option value=''>"+window.localStorage.getItem('linguage_036')+"</option>");
+				    
 					for (var i=0; i<len; i++){
 					    $('#campo-busca-montadoras').append("<option value='"+result.rows.item(i).nome+"'>"+result.rows.item(i).nome+"</option>");
 				    }
