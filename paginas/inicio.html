@@ -37,15 +37,18 @@
 			    <br>
 			    <img src="../img/logo.png" alt="Tecfil" width="90%" style="margin:0px 0px 30px 0px;">
 			    <br>
-			  <input type="email" id="login_email" placeholder="E-mail">
-			  <input type="password" id="login_senha" placeholder="Senha">
-			  <div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_acessar">Acessar</div>
-			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:40px; text-shadow: none; text-transform:none;" id="bt_login_esqueci_senha">Esqueci minha senha</div>
-			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_criar_conta">Criar uma nova conta</div>
+			  <input type="email" id="login_email" placeholder="">
+			  <input type="password" id="login_senha" placeholder="">
+			  <div style="border:2px solid #003263; border-radius:10px; background:#003263; color:#FFF; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_acessar"><script> document.write(window.localStorage.getItem('linguage_004')); </script></div>
+			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:40px; text-shadow: none; text-transform:none;" id="bt_login_esqueci_senha"><script> document.write(window.localStorage.getItem('linguage_005')); </script></div>
+			  <div style="border:2px solid #003263; border-radius:10px; background:none; color:#003263; padding:10px; margin-top:10px; text-shadow: none; text-transform:none;" id="bt_login_criar_conta"><script> document.write(window.localStorage.getItem('linguage_006')); </script></div>
 			</div>
 			
 			<script>
 				var id_usuarios = window.localStorage.getItem('id_usuarios');
+				
+				$('#login_email').attr('placeholder',window.localStorage.getItem('linguage_002'));
+				$('#login_senha').attr('placeholder',window.localStorage.getItem('linguage_003'));
 				
 				if(id_usuarios!="" && id_usuarios!=null){
 					$.mobile.changePage("catalogo_home.html", { transition: "none", changeHash: false });
@@ -56,12 +59,12 @@
 					var email = $('#login_email').val();
 					var senha = $('#login_senha').val();
 					
-					if(email==""){ alert("O campo E-mail deve ser preenchido"); return false; }
-					if(senha==""){ alert("O campo Senha deve ser preenchido"); return false; }
+					if(email==""){ alert(window.localStorage.getItem('linguage_007')); return false; }
+					if(senha==""){ alert(window.localStorage.getItem('linguage_008')); return false; }
 					
 					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/login.php", { email:email, senha:senha }, function(data){
 						if(data=="ERRO"){
-							alert("O E-mail ou a Senha utilizados não são válidos");
+							alert(window.localStorage.getItem('linguage_009'));
 						}else{
 							window.localStorage.setItem('id_usuarios',data);
 							$.mobile.changePage("catalogo_home.html", { transition: "none", changeHash: false });
