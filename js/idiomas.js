@@ -1,5 +1,5 @@
 
-var sistema_idioma = (window.localStorage.getItem('language_sistema');
+var sistema_idioma = window.localStorage.getItem('language_sistema');
 var sistema_idioma_array = sistema_idioma.split("-");
 
 if(sistema_idioma_array[0]=="pt"){
