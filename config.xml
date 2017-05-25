@@ -117,8 +117,8 @@
 <preference name="WindowsDefaultUriPrefix" value="ms-appx://" />
 <preference name="Windows.Mobile-MaxVersionTested" value="10.0.14393.0" />
 <preference name="Windows.Universal-MinVersion" value="10.0.0.0" />
-<preference name="WindowsStoreIdentityName" value="2164WebSide.TesteTecfil" />
-<preference name="WindowsStorePublisherName" value="CN=F3328E96-09BE-499C-84A4-A01CD469DEE1, C=BR" />
+<preference name="WindowsStoreIdentityName" value="TecfilFiltros.CatlogoTecfil" />
+<preference name="WindowsStorePublisherName" value="CN=234EAA2E-96C0-4686-B408-C082A3C12AF3, C=BR" />
 <preference name="WindowsToastCapable" value="true" />
 <preference name="uap-target-min-version" value="10.0.14393.0" />
 
