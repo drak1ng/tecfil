@@ -40,6 +40,12 @@
 
 	</head>
     <body>
+      <div class="db_in_update">
+        <div class="db_in_update_caixa">
+          <img src="img/745.gif">
+          Aguarde, estamos atualizando as informações.
+        </div>
+      </div>
 	    <div class="db_update"></div>
 	    <div data-role="page" style="background:#ffe01a;">
 		    <div style="text-align:center; width:100%; height:100%; position:fixed; top:0px; left:0px;">
@@ -48,28 +54,28 @@
 		    </div>
 		</div>
 			<script>
-				
+
 				window.localStorage.setItem('language_sistema','pt-BR');
-				
+
 				carregarIdioma();
-				
+
 				$('.db_update').html(window.localStorage.getItem('linguage_001'));
-				
+
 				var jaFicouOffline = 0;
-				
+
 				document.addEventListener("deviceready", onDeviceReady, true);
 				document.addEventListener("online", onOnLine, true);
 				document.addEventListener("offline", onOffLine, true);
-				
+
 		        function onDeviceReady(){
-			        
+
 			        navigator.globalization.getPreferredLanguage(
 					    function(language){ window.localStorage.setItem('language_sistema',language.value); carregarIdioma(); setTimeout(carregar, 500); },
 					    function(){ console.log('Error getting language'); setTimeout(carregar, 500); }
 					);
-					
+
 		        }
-				
+
 				function carregar(){
 					if(jaFicouOffline!=3){
 						$.mobile.changePage("./paginas/inicio.html", { transition: "none", changeHash: false });
@@ -79,17 +85,17 @@
 				alert = function (txt) {
 					navigator.notification.alert(txt,null,'AVISO','OK');
 				}
-				
+
 				function onOnLine(){
 		            if(jaFicouOffline==1){
 			            jaFicouOffline=0;
 			        }
 		        }
-		        
+
 		        function onOffLine(){
 		            jaFicouOffline = 1;
 		        }
-				
+
 			</script>
     </body>
 </html>
