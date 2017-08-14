@@ -30,11 +30,11 @@
 <icon src="res/icon/ios/icon-512.png" 	        gap:platform="ios"        width="512" height="512" />
 <icon src="res/icon/ios/icon-1024.png" 	        gap:platform="ios"        width="1024" height="1024" />
 
-<icon src="res/icones/ios/icon-50.png" 	        gap:platform="ios"        width="50" height="50" />
-<icon src="res/icones/ios/icon-100.png" 	        gap:platform="ios"        width="100" height="100" />
-<icon src="res/icones/ios/icon-114.png" 	        gap:platform="ios"        width="114" height="114" />
-<icon src="res/icones/ios/icon-144.png" 	        gap:platform="ios"        width="144" height="144" />
-<icon src="res/icones/ios/icon-167.png" 	        gap:platform="ios"        width="167" height="167" />
+<icon src="res/icon/ios/icon-50.png" 	        gap:platform="ios"        width="50" height="50" />
+<icon src="res/icon/ios/icon-100.png" 	        gap:platform="ios"        width="100" height="100" />
+<icon src="res/icon/ios/icon-114.png" 	        gap:platform="ios"        width="114" height="114" />
+<icon src="res/icon/ios/icon-144.png" 	        gap:platform="ios"        width="144" height="144" />
+<icon src="res/icon/ios/icon-167.png" 	        gap:platform="ios"        width="167" height="167" />
 
 <icon src="res/icon/webos/icon-64.png"          gap:platform="webos" />
 <icon src="res/icon/windows-phone/icon-48.png"  gap:platform="winphone" />
