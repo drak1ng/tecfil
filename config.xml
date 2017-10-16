@@ -2,8 +2,8 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
 	xmlns:gap = "http://phonegap.com/ns/1.0"
 	id        = "br.com.webside.tecfil"
-	versionCode="106" 
-	version   = "1.0.6">
+	versionCode="107" 
+	version   = "1.0.7">
 	<name>Tecfil</name>
 	<description>
 		Tecfil
@@ -63,6 +63,7 @@
 <gap:splash src="res/screen/ios/screen-ipad-landscape-736-3x.png"			gap:platform="ios" width="2208" height="1242" />
 <gap:splash src="res/screen/ios/screen-ipad-portrait-1024-2x.png"	gap:platform="ios" width="1536" height="2048" />
 <gap:splash src="res/screen/ios/screen-ipad-landscape-1024-2x.png"	gap:platform="ios" width="2048" height="1536" />    
+
 
 <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 

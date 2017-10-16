@@ -612,7 +612,7 @@
 				});
 				
 				function tabela_voltar(){
-					screen.lockOrientation('portrait');
+					screen.orientation.lock('portrait');
 					window.localStorage.setItem('voltar_busca','1');
 					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				}
@@ -626,7 +626,7 @@
 				}
 				
 				function tabela_voltarAplicacao(){
-					screen.lockOrientation('portrait');
+					screen.orientation.lock('portrait');
 					$.mobile.changePage("catalogo_buscar.html", { transition: "none", changeHash: false });
 				}
 				
