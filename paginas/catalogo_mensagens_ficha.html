@@ -74,7 +74,7 @@
 				var id_usuarios = window.localStorage.getItem('id_usuarios');
 				var id_mensagens = window.localStorage.getItem('id_mensagens');
 				
-				$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/mensagens_ficha.php", { id:id_mensagens }, function(data){ $("#id_conteudo_mensagens_ficha").html(data); });
+				$.get("http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/mensagens_ficha.php", { id:id_mensagens }, function(data){ $("#id_conteudo_mensagens_ficha").html(data); });
 				
 				$("#bt_mensagens_voltar").click(function(){
 					$.mobile.changePage("catalogo_mensagens.html", { transition: "none", changeHash: false });

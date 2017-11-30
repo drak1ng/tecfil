@@ -104,7 +104,7 @@
 					
 					if(jaFicouOffline==0){
 						
-						$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/contato.php", { area:area, nome:nome, empresa:empresa, telefone:telefone, email:email, mensagem:mensagem }, function(data){
+						$.get("http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/contato.php", { area:area, nome:nome, empresa:empresa, telefone:telefone, email:email, mensagem:mensagem }, function(data){
 							if(data=="OK"){
 								$.mobile.changePage("catalogo_contato_obrigado.html", { transition: "fade", changeHash: false });
 							}else{

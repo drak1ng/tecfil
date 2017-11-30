@@ -72,7 +72,7 @@
 				var id_usuarios = window.localStorage.getItem('id_usuarios');
 				
 				if(jaFicouOffline==0){
-					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/mensagens.php", { id:id_usuarios }, function(data){ $("#id_conteudo_mensagens").html(data); });
+					$.get("http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/mensagens.php", { id:id_usuarios }, function(data){ $("#id_conteudo_mensagens").html(data); });
 				}else{
 					$("#id_conteudo_mensagens").html('<div style="width:200px; height:66px; margin:120px auto 0px auto; text-align:center; font-size:13px; color:#999; background:#FFF; padding-top:30px; border-radius:10px;"><br>'+window.localStorage.getItem('linguage_034')+'</div>');
 				}

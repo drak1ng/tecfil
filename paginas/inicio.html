@@ -67,7 +67,7 @@
 					if(email==""){ alert(window.localStorage.getItem('linguage_007')); return false; }
 					if(senha==""){ alert(window.localStorage.getItem('linguage_008')); return false; }
 
-					$.get("http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/login.php", { email:email, senha:senha }, function(data){
+					$.get("http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/login.php", { email:email, senha:senha }, function(data){
 						if(data=="ERRO"){
 							alert(window.localStorage.getItem('linguage_009'));
 						}else{
@@ -150,7 +150,7 @@
 
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/montadoras.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/montadoras.xml.php",
 						dataType: "xml",
 						success: function(xml, tx){
 							var query_string = [];
@@ -191,7 +191,7 @@
 
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/automoveis.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/automoveis.xml.php",
 						dataType: "xml",
 						success: function(xml, tx){
 							var query_string = [];
@@ -248,7 +248,7 @@
 				function update_caminhoes(){
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/caminhoes.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/caminhoes.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
@@ -313,7 +313,7 @@
 				function update_onibus(){
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/onibus.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/onibus.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
@@ -378,7 +378,7 @@
 				function update_tratores(){
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/tratores.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/tratores.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
@@ -434,7 +434,7 @@
 				function update_colheitadeiras(){
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/filtros.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/filtros.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
@@ -491,7 +491,7 @@
 				function update_motocicletas(){
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/motocicletas.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/motocicletas.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
@@ -537,7 +537,7 @@
 				function update_maquinasEquipamentos(tx){
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/maquinas_equipamentos.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/maquinas_equipamentos.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
@@ -594,7 +594,7 @@
 				function update_conversoes(tx){
 					$.ajax({
 						type: "GET",
-						url: "http://homologacao.gruposofape.com.br/tecfil/catalogo/app_api/xml/conversoes.xml.php",
+						url: "http://app-mobile.gruposofape.com.br/tecfil/catalogo/app_api/xml/conversoes.xml.php",
 						dataType: "xml",
 						success: function(xml){
 							var query_string = [];
